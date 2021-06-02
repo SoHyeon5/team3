@@ -23,6 +23,10 @@
 	<!--
 			CSS
 			============================================= -->
+			<style>
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap");
+</style>
+	<!-- <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');</style> -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
@@ -40,27 +44,7 @@
 		<div class="header-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6 col-sm-6 col-4 no-padding">
-						<div class="header-top-left">
-							<a href="">
-								<i class="fa fa-phone"></i>
-								012-6532-568-9746
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-behance"></i></a></li>
-						</ul>
-						<ul>
-							<li>
-								<a href="#">Get free Quote</a>
-							</li>
-						</ul>
-					</div>
+					<a>첫 회원가입시 2000원 할인쿠폰 발급!</a>
 				</div>
 			</div>
 		</div>
@@ -68,31 +52,41 @@
 		<div class="container main-menu">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
-					<a href="index.html"><img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="" title="" /></a>
+					<a href="index.html"><img src="${pageContext.request.contextPath}/resources/img/logo3.jpg" alt="" title="" width="75px" height="75px"/></a>
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
-						<li class="menu-active"><a href="index.html">home</a></li>
-						<li><a href="portfolio.html">portfolio</a></li>
-						<li><a href="about.html">about</a></li>
-						<li class="menu-has-children"><a href="">blog</a>
+						<li class="menu-has-children"><a href="">커뮤니티</a>
 							<ul>
-								<li><a href="blog-home.html">Blog Home</a></li>
-								<li><a href="blog-single.html">Blog Single</a></li>
+								<li><a href="blog-home.html">홈</a></li>
+								<li><a href="blog-single.html">스토리</a></li>
+								<li><a href="blog-single.html">노하우</a></li>
+								<li><a href="blog-single.html">이벤트</a></li>
 							</ul>
 						</li>
-						<li class="menu-has-children"><a href="">Pages</a>
+						<li class="menu-has-children"><a href="">스토어</a>
 							<ul>
-								<li><a href="portfolio-details.html">Portfolio Details</a></li>
-								<li><a href="elements.html">Elements</a></li>
+								<li><a href="blog-home.html">스토어홈</a></li>
+								<li><a href="blog-single.html">카테고리</a></li>
+								<li><a href="blog-single.html">오늘의 딜</a></li>
+								<li><a href="blog-single.html">기획전</a></li>
 							</ul>
 						</li>
-						<li><a href="contact.html">Contact</a></li>
+						<li class="menu-has-children"><a href="">인테리어시공</a>
+							<ul>
+								<li><a href="blog-home.html">업체찾기</a></li>
+								<li><a href="blog-single.html">간편상담신청</a></li>
+							</ul>
+						</li>
+						<li class="menu-active"><a href="index.html" style="padding-left: 400px;">로그인</a></li>
+						<li class="menu-active"><a href="index.html">회원가입</a></li>
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->
 			</div>
 		</div>
+		
+		
 	</header>
 	<!--######## End Header Area ########-->
 

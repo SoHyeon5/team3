@@ -6,6 +6,12 @@
 /* =================================== */
 /*  Basic Style 
 /* =================================== */
+nav-menu-container
+menu-has-children
+content
+sf-with
+logo
+
 ::-moz-selection {
   /* Code for Firefox */
   background-color: #3face4;
@@ -1478,12 +1484,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
   padding: 0px;
   height: 60px;
-  line-height: 60px; }
+  line-height: 60px; 
+  color: #fff;
+  background-color:#81af69;}
   .header-top a {
-    color: #222;
-    font-weight: 500;
+    color: #fff;
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 13px; }
+    font-size: 20px;
+    padding-left: 430px; }
     .header-top a i {
       color: #cccccc; }
   .header-top ul {
@@ -1607,6 +1616,7 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none; }
 
 .nav-menu ul {
+	float: left;
   position: absolute;
   display: none;
   top: 100%;
@@ -1615,14 +1625,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu li {
   position: relative;
-  white-space: nowrap; }
+  white-space: nowrap;
+  float: left; }
 
 .nav-menu > li {
   float: left; }
 
 .nav-menu li:hover > ul,
 .nav-menu li.sfHover > ul {
-  display: block; }
+  display: inline-block; }
 
 .nav-menu ul ul {
   top: 0;
@@ -1636,7 +1647,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 30px; }
 
 .sf-arrows .sf-with-ul:after {
-  content: "\f107";
+  /*content: "\f107"; */
   position: absolute;
   right: 15px;
   font-family: FontAwesome;
@@ -1649,21 +1660,23 @@ h1, h2, h3, h4, h5, h6 {
 /* Nav Meu Container */
 @media (max-width: 768px) {
   #nav-menu-container {
-    display: none; } }
+  	float: left;
+    display: none;
+     } }
 /* Nav Meu Styling */
 .nav-menu a {
   padding: 38.5px 8px;
   text-decoration: none;
   display: inline-block;
   color: #222222;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 900;
+  font-size: 20px;
   text-transform: uppercase;
   outline: none; }
 
 .nav-menu li:hover > a,
 .nav-menu > .menu-active > a {
-  color: #3face4; }
+  color: #81af69; }
 
 .nav-menu > li {
   margin-left: 20px; }
@@ -1680,12 +1693,12 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px 10px;
   color: #333;
   transition: 0.3s;
-  display: block;
-  font-size: 12px;
+  display: inline-block;
+  font-size: 20px;
   text-transform: none; }
 
 .nav-menu ul li:hover > a {
-  color: #3face4; }
+  color: #81af69; }
 
 .nav-menu ul ul {
   margin-right: 10px;
@@ -1744,7 +1757,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #mobile-nav ul li a {
   color: #fff;
-  font-size: 13px;
+  font-size: 30px;
   text-transform: uppercase;
   overflow: hidden;
   padding: 10px 22px 10px 15px;
