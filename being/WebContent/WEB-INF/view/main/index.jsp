@@ -76,8 +76,8 @@
 								<li><a href="blog-single.html">간편상담신청</a></li>
 							</ul>
 						</li>
-						<li class="menu-active"><a href="index.html" style="padding-left: 400px;">로그인</a></li>
-						<li class="menu-active"><a href="index.html">회원가입</a></li>
+						<li class="menu-active"><a href="${pageContext.request.contextPath}/login.do" style="padding-left: 400px;">로그인</a></li>
+						<li class="menu-active"><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->
@@ -168,66 +168,60 @@
    </div>
    </div>
 
-	<!--######## Start Latest News Area ########-->
-	<section class="latest-news-area section-gap">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12">
-					<div class="main-title text-center">
-						<h1>Latest News from all categories</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Our Recent
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-news card">
-						<img class="card-top-img" src="${pageContext.request.contextPath}/resources/img/news/n1.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">
-									Addiction Whit Gambling
-								</a>
-							</h4>
-							<p class="card-text">It is a good idea to think of your PC as an office. It stores files, programs, pictures. This
-								can be compared to an actual.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-news card">
-						<img class="card-top-img" src="${pageContext.request.contextPath}/resources/img/news/n2.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">
-									Headset No Longer Wired
-								</a>
-							</h4>
-							<p class="card-text">It is a good idea to think of your PC as an office. It stores files, programs, pictures. This
-								can be compared to an actual.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-news card">
-						<img class="card-top-img" src="${pageContext.request.contextPath}/resources/img/news/n3.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">
-									Life Advice Looking At Window
-								</a>
-							</h4>
-							<p class="card-text">It is a good idea to think of your PC as an office. It stores files, programs, pictures. This
-								can be compared to an actual.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--######## End Latest News Area ########-->
+<!--######## Start Latest News Area ########-->
+    <section class="latest-news-area section-gap">
+         <div class="row justify-content-center">
+            <div class="col-lg-12">
+               <div class="main-title">
+                  <h1>오늘의 스토리</h1>
+                  
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-4 col-md-6">
+               <div class="single-news card">
+                  <img class="card-top-img" src="${pageContext.request.contextPath}/resources/img/news/c1.jpg" width="450px" height="240px" alt="Card image cap">
+                  <div class="card-body">
+                     <h4 class="card-title">
+                        <a href="#">
+                           색감톡톡! 기분 좋은 긴장감을 주는 작업실 
+                        </a>
+                     </h4>
+                     <p class="card-text">강한작가</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="single-news card">
+                  <img class="card-top-img" src="${pageContext.request.contextPath}/resources/img/news/c2.jpg" width="450px" height="240px" alt="Card image cap">
+                  <div class="card-body">
+                     <h4 class="card-title">
+                        <a href="#">
+                           정리를 잘못했던 신혼집,홈스타일링 후 쉬워졌어요~
+                        </a>
+                     </h4>
+                     <p class="card-text">kate 홈스타일링</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+               <div class="single-news card">
+                  <img class="card-top-img" src="${pageContext.request.contextPath}/resources/img/news/c3.jpg" width="450px" height="240px"  alt="Card image cap">
+                  <div class="card-body">
+                     <h4 class="card-title">
+                        <a href="#">
+                           16번의 미팅끝에 원하는 대로 변신!
+                        </a>
+                     </h4>
+                     <p class="card-text">jiwooyai</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!--######## End Latest News Area ########-->
 
 	<!--######## Start Recent Completed Project Area ########-->
 	<section class="recent-completed-project section-gap">
@@ -287,6 +281,49 @@
       				</p>
    				</div>
  			</div> <!-- close of bestbook_zone -->
+ 			
+ 			
+ 						<div class="row justify-content-center">
+				<div class="col-lg-12">
+					<div class="main-title">
+						<h1>기획전</h1>
+					</div>
+				</div>
+			</div> -->
+
+			<div id="showroom_zone">
+   				<div id="showroom">
+      				<ul>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/showroom1.png"  alt="" />
+        				<span>365일 연중무휴 득템찬스!<strong>오늘의집 특가창고 UP TO 90%</strong></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/showroom2.png" alt="" />
+              				<span>SNS에서 보던 캠핑템이 가득!<strong>감성 캠핑 UP TO 72%</strong></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/showroom3.png" alt="" />
+              				<span>무더운 여름, 보기만 해도 시원한 카페트/러그<strong>SUMMER RUG BEST 30!</strong></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/showroom4.png" alt="" />
+              				 <span>세라믹/대리석/원목/아일랜드식탁/주방수납장<strong>소재별 인기식탁 모아보기 ~74%</strong></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/showroom5.png" alt="" />
+              				 <span>나에게 맞는 향찾기<strong>캔들&디퓨저 추천가이드</strong></span></a>
+                       </li>
+
+      				</ul>
+      				<p class="sr_prev_btn">
+         				<a href="#">
+         				<img src="${pageContext.request.contextPath}/resources/img/bestbook_btn_left.png" width="40px" height="50px" alt="이전으로 이동" />
+         				</a>
+      				</p>
+      				<p class="sr_next_btn">
+         				<a href="#">
+         				<img src="${pageContext.request.contextPath}/resources/img/bestbook_btn_right.png" width="40px" height="50px" alt="다음으로 이동" />
+         				</a>
+      				</p>
+   				</div>
+ 			</div> <!-- close of bestbook_zone -->
+ 			
 	</section>
 	<!--######## End Recent Completed Project Area ########-->
 
@@ -530,68 +567,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 	
 <!-- 터치슬라이드 -->
-	<script src='<%= request.getContextPath() %>/resources/js/swipe.js'></script>
-	<script type="text/javascript">
-
-	$(function() {
-		   window.mySwipe = $('#mySwipe').Swipe({
-				startSlide : 0, //초기에 첫 번째 배너가 노출됩니다.
-				auto : 3000, //3초 이후 자동으로 배너가 이동됩니다.
-				continuous : true, //배너가 반복되어 롤링됩니다.
-				callback : function(index, element) {
-					// 클래스 "active"를 포함하는 불릿 버튼을 비활성화 버튼으로 만들고
-					// "active" 클래스를 삭제한다.
-					$(".touch_bullet .active").attr("src",
-					$(".touch_bullet .active").attr("src").replace("on.png","off.png"))
-					.removeClass("active");
-					
-					$(".touch_bullet img").eq(index).attr("src",
-					$(".touch_bullet img").eq(index).attr("src").replace("off.png","on.png"))
-					.addClass("active");
-					
-				}
-			}).data('Swipe');
-
-			$(".touch_left_btn a").on("click", function() {//이전 버튼을 클릭했을 때...
-				mySwipe.prev(); //이전 배너로 이동합니다.
-				return false;
-			});
-
-			$(".touch_right_btn a").on("click", function() {//다음 버튼을 클릭했을 때...
-				mySwipe.next(); //다음 배너로 이동합니다.
-				return false;
-			});
-			
-	});
-</script>
-
-<script src='<%= request.getContextPath() %>/resources/js/jquery.bxslider.min.js'></script>
-<script type="text/javascript">
-	 /* 베스트북 슬라이더 */
-	  var mySlider=$("#best_bg ul").bxSlider({
-	      mode:"horizontal",
-	        speed:500,
-	        pager:false,
-	        moveSlides:4,
-	        slideWidth:330,
-	        minSlides:4,
-	        maxSlides:4,
-	        slideMargin:30,
-	        auto:true,
-	        autoHover:true,
-	        controls:false
-	  });
-
-	  $(".prev_btn").on("click",function(){
-	  mySlider.goToPrevSlide();
-	  return false;
-	  });
-
-	  $(".next_btn").on("click",function(){
-	  mySlider.goToNextSlide();
-	  return false;
-	  });
-</script>
+<script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
 	
 </body>
 

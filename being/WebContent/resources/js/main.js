@@ -409,6 +409,93 @@ $(document).ready(function() {
         });
     });
 
+
+  /* 오늘의딜 */
+  var mySlider=$("#best_bg ul").bxSlider({
+      mode:"horizontal",
+        speed:500,
+        pager:false,
+        moveSlides:4,
+        slideWidth:330,
+        minSlides:4,
+        maxSlides:4,
+        slideMargin:30,
+        auto:false,
+        autoHover:false,
+        controls:false
+  });
+
+  $(".prev_btn").on("click",function(){
+  mySlider.goToPrevSlide();
+  return false;
+  });
+
+  $(".next_btn").on("click",function(){
+  mySlider.goToNextSlide();
+  return false;
+  });
+
+
+  /* 기획전 */
+  var mySlider=$("#showroom ul").bxSlider({
+      mode:"horizontal",
+        speed:500,
+        pager:false,
+        moveSlides:3,
+        slideWidth:450,
+        minSlides:3,
+        maxSlides:3,
+        slideMargin:30,
+        auto:false,
+        autoHover:false,
+        controls:false
+  });
+
+  $(".sr_prev_btn").on("click",function(){
+  mySlider.goToPrevSlide();
+  return false;
+  });
+
+  $(".sr_next_btn").on("click",function(){
+  mySlider.goToNextSlide();
+  return false;
+  });
+
+
+// 터치슬라이드 
+
+	$(function() {
+		   window.mySwipe = $('#mySwipe').Swipe({
+				startSlide : 0, //초기에 첫 번째 배너가 노출됩니다.
+				auto : 3000, //3초 이후 자동으로 배너가 이동됩니다.
+				continuous : true, //배너가 반복되어 롤링됩니다.
+				callback : function(index, element) {
+					// 클래스 "active"를 포함하는 불릿 버튼을 비활성화 버튼으로 만들고
+					// "active" 클래스를 삭제한다.
+					$(".touch_bullet .active").attr("src",
+					$(".touch_bullet .active").attr("src").replace("on.png","off.png"))
+					.removeClass("active");
+					
+					$(".touch_bullet img").eq(index).attr("src",
+					$(".touch_bullet img").eq(index).attr("src").replace("off.png","on.png"))
+					.addClass("active");
+					
+				}
+			}).data('Swipe');
+
+			$(".touch_left_btn a").on("click", function() {//이전 버튼을 클릭했을 때...
+				mySwipe.prev(); //이전 배너로 이동합니다.
+				return false;
+			});
+
+			$(".touch_right_btn a").on("click", function() {//다음 버튼을 클릭했을 때...
+				mySwipe.next(); //다음 배너로 이동합니다.
+				return false;
+			});
+			
+	});
+
+
     //------- Progress Bar --------//
     $.fn.bekeyProgressbar = function (options) {
 
