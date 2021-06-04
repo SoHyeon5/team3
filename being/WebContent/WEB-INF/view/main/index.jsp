@@ -23,9 +23,7 @@
 	<!--
 			CSS
 			============================================= -->
-			<style>
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap");
-</style>
+
 	<!-- <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');</style> -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
@@ -86,24 +84,47 @@
 			</div>
 		</div>
 		
-		
 	</header>
-	<!--######## End Header Area ########-->
+	   <!--######## start banner Area ########-->
+   <div id = "home-banner-test">
+      <ul>
+      <li>
+      <a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기</a>
+      </li>
+      </ul>
+      <!-- 배너 스와이프 -->
+         <div id="visual">
+         <div id="mySwipe" class='swipe'>
+            <ul class="touch_banner swipe-wrap">
+               <!-- 배너 목록 -->
+               <li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/ad1.png" width="300px" height="600px" style="border-radius: 7px;"></a></li>
+               <li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/ad2.png" width="300px" height="600px" style="border-radius: 7px;"></a></li>
+               <li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/ad3.png" width="300px" height="600px" style="border-radius: 7px;"></a></li>
+            </ul>
+         </div>
+         <ul class="touch_bullet">
+            <!-- 배너 위치 표시 -->
+            <li><img src="${pageContext.request.contextPath}/resources/img/visual_bullet_on.png" width="15px" height="15px" class="active"
+               alt="" /></li>
+            <li><img src="${pageContext.request.contextPath}/resources/img/visual_bullet_off.png" width="15px" height="15px" alt="" /></li>
+            <li><img src="${pageContext.request.contextPath}/resources/img/visual_bullet_off.png" width="15px" height="15px" alt="" /></li>
+         </ul>
+         <p class="touch_left_btn">
+            <!-- 이전 버튼 -->
+            <a href="#"> <img src="${pageContext.request.contextPath}/resources/img/visual_btn_left2.png" width="40px" height="40px" alt="이전 배너" />
+            </a>
+         </p>
+         <p class="touch_right_btn">
+            <!-- 다음 버튼 -->
+            <a href="#"> <img src="${pageContext.request.contextPath}/resources/img/visual_btn_right3.png" width="40px" height="40px" alt="다음 배너" />
+            </a>
+         </p>
+      </div>
+      
+   </div>
+   
 
-	<!--######## start banner Area ########-->
-	<section class="home-banner-area relative" id="home">
-		<div class="container">
-			<div class="row fullscreen d-flex align-items-center">
-				<div class="banner-content col-lg-9 col-md-12">
-					<h1>
-						Creativity <br> Beyond <br> Life
-					</h1>
-					<a href="#" class="primary-btn header-btn text-capitalize mt-10">hire us now!</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--######## End banner Area ########-->
+   <!--######## End banner Area ########-->
 
 	<!--######## Start Latest News Area ########-->
 	<section class="latest-news-area section-gap">
@@ -609,6 +630,43 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
+<!-- 터치슬라이드 -->
+	<script src='<%= request.getContextPath() %>/resources/js/swipe.js'></script>
+	<script type="text/javascript">
+
+	$(function() {
+		   window.mySwipe = $('#mySwipe').Swipe({
+				startSlide : 0, //초기에 첫 번째 배너가 노출됩니다.
+				auto : 3000, //3초 이후 자동으로 배너가 이동됩니다.
+				continuous : true, //배너가 반복되어 롤링됩니다.
+				callback : function(index, element) {
+					// 클래스 "active"를 포함하는 불릿 버튼을 비활성화 버튼으로 만들고
+					// "active" 클래스를 삭제한다.
+					$(".touch_bullet .active").attr("src",
+					$(".touch_bullet .active").attr("src").replace("on.png","off.png"))
+					.removeClass("active");
+					
+					$(".touch_bullet img").eq(index).attr("src",
+					$(".touch_bullet img").eq(index).attr("src").replace("off.png","on.png"))
+					.addClass("active");
+					
+				}
+			}).data('Swipe');
+
+			$(".touch_left_btn a").on("click", function() {//이전 버튼을 클릭했을 때...
+				mySwipe.prev(); //이전 배너로 이동합니다.
+				return false;
+			});
+
+			$(".touch_right_btn a").on("click", function() {//다음 버튼을 클릭했을 때...
+				mySwipe.next(); //다음 배너로 이동합니다.
+				return false;
+			});
+			
+	});
+</script>
+	
 </body>
 
 </html>
