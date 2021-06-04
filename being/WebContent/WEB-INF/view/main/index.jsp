@@ -125,6 +125,48 @@
    
 
    <!--######## End banner Area ########-->
+   
+   <!-- ########## 카테고리 이미지 ########## -->
+   <div>
+   <div class= "category_img">
+         <div><img src="${pageContext.request.contextPath}/resources/img/category/cat1.png" class="img1">
+            <div class="category_text">
+               <h4>
+                  <a href="portfolio-details.html">쇼핑하기</a>
+               </h4>
+         </div></div>
+         <div><img src="${pageContext.request.contextPath}/resources/img/category/cat2.png" class="img2">
+         <div class="category_text">
+               <h4>
+                  <a href="portfolio-details.html">평수별</a>
+               </h4>
+         </div></div>
+         <div><img src="${pageContext.request.contextPath}/resources/img/category/cat3.png" class="img3">
+         <div class="category_text">
+               <h4>
+                  <a href="portfolio-details.html">공간별</a>
+               </h4>
+         </div></div>
+         <div><img src="${pageContext.request.contextPath}/resources/img/category/cat4.png" class="img4">
+         <div class="category_text">
+               <h4>
+                  <a href="portfolio-details.html">시공업체</a>
+               </h4>
+         </div></div>
+         <div><img src="${pageContext.request.contextPath}/resources/img/category/cat5.png" class="img5">
+         <div class="category_text">
+               <h4>
+                  <a href="portfolio-details.html">빠른시공상담</a>
+               </h4>
+         </div></div>
+         <div><img src="${pageContext.request.contextPath}/resources/img/category/cat6.png" class="img6">
+         <div class="category_text">
+               <h4>
+                  <a href="portfolio-details.html">질문과답변</a>
+               </h4>
+         </div></div>
+   </div>
+   </div>
 
 	<!--######## Start Latest News Area ########-->
 	<section class="latest-news-area section-gap">
@@ -134,7 +176,7 @@
 					<div class="main-title text-center">
 						<h1>Latest News from all categories</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.
+							aliqua. Our Recent
 						</p>
 					</div>
 				</div>
@@ -187,208 +229,64 @@
 	</section>
 	<!--######## End Latest News Area ########-->
 
-	<!--######## Start Our Offer Area ########-->
-	<section class="our-offer-area section-gap">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-lg-6 col-md-6 mb-30">
-							<div class="single-circle">
-								<div class="single-item">
-									<div class="progressBar progressBar--animateText" data-progress="75">
-										<svg class="progressBar-contentCircle" viewBox="0 0 200 200">
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-background" cx="100" cy="100" r="95" />
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-circle" cx="100" cy="100" r="95" />
-										</svg>
-										<span class="progressBar-percentage progressBar-percentage-count">1.5K</span>
-									</div>
-								</div>
-								<h4>Happy Clients</h4>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-md-6 mb-30">
-							<div class="single-circle">
-								<div class="single-item">
-									<div class="progressBar progressBar--animateText" data-progress="75">
-										<svg class="progressBar-contentCircle" viewBox="0 0 200 200">
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-background" cx="100" cy="100" r="95" />
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-circle" cx="100" cy="100" r="95" />
-										</svg>
-										<span class="progressBar-percentage progressBar-percentage-count">10</span>
-									</div>
-								</div>
-								<h4>Years of Experience</h4>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-md-6 mb-30">
-							<div class="single-circle">
-								<div class="single-item">
-									<div class="progressBar progressBar--animateText" data-progress="75">
-										<svg class="progressBar-contentCircle" viewBox="0 0 200 200">
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-background" cx="100" cy="100" r="95" />
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-circle" cx="100" cy="100" r="95" />
-										</svg>
-										<span class="progressBar-percentage progressBar-percentage-count">250</span>
-									</div>
-								</div>
-								<h4>Professionals</h4>
-							</div>
-						</div>
-
-						<div class="col-lg-6 col-md-6 mb-30">
-							<div class="single-circle">
-								<div class="single-item">
-									<div class="progressBar progressBar--animateText" data-progress="75">
-										<svg class="progressBar-contentCircle" viewBox="0 0 200 200">
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-background" cx="100" cy="100" r="95" />
-											<circle transform="rotate(-90, 100, 100)" class="progressBar-circle" cx="100" cy="100" r="95" />
-										</svg>
-										<span class="progressBar-percentage progressBar-percentage-count">369</span>
-									</div>
-								</div>
-								<h4>On Going Job</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="offset-lg-1 col-lg-5">
-					<div class="row justify-content-center">
-						<div class="col-lg-12">
-							<div class="main-title text-left">
-								<h1>We can be your digital Problems Solution Partner</h1>
-								<p>inappropriate behavior is often laughed off as âboys will be boys,â women face higher conduct standards especially
-									in the workplace. Thatâs why itâs crucial that, as women, our behavior on the job is beyond reproach.
-								</p>
-								<a href="#" class="primary-btn offer-btn mr-10">What we Offer</a>
-								<a href="#" class="primary-btn quote-btn">Get a free Quote</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--######## End Our Offer Area ########-->
-
 	<!--######## Start Recent Completed Project Area ########-->
 	<section class="recent-completed-project section-gap">
-		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
-					<div class="main-title text-center">
-						<h1>Our Recent Completed Projects</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.
-						</p>
+					<div class="main-title">
+						<h1>오늘의딜</h1>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="filters project-filter">
-						<ul>
-							<li class="active" data-filter=".all">All Categories</li>
-							<li data-filter=".brand">Branding</li>
-							<li data-filter=".img-man">Image Manipulation</li>
-							<li data-filter=".creative">Creative Work</li>
-							<li data-filter=".web">Web Design</li>
-							<li data-filter=".print-mat">Print Material</li>
-						</ul>
-					</div>
-					<div class="projects_inner row" id="lightgallery">
-						<div class="col-lg-4 col-sm-6 web all" data-src="${pageContext.request.contextPath}/resources/img/project/p1.jpg">
-							<div class="projects_item">
-								<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/project/p1.jpg" alt="">
-								<div class="icon">
-									<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="projects_text">
-								<h4>
-									<a href="portfolio-details.html">3D Helmet Design</a>
-								</h4>
-								<p>Client Project</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6 brand all creative" data-src="${pageContext.request.contextPath}/resources/img/project/p2.jpg">
-							<div class="projects_item">
-								<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/project/p2.jpg" alt="">
-								<div class="icon">
-									<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="projects_text">
-								<h4>
-									<a href="portfolio-details.html">2D Vinyl Design</a>
-								</h4>
-								<p>Client Project</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6 all" data-src="${pageContext.request.contextPath}/resources/img/project/p3.jpg">
-							<div class="projects_item">
-								<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/project/p3.jpg" alt="">
-								<div class="icon">
-									<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="projects_text">
-								<h4>
-									<a href="portfolio-details.html">Creative Poster Design</a>
-								</h4>
-								<p>Client Project</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6 all print-mat" data-src="${pageContext.request.contextPath}/resources/img/project/p4.jpg">
-							<div class="projects_item">
-								<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/project/p4.jpg" alt="">
-								<div class="icon">
-									<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="projects_text">
-								<h4>
-									<a href="portfolio-details.html">Embosed Logo Design</a>
-								</h4>
-								<p>Client Project</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6 brand img-man all" data-src="${pageContext.request.contextPath}/resources/img/project/p5.jpg">
-							<div class="projects_item">
-								<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/project/p5.jpg" alt="">
-								<div class="icon">
-									<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="projects_text">
-								<h4>
-									<a href="portfolio-details.html">3D Disposable Bottle</a>
-								</h4>
-								<p>Client Project</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6 brand work img-man all" data-src="${pageContext.request.contextPath}/resources/img/project/p6.jpg">
-							<div class="projects_item">
-								<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/project/p6.jpg" alt="">
-								<div class="icon">
-									<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="projects_text">
-								<h4>
-									<a href="portfolio-details.html">3D Logo Design</a>
-								</h4>
-								<p>Client Project</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			<div id="bestbook_zone">
+   				<div id="best_bg">
+      				<ul>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today1.png" width="320px" height="320px" alt="" />
+        				<span>[Special] 베란다 유리창 창문 청소 도구! 자석창문닦이<p>45% <strong>9,500</strong></p></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today2.png" width="320px" height="320px" alt="" />
+              				<span>[Special] 여름의 청량함을 담은 보에나 드 모네 시리즈 (2년 품질보증)<p>45% <strong>46,000 외</strong></p></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today3.png" width="320px" height="320px" alt="" />
+              				<span>[Special] 샤베트 5COLOR 시어서커 선염 여름 차렵 침구세트(SS)(Q)<p>73% <strong>18,900</strong></p></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today4.png" width="320px" height="320px" alt="" />
+              				 <span>[Special] 너무 쉬운 집콕템 명화 그리기 -풍경&플라워<p>19% <strong>8,900 외</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today8.png" width="320px" height="320px" alt="" />
+              				 <span>안심 에어컨 분해청소 (벽걸이/스탠드/천정형)<p>22% <strong>65,500</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today6.png" width="320px" height="320px" alt="" />
+              				<span>[쿠폰할인] 30평대! 무풍 에어컨 AF19T7974WZRS 전국기본설치비 포함<p>27% <strong>2,000,000</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today5.png" width="320px" height="320px" alt="" />
+              				<span>라탄 수초 러그 거실 카페트 5size<p>90% <strong>15,000</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today8.png" width="320px" height="320px" alt="" />
+              				<span>[단독] 어라운드 원형 테이블/식탁 1000size<p>60% <strong>99,000</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today9.png" width="320px" height="320px" alt="" />
+              				<span>21년형 웨이브인버터 스탠드에어컨 SPVW17DWEG 전국기본설치<p>27% <strong>969,000</strong></p></span></a>
+                       </li>
+       	 				<li><a href="#">
+             				<img src="${pageContext.request.contextPath}/resources/img/today10.png" width="320px" height="320px" alt="" />
+             				<span>포스B25 셀프스탠딩 헤드라이트 무선 청소기(물걸레키트 증정)<p>22% <strong>198,000</strong></p></span></a>
+                       </li>
+
+      				</ul>
+      				<p class="prev_btn">
+         				<a href="#">
+         				<img src="${pageContext.request.contextPath}/resources/img/bestbook_btn_left.png" width="40px" height="50px" alt="이전으로 이동" />
+         				</a>
+      				</p>
+      				<p class="next_btn">
+         				<a href="#">
+         				<img src="${pageContext.request.contextPath}/resources/img/bestbook_btn_right.png" width="40px" height="50px" alt="다음으로 이동" />
+         				</a>
+      				</p>
+   				</div>
+ 			</div> <!-- close of bestbook_zone -->
 	</section>
 	<!--######## End Recent Completed Project Area ########-->
 
@@ -479,7 +377,7 @@
 						<a href="#">Cooking Perfect Fried Rice in minutes</a>
 					</h4>
 					<p>
-						inappropriate behavior ipsum dolor sit amet, consectetur.
+						inappropriate behavior ipsum dolor sit amet, consectetur. we can
 					</p>
 					<div class="meta-bottom d-flex justify-content-between">
 						<p><span class="lnr lnr-heart"></span> 15 Likes</p>
@@ -665,6 +563,34 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			});
 			
 	});
+</script>
+
+<script src='<%= request.getContextPath() %>/resources/js/jquery.bxslider.min.js'></script>
+<script type="text/javascript">
+	 /* 베스트북 슬라이더 */
+	  var mySlider=$("#best_bg ul").bxSlider({
+	      mode:"horizontal",
+	        speed:500,
+	        pager:false,
+	        moveSlides:4,
+	        slideWidth:330,
+	        minSlides:4,
+	        maxSlides:4,
+	        slideMargin:30,
+	        auto:true,
+	        autoHover:true,
+	        controls:false
+	  });
+
+	  $(".prev_btn").on("click",function(){
+	  mySlider.goToPrevSlide();
+	  return false;
+	  });
+
+	  $(".next_btn").on("click",function(){
+	  mySlider.goToNextSlide();
+	  return false;
+	  });
 </script>
 	
 </body>
