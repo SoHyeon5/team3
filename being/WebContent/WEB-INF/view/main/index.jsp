@@ -327,224 +327,33 @@
 	</section>
 	<!--######## End Recent Completed Project Area ########-->
 
-	<!--######## Start testimonial Area ########-->
-	<section class="testimonial-area section-gap">
-		<div class="container">
-			<div class="row">
-				<div class="active-testimonial-carusel">
-					<div class="single-testimonial item d-flex flex-row">
-						<div class="thumb">
-							<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/elements/user1.png" alt="">
-						</div>
-						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
-							<h4 mt-30>Mark Alviro Wiens</h4>
-							<p class="mb-0">CEO at Google</p>
-						</div>
-					</div>
-					<div class="single-testimonial item d-flex flex-row">
-						<div class="thumb">
-							<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/elements/user2.png" alt="">
-						</div>
-						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
-							<h4 mt-30>Lina Harrington</h4>
-							<p class="mb-0">CEO at Google</p>
-						</div>
-					</div>
-					<div class="single-testimonial item d-flex flex-row">
-						<div class="thumb">
-							<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/elements/user1.png" alt="">
-						</div>
-						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
-							<h4 mt-30>Mark Alviro Wiens</h4>
-							<p class="mb-0">CEO at Google</p>
-						</div>
-					</div>
-					<div class="single-testimonial item d-flex flex-row">
-						<div class="thumb">
-							<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/elements/user2.png" alt="">
-						</div>
-						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
-							<h4 mt-30>Lina Harrington</h4>
-							<p class="mb-0">CEO at Google</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--######## End testimonial Area ########-->
-
-	<!--######## Start Latest Blog Area ########-->
-	<section class="latest-blog-area section-gap">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12">
-					<div class="main-title text-center">
-						<h1>Latest From Our Blog</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua.
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg-3 col-md-6 single-blog">
-					<div class="thumb">
-						<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/b1.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<h4>
-						<a href="#">Cooking Perfect Fried Rice in minutes</a>
-					</h4>
-					<p>
-						inappropriate behavior ipsum dolor sit amet, consectetur. we can
-					</p>
-					<div class="meta-bottom d-flex justify-content-between">
-						<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-						<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 single-blog">
-					<div class="thumb">
-						<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/b2.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<h4>
-						<a href="#">Secret of making Heart Shaped eggs</a>
-					</h4>
-					<p>
-						inappropriate behavior ipsum dolor sit amet, consectetur.
-					</p>
-					<div class="meta-bottom d-flex justify-content-between">
-						<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-						<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 single-blog">
-					<div class="thumb">
-						<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/b3.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<h4>
-						<a href="#">How to check steak if it is tender or not</a>
-					</h4>
-					<p>
-						inappropriate behavior ipsum dolor sit amet, consectetur.
-					</p>
-					<div class="meta-bottom d-flex justify-content-between">
-						<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-						<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 single-blog">
-					<div class="thumb">
-						<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/img/b4.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<h4>
-						<a href="#">Addiction When Gambling Becomes A Problem</a>
-					</h4>
-					<p>
-						inappropriate behavior ipsum dolor sit amet, consectetur.
-					</p>
-					<div class="meta-bottom d-flex justify-content-between">
-						<p><span class="lnr lnr-heart"></span> 15 Likes</p>
-						<p><span class="lnr lnr-bubble"></span> 02 Comments</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--######## End Latest Blog Area ########-->
-
 	<!--######## start footer Area ########-->
-	<footer class="footer-area section-gap">
-		<div class="container">
+	<footer class="footer-area">
 			<div class="row">
-				<div class="col-lg-3  col-md-6">
-					<div class="single-footer-widget">
-						<h6>Top Products</h6>
-						<ul class="footer-nav">
-							<li><a href="#">Managed Website</a></li>
-							<li><a href="#">Manage Reputation</a></li>
-							<li><a href="#">Power Tools</a></li>
-							<li><a href="#">Marketing Service</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="single-footer-widget newsletter">
-						<h6>Newsletter</h6>
-						<p>You can trust us. we only send promo offers, not a single spam.</p>
-						<div id="mc_embed_signup">
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="form-inline">
-
-								<div class="form-group row" style="width: 100%">
-									<div class="col-lg-8 col-md-12">
-										<input name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'"
-										 required="" type="email">
-										<div style="position: absolute; left: -5000px;">
-											<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-										</div>
-									</div>
-
-									<div class="col-lg-4 col-md-12">
-										<button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
-									</div>
-								</div>
-								<div class="info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3  col-md-12">
+				<div class="footer-test">
 					<div class="single-footer-widget mail-chimp">
-						<h6 class="mb-20">Instragram Feed</h6>
-						<ul class="instafeed d-flex flex-wrap">
-							<li><img src="${pageContext.request.contextPath}/resources/img/i1.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i2.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i3.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i4.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i5.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i6.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i7.jpg" alt=""></li>
-							<li><img src="${pageContext.request.contextPath}/resources/img/i8.jpg" alt=""></li>
+						<img src="${pageContext.request.contextPath}/resources/img/logo3.jpg" width="50px" height="50px" alt="" />
+					</div>
+				</div>
+					<div class="single-footer-widget">
+						<h6>공지사항 > 1boon이 콘텐츠뷰로 새롭게 개편합니다!</h6>
+						<ul class="footer-nav">
+							<li><a href="#">회사소개</a> · <a href="#">비즈니스</a> · <a href="#">검색등록</a> · <a href="#">제휴문의</a> · <a href="#">인재채용</a></li>
+							<li><a href="#">이용약관</a> · <a href="#">운영정책</a> · <a href="#">청소년보호정책</a> · <a href="#">위치기반서비스이용약관</a> · <a href="#">개인정보처리방침</a> · <a href="#">웹접근성안내</a> · <a href="#">고객센터</a></li>
 						</ul>
 					</div>
+				</div>
+				</div>
 				</div>
 			</div>
+
 
 			<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
 				<p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>, distributed by <a href="https://bootthemes.com/" target="_blank">BootThemes</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
-				<div class="footer-social d-flex align-items-center">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-					<a href="#"><i class="fa fa-behance"></i></a>
-				</div>
+				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>, distributed by <a href="https://bootthemes.com/" target="_blank">BootThemes</a>
+			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
 			</div>
-		</div>
 	</footer>
 	<!--######## End footer Area ########-->
 

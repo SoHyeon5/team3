@@ -437,7 +437,7 @@ $(document).ready(function() {
 
 
   /* 기획전 */
-  var mySlider=$("#showroom ul").bxSlider({
+  var myShowSlider=$("#showroom ul").bxSlider({
       mode:"horizontal",
         speed:500,
         pager:false,
@@ -452,12 +452,12 @@ $(document).ready(function() {
   });
 
   $(".sr_prev_btn").on("click",function(){
-  mySlider.goToPrevSlide();
+  myShowSlider.goToPrevSlide();
   return false;
   });
 
   $(".sr_next_btn").on("click",function(){
-  mySlider.goToNextSlide();
+  myShowSlider.goToNextSlide();
   return false;
   });
 

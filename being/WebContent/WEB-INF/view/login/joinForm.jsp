@@ -7,8 +7,11 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 2 | Log in</title>
+<title>회원가입</title>
 <!-- Tell the browser to be responsive to screen width -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
@@ -27,6 +30,9 @@
 <!-- iCheck -->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/plugins/iCheck/square/blue.css">
+<!-- join -->
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/join.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,9 +47,12 @@
 </head>
 <body class="hold-transition register-page">
 	<div class="register-box">
-		<div class="register-logo">
-			<a href="../../index2.html"><b>Admin</b>LTE</a>
-		</div>
+		<div class="login-logo">
+         <a href="${pageContext.request.contextPath}/main/index.do">
+            <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
+         Being House
+         </a>
+      </div>
 
 		<div class="register-box-body">
 			<p class="login-box-msg">
@@ -58,24 +67,27 @@
 			<!-- <form action="registerProcess.jsp" method="post"> -->
 			<form action="join.do" method="post">
 				<div class="form-group has-feedback">
-					<input type="text" class="form-control" name="name"
-						placeholder="Full name"> <span
-						class="glyphicon glyphicon-user form-control-feedback"></span>
-				</div>
-				<div class="form-group has-feedback">
+				<p> 이메일 </p>
 					<input type="email" class="form-control" name="email"
-						placeholder="Email"> <span
-						class="glyphicon glyphicon-envelope form-control-feedback"></span>
+						placeholder="이메일">
+						<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" class="form-control" name="password"
-						placeholder="Password"> <span
+					<p> 비밀번호 </p>
+						<input type="password" class="form-control" name="password" placeholder="비밀번호"> <span
 						class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
+				<p> 비밀번호 확인 </p>
 					<input type="password" class="form-control" name="confirmPassword"
-						placeholder="Retype password"> <span
+						placeholder="비밀번호 확인"> <span
 						class="glyphicon glyphicon-log-in form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback">
+				<p> 별명 </p>
+					<input type="text" class="form-control" name="name"
+						placeholder="별명"> <span
+						class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="row">
 					<div class="col-xs-8">
@@ -86,23 +98,16 @@
 						</div>
 					</div>
 					<!-- /.col -->
-					<div class="col-xs-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-					</div>
-					<!-- /.col -->
-				</div>
-			</form>
+               <div class="col-xs-4">
+                  <button type="submit" class="btn btn-primary btn-block btn-flat" id="btn">회원가입 완료</button>
+               </div>
+               <!-- /.col -->
+            </div>
+         </form>
 
-			<div class="social-auth-links text-center">
-				<p>- OR -</p>
-				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i
-					class="fa fa-facebook"></i> Sign up using Facebook</a> <a href="#"
-					class="btn btn-block btn-social btn-google btn-flat"><i
-					class="fa fa-google-plus"></i> Sign up using Google+</a>
-			</div>
-
-			<a href="login.do" class="text-center">가입 취소</a>
-		</div>
+         <div class="social-auth-links text-center">
+            <p>이미 아이디가 있으신가요?</p>
+            <a href="login.do" class="text-center">로그인</a> 
 		<!-- /.form-box -->
 	</div>
 	<!-- /.register-box -->

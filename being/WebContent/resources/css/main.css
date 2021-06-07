@@ -15,6 +15,7 @@ sf-with
 logo
 font-family
 display
+center
 
 // 메인
 home-banner-area relative
@@ -29,6 +30,11 @@ text-capitalize
 // 오늘의 딜
 recent-completed-project
 main-title
+
+// 푸터
+row
+footer
+footer-social
 */
 
 .col-lg-4 {
@@ -3251,14 +3257,22 @@ body.mobile-nav-active #mobile-nav-toggle {
                End Blog Details  Page style
 ################
 */
+
+.footer-test div {
+	display: flex;
+}
+
 .footer-area {
-  background-color: #222222; }
+	display: block;
+  background-color: white; 
+  border-top: 2px solid #d3d3d3;
+  padding: 30px;}
   .footer-area .footer-nav li {
-    margin-top: 8px; }
+    margin-top: 0px; }
     .footer-area .footer-nav li a {
       color: #777777; }
       .footer-area .footer-nav li a:hover {
-        color: #3face4; }
+        color: #81af69; }
 
 h6 {
   color: #fff;
@@ -3302,6 +3316,22 @@ h6 {
 @media (max-width: 768px) {
   .footer-social {
     margin-top: 20px; } }
+    
+.single-footer-widget img {
+	margin-left: 600px;
+	margin-top: 50px;
+}
+
+.single-footer-widget h6 {
+	color: black;
+	margin-top: 40px;
+ 	margin-left: 50px;
+ 	font-weight: 500;
+}
+
+.footer-nav {
+	margin-left: 50px;
+}
 
 .single-footer-widget input {
   line-height: 38px;
@@ -3373,13 +3403,14 @@ h6 {
     margin-bottom: 30px; } }
 
 .footer-bottom {
-  padding-top: 80px; }
+  padding-top: 80px;
+  padding-left: 620px; }
   @media (max-width: 991px) {
     .footer-bottom {
       padding-top: 0; } }
 
 .footer-text a, .footer-text i {
-  color: #3face4; }
+  color: #81af69; }
 
 /*# sourceMappingURL=main.css.map */
 
@@ -3489,4 +3520,102 @@ h6 {
 }
 #showroom .sr_next_btn{
 	position:absolute;top:140px;right:140px;
+}
+
+/* 로그인 */
+
+.login-logo, .register-logo {
+   font-size: 35px;
+   text-align: center;
+   margin-bottom: 25px;
+   font-weight: 300;
+   font-family: 'Squada One', cursive;
+}
+
+.login-logo a, .register-logo a {
+   color: #444;
+   font-size: 48px;
+}
+
+.login-logo a img {
+   position: relative;
+   top : 15px;
+}
+
+.login-page, .register-page {
+   background: #ffffff
+}
+
+.login-box, .register-box {
+   width: 360px;
+   margin: 7% auto
+}
+
+@media ( max-width :768px) {
+   .login-box, .register-box {
+      width: 90%;
+      margin-top: 20px
+   }
+}
+
+.login-box-body, .register-box-body {
+   background: #fff;
+   padding: 20px;
+   border-top: 0;
+   color: #666;
+}
+
+.login-box-body .form-control-feedback, .register-box-body .form-control-feedback
+   {
+   color: #777
+}
+
+.login-box-msg, .register-box-msg {
+   margin: 0;
+   text-align: center;
+   padding: 0 20px 20px 20px
+}
+
+.form-control {
+   width:330px;
+   font-size: 20px;
+   margin-bottom: 5px;
+   height: 50px;
+   padding-left: 10px;
+   
+}
+
+/* 버튼 */
+#btn1 {
+   width:346px;
+   height: 55px;
+   font-size: 30px;
+   margin-top: 30px;
+   margin-bottom: 5px;
+   background-color: #8BC26D;
+   border: none;
+   border-radius: 5.5px;
+   color: white;
+}
+
+#btn1:hover {
+   background-color: #7fb362;
+}
+
+.login-box-etc {
+   display: flex;
+   padding-left: 35px;
+   padding-top: 10px;
+   font-size: 20px;
+   align-items: center;
+   color: #0e0e0e;
+   font-weight: 550;
+}
+
+.login-box-etc .pwd1 {
+   margin-right: 58px;
+}
+ 
+.login-box-etc a {
+   color: inherit;
 }
