@@ -34,7 +34,7 @@ public class JoinHandler implements CommandHandler {
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) {
 		JoinRequest joinReq = new JoinRequest();
-		joinReq.setId(req.getParameter("id"));
+		joinReq.setId(req.getParameter("email"));
 		joinReq.setName(req.getParameter("name"));
 		joinReq.setPassword(req.getParameter("password"));
 		joinReq.setConfirmPassword(req.getParameter("confirmPassword"));

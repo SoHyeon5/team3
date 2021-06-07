@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -7,7 +9,7 @@
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Favicon-->
-	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/fav.png">
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/logo4.png">
 	<!-- Author Meta -->
 	<meta name="author" content="colorlib">
 	<!-- Meta Description -->
@@ -17,7 +19,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Tangre Furniture</title>
+	<title>Being</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 	<!--
@@ -50,14 +52,14 @@
 		<div class="container main-menu">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
-					<a href="index.html"><img src="${pageContext.request.contextPath}/resources/img/logo3.jpg" alt="" title="" width="75px" height="75px"/></a>
+					<a href="${pageContext.request.contextPath}/main/index.do"><img src="${pageContext.request.contextPath}/resources/img/logo3.jpg" alt="" title="" width="75px" height="75px"/></a>
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<li class="menu-has-children"><a href="">커뮤니티</a>
 							<ul>
 								<li><a href="blog-home.html">홈</a></li>
-								<li><a href="blog-single.html">스토리</a></li>
+								<li><a href="${pageContext.request.contextPath}/board/list.do">스토리</a></li>
 								<li><a href="blog-single.html">노하우</a></li>
 								<li><a href="blog-single.html">이벤트</a></li>
 							</ul>
@@ -76,8 +78,15 @@
 								<li><a href="blog-single.html">간편상담신청</a></li>
 							</ul>
 						</li>
+						<u:isLogin>
+						<li class="menu-active"><a>${authUser.name}님 </a></li>
+						<li class="write"><a href="${pageContext.request.contextPath}/board/write.do">글쓰기</a></li>
+						</u:isLogin>
+						
+						<u:notLogin>
 						<li class="menu-active"><a href="${pageContext.request.contextPath}/login.do" style="padding-left: 400px;">로그인</a></li>
 						<li class="menu-active"><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
+						</u:notLogin>
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->
