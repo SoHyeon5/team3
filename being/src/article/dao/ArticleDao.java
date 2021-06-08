@@ -16,7 +16,7 @@ import jdbc.JdbcUtil;
 
 public class ArticleDao {
 
-	public void insert(Connection conn, Article article) throws SQLException {
+	public Article insert(Connection conn, Article article) throws SQLException {
 		PreparedStatement pstmt = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -24,23 +24,32 @@ public class ArticleDao {
 		 java.sql.Date dateSelected = new java.sql.Date(selectedDate.getTime()); 
 		 
 		try {
-			pstmt = conn.prepareStatement("insert into article "
-					+ "(article_no, writer_id, writer_name, title, regdate, moddate, read_cnt) "
-					+ "values (ARTICLE_SEQ.NEXTVAL,?,?,?,?,?,0)");
+			pstmt = conn.prepareStatement("insert into article values (ARTICLE_SEQ.NEXTVAL,?,?,?,?,?,?,0)");
 			pstmt.setString(1, article.getWriter().getId());
 			pstmt.setString(2, article.getWriter().getName());
 			pstmt.setString(3, article.getTitle());
-			pstmt.setDate(4, dateSelected);
+			pstmt.setString(4, article.getContent());
 			pstmt.setDate(5, dateSelected);
+			pstmt.setDate(6, dateSelected);
 			int insertedCount = pstmt.executeUpdate();
 
-			/*
-			 * if (insertedCount > 0) { stmt = conn.createStatement(); rs =
-			 * stmt.executeQuery("select last_insert_id() from article"); if (rs.next()) {
-			 * Integer newNo = rs.getInt(1); return new Article(newNo, article.getWriter(),
-			 * article.getTitle(), article.getRegDate(), article.getModifiedDate(), 0); } }
-			 * return null;
-			 */
+			
+			if (insertedCount > 0) {
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery("select max(article_no) from article");
+				if (rs.next()) {
+					Integer newNo = rs.getInt(1);
+					return new Article(newNo,
+							article.getWriter(),
+							article.getTitle(),
+							article.getContent(),
+							article.getRegDate(),
+							article.getModifiedDate(),
+							0);
+				}
+			}
+			 return null;
+			 
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(stmt);
@@ -48,9 +57,9 @@ public class ArticleDao {
 		}
 	}
 
-	private Timestamp toTimestamp(Date date) {
-		return new Timestamp(date.getTime());
-	}
+//	private Timestamp toTimestamp(Date date) {
+//		return new Timestamp(date.getTime());
+//	}
 
 	public int selectCount(Connection conn) throws SQLException {
 		Statement stmt = null;
@@ -94,6 +103,7 @@ public class ArticleDao {
 						rs.getString("writer_id"),
 						rs.getString("writer_name")),
 				rs.getString("title"),
+				rs.getString("content"),//
 				toDate(rs.getTimestamp("regdate")),
 				toDate(rs.getTimestamp("moddate")),
 				rs.getInt("read_cnt"));

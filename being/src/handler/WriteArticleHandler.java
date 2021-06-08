@@ -1,5 +1,6 @@
 package handler;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,13 +34,21 @@ public class WriteArticleHandler implements CommandHandler {
 	}
 	
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) {
+		
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 
+		try {
+	         req.setCharacterEncoding("UTF-8");
+	      } catch (UnsupportedEncodingException e1) {
+	         // TODO Auto-generated catch block
+	         e1.printStackTrace();
+	      }
+		
 		User user = (User)req.getSession(false).getAttribute("authUser");
-//		System.out.println("user="+user);
-//		System.out.println("user.id="+user.getId());
-//		System.out.println("user.name="+user.getName());
+		System.out.println("user="+user);
+		System.out.println("user.id="+user.getId());
+		System.out.println("user.name="+user.getName());
 		WriteRequest writeReq = createWriteRequest(user, req);
 		writeReq.validate(errors);
 		

@@ -1,5 +1,6 @@
 package handler;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,13 @@ public class JoinHandler implements CommandHandler {
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) {
+		try {
+	         req.setCharacterEncoding("UTF-8");
+	      } catch (UnsupportedEncodingException e1) {
+	         // TODO Auto-generated catch block
+	         e1.printStackTrace();
+	      }
+		
 		JoinRequest joinReq = new JoinRequest();
 		joinReq.setId(req.getParameter("email"));
 		joinReq.setName(req.getParameter("name"));

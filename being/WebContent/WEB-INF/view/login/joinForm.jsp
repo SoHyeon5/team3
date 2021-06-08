@@ -16,20 +16,20 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
 <!-- Bootstrap 3.3.7 -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<%-- 	href="<%=request.getContextPath()%>/resources/bower_components/bootstrap/dist/css/bootstrap.min.css"> --%>
 <!-- Font Awesome -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/bower_components/font-awesome/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" -->
+<%-- 	href="<%=request.getContextPath()%>/resources/bower_components/font-awesome/css/font-awesome.min.css"> --%>
 <!-- Ionicons -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/bower_components/Ionicons/css/ionicons.min.css">
+<!-- <link rel="stylesheet" -->
+<%-- 	href="<%=request.getContextPath()%>/resources/bower_components/Ionicons/css/ionicons.min.css"> --%>
 <!-- Theme style -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/dist/css/AdminLTE.min.css">
+<!-- <link rel="stylesheet" -->
+<%-- 	href="<%=request.getContextPath()%>/resources/dist/css/AdminLTE.min.css"> --%>
 <!-- iCheck -->
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/plugins/iCheck/square/blue.css">
+<!-- <link rel="stylesheet" -->
+<%-- 	href="<%=request.getContextPath()%>/resources/plugins/iCheck/square/blue.css"> --%>
 <!-- join -->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/join.css">
@@ -114,22 +114,22 @@
 
 
 	<!-- jQuery 3 -->
-	<script
-		src="<%=request.getContextPath()%>/resources/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- 	<script -->
+<%-- 		src="<%=request.getContextPath()%>/resources/bower_components/jquery/dist/jquery.min.js"></script> --%>
 	<!-- Bootstrap 3.3.7 -->
-	<script
-		src="<%=request.getContextPath()%>/resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- 	<script -->
+<%-- 		src="<%=request.getContextPath()%>/resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> --%>
 	<!-- iCheck -->
-	<script
-		src="<%=request.getContextPath()%>/resources/plugins/iCheck/icheck.min.js"></script>
-	<script>
-		$(function() {
-			$('input').iCheck({
-				checkboxClass : 'icheckbox_square-blue',
-				radioClass : 'iradio_square-blue',
-				increaseArea : '20%' // optional
-			});
-		});
-	</script>
+<!-- 	<script -->
+<%-- 		src="<%=request.getContextPath()%>/resources/plugins/iCheck/icheck.min.js"></script> --%>
+<!-- 	<script> -->
+<!-- // 		$(function() { -->
+<!-- // 			$('input').iCheck({ -->
+<!-- // 				checkboxClass : 'icheckbox_square-blue', -->
+<!-- // 				radioClass : 'iradio_square-blue', -->
+<!-- // 				increaseArea : '20%' // optional -->
+<!-- // 			}); -->
+<!-- // 		}); -->
+<!-- 	</script> -->
 </body>
 </html>

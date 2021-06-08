@@ -4,17 +4,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 
-import article.dao.ArticleContentDao;
+//import article.dao.ArticleContentDao;
 import article.dao.ArticleDao;
 import article.model.Article;
-import article.model.ArticleContent;
+//import article.model.ArticleContent;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 
 public class WriteArticleService {
 
 	private ArticleDao articleDao = new ArticleDao();
-	private ArticleContentDao contentDao = new ArticleContentDao();
+//	private ArticleContentDao contentDao = new ArticleContentDao();
 
 	public Integer write(WriteRequest req) {
 		Connection conn = null;
@@ -24,7 +24,7 @@ public class WriteArticleService {
 
 			Article article = toArticle(req);
 			articleDao.insert(conn, article);
-//			System.out.println("article insert 성공....");
+			System.out.println("article insert 성공....");
 			/*
 			 * if (savedArticle == null) { throw new
 			 * RuntimeException("fail to insert article"); } ArticleContent content = new
@@ -48,6 +48,6 @@ public class WriteArticleService {
 
 	private Article toArticle(WriteRequest req) {
 		Date now = new Date();
-		return new Article(null, req.getWriter(), req.getTitle(), now, now, 0);
+		return new Article(null, req.getWriter(), req.getTitle(), req.getContent(), now, now, 0);
 	}
 }

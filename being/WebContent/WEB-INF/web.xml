@@ -14,12 +14,12 @@
 		<param-value>
 			jdbcdriver=oracle.jdbc.driver.OracleDriver
 			jdbcUrl=jdbc:oracle:thin:@192.168.18.128:1521:xe
-			dbUser=SCOTT
-			dbPass=TIGER
+			dbUser=being
+			dbPass=being
 			validationQuery=select 1
 			minIdle=3
 			maxTotal=30
-			poolName=scott
+			poolName=being
 		</param-value>
 	</context-param>
 	
@@ -40,6 +40,22 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 	
+	
+<!-- 	<filter> -->
+<!--     <filter-name>encoding</filter-name> -->
+<!--     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> -->
+<!--     <init-param> -->
+<!--       <param-name>encoding</param-name> -->
+<!--       <param-value>UTF-8</param-value> -->
+<!--     </init-param> -->
+<!--   </filter> -->
+
+<!--   <filter-mapping> -->
+<!--     <filter-name>encoding</filter-name> -->
+<!--     <servlet-name>appServlet</servlet-name> -->
+<!--   </filter-mapping> -->
+
+
 	<!-- 초기화면 -->
 	<welcome-file-list>
       <welcome-file>/WEB-INF/view/main/index.jsp</welcome-file>
