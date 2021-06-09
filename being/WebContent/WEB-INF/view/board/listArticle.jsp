@@ -12,7 +12,7 @@
 		<td colspan="4"><a href="write.do">[게시글쓰기]</a></td>
 	</tr>
 	<tr>
-		<td>번호</td>
+<!-- 		<td>번호</td> -->
 		<td>제목</td>
 		<td>작성자</td>
 		<td>조회수</td>
@@ -24,7 +24,7 @@
 </c:if>
 <c:forEach var="article" items="${articlePage.content}">
 	<tr>
-		<td>${article.number}</td>
+<%-- 		<td>${article.number}</td> --%>
 		<td>
 		<a href="read.do?no=${article.number}&pageNo=${articlePage.currentPage}">
 		<c:out value="${article.title}"/>

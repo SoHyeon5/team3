@@ -98,7 +98,7 @@ public class ArticleDao {
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement("SELECT * FROM ("
-					+ "        SELECT ROW_NUMBER() OVER (ORDER BY ARTICLE_NO) RNUM, A.*"
+					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.*"
 					+ "          FROM WRITING A ORDER BY NUM)"
 					+ " WHERE RNUM BETWEEN ? AND ?");
 			pstmt.setInt(1, startRow);
