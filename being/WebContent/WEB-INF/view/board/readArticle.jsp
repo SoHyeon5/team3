@@ -14,7 +14,8 @@
 </tr>
 <tr>
 	<td>작성자</td>
-	<td>${articleData.article.writer.name}</td>
+<%-- 	<td>${articleData.article.writer.name}</td> --%>
+	<td>${articleData.article.writer.id}</td>
 </tr>
 <tr>
 	<td>제목</td>
@@ -22,7 +23,11 @@
 </tr>
 <tr>
 	<td>내용</td>
-	<td><u:pre value='${articleData.content}'/></td>
+	<td><u:pre value='${articleData.article.content}'/></td>
+</tr>
+<tr>
+	<td>주거형태</td>
+	<td><u:pre value='${articleData.article.type}'/></td>
 </tr>
 <tr>
 	<td colspan="2">

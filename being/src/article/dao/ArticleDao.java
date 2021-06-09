@@ -24,27 +24,43 @@ public class ArticleDao {
 		 java.sql.Date dateSelected = new java.sql.Date(selectedDate.getTime()); 
 		 
 		try {
-			pstmt = conn.prepareStatement("insert into article values (ARTICLE_SEQ.NEXTVAL,?,?,?,?,?,?,0)");
+			pstmt = conn.prepareStatement("insert into WRITING values "
+					+ "(WRITING_SEQ.NEXTVAL,"
+					+ "?,?,?,?,"
+					+ "?,?,?,?,"
+					+ "?,0,?)");
 			pstmt.setString(1, article.getWriter().getId());
-			pstmt.setString(2, article.getWriter().getName());
-			pstmt.setString(3, article.getTitle());
-			pstmt.setString(4, article.getContent());
-			pstmt.setDate(5, dateSelected);
-			pstmt.setDate(6, dateSelected);
+			pstmt.setString(2, article.getType());
+			pstmt.setString(3, article.getAcreage());
+			pstmt.setString(4, article.getBudget());
+			pstmt.setString(5, article.getField());
+			pstmt.setString(6, article.getSpace());
+			pstmt.setString(7, article.getTitle());
+			pstmt.setString(8, article.getContent());
+//			pstmt.setInt(8, article.getProdnum());
+			pstmt.setDate(9, dateSelected);
+//			pstmt.setDate(6, dateSelected);
+			pstmt.setString(10, article.getWriter().getName());
 			int insertedCount = pstmt.executeUpdate();
 
 			
 			if (insertedCount > 0) {
 				stmt = conn.createStatement();
-				rs = stmt.executeQuery("select max(article_no) from article");
+				rs = stmt.executeQuery("select max(NUM) from WRITING");
 				if (rs.next()) {
 					Integer newNo = rs.getInt(1);
 					return new Article(newNo,
 							article.getWriter(),
+							article.getType(),
+							article.getAcreage(),
+							article.getBudget(),
+							article.getField(),
+							article.getSpace(),
 							article.getTitle(),
 							article.getContent(),
+//							article.getProdnum(),
 							article.getRegDate(),
-							article.getModifiedDate(),
+//							article.getModifiedDate(),
 							0);
 				}
 			}
@@ -66,7 +82,7 @@ public class ArticleDao {
 		ResultSet rs = null;
 		try {
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("select count(*) from article");
+			rs = stmt.executeQuery("select count(*) from WRITING");
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -81,8 +97,10 @@ public class ArticleDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement("select * from article " +
-					"order by article_no desc limit ?, ?");
+			pstmt = conn.prepareStatement("SELECT * FROM ("
+					+ "        SELECT ROW_NUMBER() OVER (ORDER BY ARTICLE_NO) RNUM, A.*"
+					+ "          FROM WRITING A ORDER BY NUM)"
+					+ " WHERE RNUM BETWEEN ? AND ?");
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, size);
 			rs = pstmt.executeQuery();
@@ -98,15 +116,21 @@ public class ArticleDao {
 	}
 
 	private Article convertArticle(ResultSet rs) throws SQLException {
-		return new Article(rs.getInt("article_no"),
+		return new Article(rs.getInt("NUM"),
 				new Writer(
-						rs.getString("writer_id"),
-						rs.getString("writer_name")),
-				rs.getString("title"),
-				rs.getString("content"),//
-				toDate(rs.getTimestamp("regdate")),
-				toDate(rs.getTimestamp("moddate")),
-				rs.getInt("read_cnt"));
+						rs.getString("EMAIL"),
+						rs.getString("NAME")),
+				rs.getString("TYPE"),
+				rs.getString("ACREAGE"),
+				rs.getString("BUDGET"),
+				rs.getString("FIELD"),
+				rs.getString("SPACE"),
+				rs.getString("TITLE"),
+				rs.getString("CONTENTOF"),//
+//				rs.getInt("PRODNUM"),
+				toDate(rs.getTimestamp("REGISTDAY")),
+//				toDate(rs.getTimestamp("moddate")),
+				rs.getInt("READCOUNT"));
 	}
 
 	private Date toDate(Timestamp timestamp) {
@@ -118,7 +142,7 @@ public class ArticleDao {
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"select * from article where article_no = ?");
+					"select * from WRITING where NUM = ?");
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
 			Article article = null;
@@ -135,8 +159,8 @@ public class ArticleDao {
 	public void increaseReadCount(Connection conn, int no) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update article set read_cnt = read_cnt + 1 "+
-						"where article_no = ?")) {
+						"update WRITING set READCOUNT = READCOUNT + 1 "+
+						"where NUM = ?")) {
 			pstmt.setInt(1, no);
 			pstmt.executeUpdate();
 		}
@@ -145,8 +169,8 @@ public class ArticleDao {
 	public int update(Connection conn, int no, String title) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update article set title = ?, moddate = now() "+
-						"where article_no = ?")) {
+						"update WRITING set title = ?, moddate = now() "+
+						"where NUM = ?")) {
 			pstmt.setString(1, title);
 			pstmt.setInt(2, no);
 			return pstmt.executeUpdate();

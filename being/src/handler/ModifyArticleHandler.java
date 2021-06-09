@@ -48,7 +48,7 @@ public class ModifyArticleHandler implements CommandHandler {
 			}
 			ModifyRequest modReq = new ModifyRequest(authUser.getId(), no,
 					articleData.getArticle().getTitle(),
-					articleData.getContent());
+					articleData.getArticle().getContent());
 
 			req.setAttribute("modReq", modReq);
 			return FORM_VIEW;

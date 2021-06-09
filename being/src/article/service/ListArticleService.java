@@ -17,7 +17,8 @@ public class ListArticleService {
 		try (Connection conn = ConnectionProvider.getConnection()) {
 			int total = articleDao.selectCount(conn);
 			List<Article> content = articleDao.select(
-					conn, (pageNum - 1) * size, size);
+					conn, (pageNum - 1) * size + 1, pageNum * size);
+				//	conn, (pageNum - 1) * size, size);
 			return new ArticlePage(total, pageNum, size, content);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

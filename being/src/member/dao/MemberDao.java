@@ -17,16 +17,16 @@ public class MemberDao {
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"select * from member where memberid = ?");
+					"select * from members where EMAIL = ?");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			Member member = null;
 			if (rs.next()) {
 				member = new Member(
-						rs.getString("memberid"), 
-						rs.getString("name"), 
-						rs.getString("password"),
-						toDate(rs.getTimestamp("regdate")));
+						rs.getString("EMAIL"), 
+						rs.getString("NAME"), 
+						rs.getString("PASSWORD"),
+						toDate(rs.getTimestamp("REGISTDAY")));
 			}
 			return member;
 		} finally {
@@ -41,7 +41,7 @@ public class MemberDao {
 
 	public void insert(Connection conn, Member mem) throws SQLException {
 		try (PreparedStatement pstmt = 
-				conn.prepareStatement("insert into member values(?,?,?,?)")) {
+				conn.prepareStatement("insert into members values(?,?,?,?,2)")) {
 			pstmt.setString(1, mem.getId());
 			pstmt.setString(2, mem.getName());
 			pstmt.setString(3, mem.getPassword());
@@ -52,7 +52,7 @@ public class MemberDao {
 
 	public void update(Connection conn, Member member) throws SQLException {
 		try (PreparedStatement pstmt = conn.prepareStatement(
-				"update member set name = ?, password = ? where memberid = ?")) {
+				"update members set NAME = ?, PASSWORD = ? where EMAIL = ?")) {
 			pstmt.setString(1, member.getName());
 			pstmt.setString(2, member.getPassword());
 			pstmt.setString(3, member.getId());

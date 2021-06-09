@@ -24,7 +24,7 @@ public class WriteArticleService {
 
 			Article article = toArticle(req);
 			articleDao.insert(conn, article);
-			System.out.println("article insert 성공....");
+//			System.out.println("article insert 성공....");
 			/*
 			 * if (savedArticle == null) { throw new
 			 * RuntimeException("fail to insert article"); } ArticleContent content = new
@@ -34,7 +34,7 @@ public class WriteArticleService {
 			 */
 			conn.commit();
 			return 1;
-			//return savedArticle.getNumber();
+//			return savedArticle.getNumber();
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);
@@ -48,6 +48,17 @@ public class WriteArticleService {
 
 	private Article toArticle(WriteRequest req) {
 		Date now = new Date();
-		return new Article(null, req.getWriter(), req.getTitle(), req.getContent(), now, now, 0);
+		return new Article(null, 
+				req.getWriter(),
+				req.getType(),
+				req.getAcreage(),
+				req.getBudget(),
+				req.getField(),
+				req.getSpace(),
+				req.getTitle(),
+				req.getContent(),
+//				req.getProdnum(),
+				now, 
+				0);
 	}
 }
