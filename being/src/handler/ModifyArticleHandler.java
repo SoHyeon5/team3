@@ -1,6 +1,7 @@
 package handler;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,9 +47,19 @@ public class ModifyArticleHandler implements CommandHandler {
 				res.sendError(HttpServletResponse.SC_FORBIDDEN);
 				return null;
 			}
-			ModifyRequest modReq = new ModifyRequest(authUser.getId(), no,
+			
+			
+			ModifyRequest modReq = new ModifyRequest(authUser.getId(), 
+					no,
 					articleData.getArticle().getTitle(),
-					articleData.getArticle().getContent());
+					articleData.getArticle().getContent(),
+					articleData.getArticle().getType(),
+					articleData.getArticle().getAcreage(),
+					articleData.getArticle().getBudget(),
+					articleData.getArticle().getField(),
+					articleData.getArticle().getSpace()
+					
+					);
 
 			req.setAttribute("modReq", modReq);
 			return FORM_VIEW;
@@ -65,18 +76,37 @@ public class ModifyArticleHandler implements CommandHandler {
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
+		
+		try {
+	         req.setCharacterEncoding("UTF-8");
+	      } catch (UnsupportedEncodingException e1) {
+	         // TODO Auto-generated catch block
+	         e1.printStackTrace();
+	    }
+		
 		User authUser = (User) req.getSession().getAttribute("authUser");
 		String noVal = req.getParameter("no");
 		int no = Integer.parseInt(noVal);
+		
 
 		ModifyRequest modReq = new ModifyRequest(authUser.getId(), no,
 				req.getParameter("title"),
-				req.getParameter("content"));
+				req.getParameter("content"),
+				req.getParameter("TYPE"),
+				req.getParameter("ACREAGE"),
+				req.getParameter("BUDGET"),
+				req.getParameter("FIELD"),
+				req.getParameter("SPACE")
+				);
 		req.setAttribute("modReq", modReq);
 
 		Map<String, Boolean> errors = new HashMap<>();
 		req.setAttribute("errors", errors);
 		modReq.validate(errors);
+		
+		
+		
+		
 		if (!errors.isEmpty()) {
 			return FORM_VIEW;
 		}

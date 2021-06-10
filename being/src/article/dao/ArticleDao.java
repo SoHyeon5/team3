@@ -166,14 +166,38 @@ public class ArticleDao {
 		}
 	}
 	
-	public int update(Connection conn, int no, String title) throws SQLException {
+	public int update(Connection conn, int no, 
+			String title, 
+			String content,
+			String type,
+			String acreage,
+			String budget,
+			String field,
+			String space
+			) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update WRITING set title = ?, moddate = now() "+
+						"update WRITING set title = ?,CONTENTOF=?, TYPE=?, ACREAGE =?, BUDGET=?,FIELD=?,SPACE=?  "+
 						"where NUM = ?")) {
 			pstmt.setString(1, title);
-			pstmt.setInt(2, no);
+			pstmt.setString(2, content);
+			pstmt.setString(3, type);
+			pstmt.setString(4, acreage);
+			pstmt.setString(5, budget);
+			pstmt.setString(6, field);
+			pstmt.setString(7, space);
+			pstmt.setInt(8, no);
 			return pstmt.executeUpdate();
 		}
+	}
+		
+	public int delete(Connection conn, int no) throws SQLException {
+		try (PreparedStatement pstmt = 
+				conn.prepareStatement(
+						"delete from WRITING "+
+						"where NUM = ?")) {
+			pstmt.setInt(1, no);
+			return pstmt.executeUpdate();
+			}
 	}
 }

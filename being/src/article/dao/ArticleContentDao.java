@@ -15,8 +15,8 @@ public class ArticleContentDao {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"insert into article_content " + 
-					"(article_no, content) values (?,?)");
+					"insert into IMAGEFILE " + 
+					"(NUM, IMAGEA, IMAGEB, IMAGEC) values (?,?,?)");
 			pstmt.setLong(1, content.getNumber());
 			pstmt.setString(2, content.getContent());
 			int insertedCount = pstmt.executeUpdate();

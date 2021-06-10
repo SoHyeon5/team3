@@ -76,6 +76,7 @@ public class ControllerUsingURI extends HttpServlet {
         String viewPage = null;
         try {
             viewPage = handler.process(request, response);
+            System.out.println("viewPage="+viewPage);
             // "/WEB-INF/view/joinForm.jsp"
         } catch (Throwable e) {
             throw new ServletException(e);

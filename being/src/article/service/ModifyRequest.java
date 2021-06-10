@@ -8,12 +8,32 @@ public class ModifyRequest {
 	private int articleNumber;
 	private String title;
 	private String content;
+	private String type;
+	private String acreage;
+	private String budget;
+	private String field;
+	private String space;
+	
 
-	public ModifyRequest(String userId, int articleNumber, String title, String content) {
+	public ModifyRequest(String userId, 
+			int articleNumber, 
+			String title, 
+			String content,
+			String type,
+			String acreage,
+			String budget,
+			String field,
+			String space
+			) {
 		this.userId = userId;
 		this.articleNumber = articleNumber;
 		this.title = title;
 		this.content = content;
+		this.type = type;
+		this.acreage = acreage;
+		this.budget = budget;
+		this.field = field;
+		this.space = space;
 	}
 
 	public String getUserId() {
@@ -30,6 +50,26 @@ public class ModifyRequest {
 
 	public String getContent() {
 		return content;
+	}
+	
+	public String getType() {
+		return type;
+	}
+	
+	public String getAcreage() {
+		return acreage;
+	}
+	
+	public String getBudget() {
+		return budget;
+	}
+	
+	public String getField() {
+		return field;
+	}
+	
+	public String getSpace() {
+		return space;
 	}
 
 	public void validate(Map<String, Boolean> errors) {
