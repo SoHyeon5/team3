@@ -24,7 +24,7 @@
 
 <p>
 	내용:<br/>
-	<textarea name="INTRODUCE" rows="5" cols="30">${param.INTRODUCE}</textarea>
+	<textarea name="introduce" rows="5" cols="30">${param.introduce}</textarea>
 </p>
 
 <p>

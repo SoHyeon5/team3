@@ -23,7 +23,7 @@ public class StoreService {
 			conn.setAutoCommit(false);
 
 			Store store = toStore( req);
-			storeDao.insert(conn, store);
+//			storeDao.insert(conn, store);
 			
 			Store savedstore  = storeDao.insert(conn, store);
 //			System.out.println("article insert 성공....");
@@ -54,6 +54,7 @@ public class StoreService {
 	private Store toStore(StoreWriteRequest req) {
 //		Date now = new Date();
 		return new Store(null, 
+				req.getWriter(),
 				req.getName(), 
 				req.getThumbnail(),
 				req.getInfoimage(), 

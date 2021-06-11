@@ -23,7 +23,7 @@ public class WriteArticleService {
 			conn.setAutoCommit(false);
 
 			Article article = toArticle(req);
-			articleDao.insert(conn, article);
+//			articleDao.insert(conn, article);
 			
 			Article savedArticle = articleDao.insert(conn, article);
 //			System.out.println("article insert 성공....");

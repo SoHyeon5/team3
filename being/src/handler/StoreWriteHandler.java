@@ -62,8 +62,8 @@ public class StoreWriteHandler implements CommandHandler {
 			return FORM_VIEW;
 		}
 		
-		//int newArticleNo = storeService.write(writeReq);
-		//req.setAttribute("newArticleNo", newArticleNo);
+		int newStoreNo = storeService.store(storeWriteReq);
+		req.setAttribute("newStoreNo", newStoreNo);
 		
 		return "/WEB-INF/view/store/newStoreSuccess.jsp";
 	}
@@ -74,7 +74,7 @@ public class StoreWriteHandler implements CommandHandler {
 				req.getParameter("name"),
 				req.getParameter("thumbnail"),
 				req.getParameter("infoimage"),
-				req.getParameter("INTRODUCE "),
+				req.getParameter("introduce"),
 				Integer.parseInt(req.getParameter("PRICE")),
 				Integer.parseInt(req.getParameter("DCPRICE")),
 				req.getParameter("BRAND"),

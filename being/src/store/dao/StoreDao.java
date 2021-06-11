@@ -48,6 +48,7 @@ public class StoreDao {
 				if (rs.next()) {
 					Integer newNo = rs.getInt(1);
 					return new Store(newNo,
+							store.getWriter(),
 							store.getName(),
 							store.getThumbnail(),
 							store.getInfoimage(),
@@ -92,20 +93,20 @@ public class StoreDao {
 		}
 	}
 
-	public List<Article> select(Connection conn, int startRow, int size) throws SQLException {
+	public List<Store> select(Connection conn, int startRow, int size) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement("SELECT * FROM ("
 					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.*"
-					+ "          FROM WRITING A ORDER BY NUM)"
+					+ "          FROM PROD_MNG A ORDER BY NUM)"
 					+ " WHERE RNUM BETWEEN ? AND ?");
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, size);
 			rs = pstmt.executeQuery();
-			List<Article> result = new ArrayList<>();
+			List<Store> result = new ArrayList<>();
 			while (rs.next()) {
-				result.add(convertArticle(rs));
+				result.add(convertStore(rs));
 			}
 			return result;
 		} finally {
@@ -114,41 +115,42 @@ public class StoreDao {
 		}
 	}
 
-	private Article convertArticle(ResultSet rs) throws SQLException {
-		return new Article(rs.getInt("NUM"),
+	private Store convertStore(ResultSet rs) throws SQLException {
+		return new Store(rs.getInt("NUM"),
 				new Writer(
 						rs.getString("EMAIL"),
 						rs.getString("NAME")),
-				rs.getString("TYPE"),
-				rs.getString("ACREAGE"),
-				rs.getString("BUDGET"),
-				rs.getString("FIELD"),
-				rs.getString("SPACE"),
-				rs.getString("TITLE"),
-				rs.getString("CONTENTOF"),//
-//				rs.getInt("PRODNUM"),
-				toDate(rs.getTimestamp("REGISTDAY")),
-//				toDate(rs.getTimestamp("moddate")),
-				rs.getInt("READCOUNT"));
+						rs.getString("name"),
+					rs.getString("THUMBNAIL"),
+					rs.getString("INFOIMAGE"),
+					rs.getString("INTRODUCE"),
+					rs.getInt("PRICE"),
+					rs.getInt("DCPRICE"),
+					rs.getString("BRAND"),
+					rs.getString("KEYWD"),
+					rs.getString("CATEGORY"),
+					rs.getString("FREEYN"),
+					rs.getString("LINK")
+);
 	}
 
-	private Date toDate(Timestamp timestamp) {
-		return new Date(timestamp.getTime());
-	}
+//	private Date toDate(Timestamp timestamp) {
+//		return new Date(timestamp.getTime());
+//	}
 	
-	public Article selectById(Connection conn, int no) throws SQLException {
+	public Store selectById(Connection conn, int no) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"select * from WRITING where NUM = ?");
+					"select * from PROD_MNG where NUM = ?");
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
-			Article article = null;
+			Store store = null;
 			if (rs.next()) {
-				article = convertArticle(rs);
+				store = convertStore(rs);
 			}
-			return article;
+			return store;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
@@ -166,26 +168,34 @@ public class StoreDao {
 	}
 	
 	public int update(Connection conn, int no, 
-			String title, 
-			String content,
-			String type,
-			String acreage,
-			String budget,
-			String field,
-			String space
+			String name, 
+			String thumbnail, 
+			String infoimage, 
+			String introduce, 
+			Integer price,
+			Integer dcprice, 
+			String brand, 
+			String keywd, 
+			String category, 
+			String freeyn, 
+			String link
 			) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update WRITING set title = ?,CONTENTOF=?, TYPE=?, ACREAGE =?, BUDGET=?,FIELD=?,SPACE=?  "+
+						"update PROD_MNG set NAME = ?,THUMBNAIL=?, INFOIMAGE=?, INTRODUCE =?, PRICE=?, DCPRICE=?, BRAND=? , KEYWD=?, CATEGORY =?, FREEYN=?, LINK=?  "+
 						"where NUM = ?")) {
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
-			pstmt.setString(3, type);
-			pstmt.setString(4, acreage);
-			pstmt.setString(5, budget);
-			pstmt.setString(6, field);
-			pstmt.setString(7, space);
-			pstmt.setInt(8, no);
+			pstmt.setString(1, name);
+			pstmt.setString(2, thumbnail);
+			pstmt.setString(3, infoimage);
+			pstmt.setString(4, introduce);
+			pstmt.setInt(5, price);
+			pstmt.setInt(6, dcprice);
+			pstmt.setString(7, brand);
+			pstmt.setString(8, keywd);
+			pstmt.setString(9, category);
+			pstmt.setString(10, freeyn);
+			pstmt.setString(11, link);
+			pstmt.setInt(12, no);
 			return pstmt.executeUpdate();
 		}
 	}
@@ -193,7 +203,7 @@ public class StoreDao {
 	public int delete(Connection conn, int no) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"delete from WRITING "+
+						"delete from PROD_MNG "+
 						"where NUM = ?")) {
 			pstmt.setInt(1, no);
 			return pstmt.executeUpdate();

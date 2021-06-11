@@ -1,8 +1,11 @@
 package store.model;
 
+import article.model.Writer;
+
 public class Store {
 	
 	private Integer num;
+	private Writer writer;
 	private String name;	
 	private String thumbnail;	
 	private String infoimage;
@@ -16,9 +19,10 @@ public class Store {
 	private String link  ;
 	private Integer avggrade;	
 		
-	public Store(Integer num, String name, String thumbnail, String infoimage, String introduce, Integer price,
+	public Store(Integer num, Writer writer, String name, String thumbnail, String infoimage, String introduce, Integer price,
 			Integer dcprice, String brand, String keywd, String category, String freeyn, String link, Integer avggrade) {
 		this.num = num;
+		this.writer = writer;
 		this.name = name;
 		this.thumbnail = thumbnail;
 		this.infoimage = infoimage;
@@ -34,6 +38,7 @@ public class Store {
 	}
 	
 	public Store(Integer num, 
+			Writer writer,
 			String name, 
 			String thumbnail, 
 			String infoimage, 
@@ -46,6 +51,7 @@ public class Store {
 			String freeyn, 
 			String link) {
 		this.num = num;
+		this.writer = writer;
 		this.name = name;
 		this.thumbnail = thumbnail;
 		this.infoimage = infoimage;
@@ -64,6 +70,9 @@ public class Store {
 	}
 	public void setNum(Integer num) {
 		this.num = num;
+	}
+	public Writer getWriter() {
+		return writer;
 	}
 	public String getName() {
 		return name;
