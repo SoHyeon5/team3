@@ -45,6 +45,7 @@ public class JoinHandler implements CommandHandler {
 		joinReq.setId(req.getParameter("email"));
 		joinReq.setName(req.getParameter("name"));
 		joinReq.setPassword(req.getParameter("password"));
+		joinReq.setLevel(2);
 		joinReq.setConfirmPassword(req.getParameter("confirmPassword"));
 		
 		Map<String, Boolean> errors = new HashMap<>();

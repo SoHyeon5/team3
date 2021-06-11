@@ -14,7 +14,7 @@ import mvc.command.CommandHandler;
 public class LoginHandler implements CommandHandler {
 
 	private static final String FORM_VIEW = "/WEB-INF/view/login/loginForm.jsp";
-	private static final String SUCCESS = "/WEB-INF/view/login/loginSuccess.jsp";
+//	private static final String SUCCESS = "/WEB-INF/view/login/loginSuccess.jsp";
 	private LoginService loginService = new LoginService();
 
 	@Override
@@ -53,10 +53,18 @@ public class LoginHandler implements CommandHandler {
 
 		try {
 			User user = loginService.login(id, password);
+//			User user = new User(member.getId(), member.getName(), 레벨);
+			
 			req.getSession().setAttribute("authUser", user);
-//			res.sendRedirect(req.getContextPath() + "/main/index.do");
+//			System.out.println(user.getLevel());
+			if(user.getLevel()==1) {
+				req.getSession().setAttribute("admin", user);
+			}
+			
+			res.sendRedirect(req.getContextPath() + "/main/index.do");
 //			res.sendRedirect("/WEB-INF/view/login/loginSuccess.jsp");
-			return SUCCESS;
+//			return SUCCESS;
+			return null;
 		} catch (LoginFailException e) {
 			errors.put("idOrPwNotMatch", Boolean.TRUE);
 			return FORM_VIEW;

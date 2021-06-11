@@ -8,12 +8,14 @@ public class Member {
 	private String name;
 	private String password;
 	private Date regDate;
+	private int level;
 
-	public Member(String id, String name, String password, Date regDate) {
+	public Member(String id, String name, String password, int level, Date regDate) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.regDate = regDate;
+		this.level = level;
 	}
 
 	public String getId() {
@@ -32,6 +34,10 @@ public class Member {
 		return regDate;
 	}
 	
+	public int getLevel() {
+		return level;
+	}
+	
 	public boolean matchPassword(String pwd) {
 		return password.equals(pwd);
 	}
@@ -39,5 +45,9 @@ public class Member {
 	public void changePassword(String newPwd) {
 		this.password = newPwd;
 	}
+	
+//	public boolean matchLevel(int level) {
+//		return level == 1;
+//	}
 
 }

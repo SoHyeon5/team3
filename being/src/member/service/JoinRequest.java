@@ -8,6 +8,7 @@ public class JoinRequest {
 	private String name;
 	private String password;
 	private String confirmPassword;
+	private int level;
 
 	public String getId() {
 		return id;
@@ -15,6 +16,14 @@ public class JoinRequest {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 	public String getName() {
