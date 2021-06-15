@@ -28,9 +28,9 @@ public class StoreReviewDao {
 					+ "(PROD_COMT_SEQ.NEXTVAL,"
 					+ "?,?,?,?,?)");
 			pstmt.setString(1, storeReview.getWriter().getId());
-			pstmt.setInt(2, storeReview.getProdNum());
+			pstmt.setInt(2, (int)storeReview.getProdNum());
 			pstmt.setTimestamp(3, toTimestamp(storeReview.getRegDate()));
-			pstmt.setInt(4, storeReview.getGrade());
+			pstmt.setInt(4, (int)storeReview.getGrade());
 			pstmt.setString(5, storeReview.getContent());
 			
 			int insertedCount = pstmt.executeUpdate();

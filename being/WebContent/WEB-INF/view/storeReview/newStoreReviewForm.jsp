@@ -13,7 +13,7 @@
 
 <div class="wrap">
     <h1>후기</h1>
-        <input type="hidden" name="rate" id="rate" value="0"/>
+        <input type="hidden" name="no" id="rate" value="${storeReq.prodNum}"/>
         <p class="title_star">별점과 리뷰를 남겨주세요.</p>
  
         <div class="review_rating">

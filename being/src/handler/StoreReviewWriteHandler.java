@@ -12,15 +12,18 @@ import article.model.Writer;
 //import article.service.WriteRequest;
 import auth.service.User;
 import mvc.command.CommandHandler;
+import store.service.ReadStoreService;
+import store.service.StoreData;
 import store.service.StoreReviewService;
 import store.service.StoreReviewWriteRequest;
 //import store.model.Store;
-import store.service.StoreService;
-import store.service.StoreWriteRequest;
+//import store.service.StoreService;
+//import store.service.StoreWriteRequest;
 
 public class StoreReviewWriteHandler implements CommandHandler {
-	private static final String FORM_VIEW = "/WEB-INF/view/store/newStoreForm.jsp";
+	private static final String FORM_VIEW = "/WEB-INF/view/storeReview/newStoreReviewForm.jsp";
 	private StoreReviewService storeReviewService = new StoreReviewService();
+	private ReadStoreService readService = new ReadStoreService();
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) {
@@ -35,6 +38,15 @@ public class StoreReviewWriteHandler implements CommandHandler {
 	}
 
 	private String processForm(HttpServletRequest req, HttpServletResponse res) {
+		String noVal = req.getParameter("no");
+		int no = Integer.parseInt(noVal);
+		StoreData storeData = readService.getStore(no, false);
+		
+		StoreReviewWriteRequest storeReq = new StoreReviewWriteRequest(
+				storeData.getStore().getNum());
+		
+		req.setAttribute("storeReq", storeReq);
+		
 		return FORM_VIEW;
 	}
 	
@@ -67,12 +79,14 @@ public class StoreReviewWriteHandler implements CommandHandler {
 		int newStoreNo = storeReviewService.store(storeReviewWriteReq);
 		req.setAttribute("newStoreNo", newStoreNo);
 		
-		return "/WEB-INF/view/store/newStoreSuccess.jsp";
+		return "/WEB-INF/view/storeReview/newStoreReviewSuccess.jsp";
 	}
 
 	private StoreReviewWriteRequest createStoreReviewWriteRequest(User user, HttpServletRequest req) {
 		String noVal = req.getParameter("no");
 		int no = Integer.parseInt(noVal);
+		System.out.println("no="+no);
+		System.out.println("grade="+req.getParameter("grade"));
 		return new StoreReviewWriteRequest(
 				new Writer(user.getId(), user.getName()),
 				no,

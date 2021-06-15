@@ -22,6 +22,10 @@ public class StoreReviewWriteRequest {
 			this.content = content;
 		}
 		
+		public StoreReviewWriteRequest(Integer prodNum) {
+			this.prodNum = prodNum;
+		}
+		
 		public Writer getWriter() {
 			return writer;
 		}

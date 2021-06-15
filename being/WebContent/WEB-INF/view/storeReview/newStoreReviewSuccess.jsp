@@ -14,7 +14,7 @@
 
 <script>
    alert("상품평을 등록했습니다.");
-   location.href="${ctxPath}/store/read.do?no=${req.prodNum}";
+   location.href="${pageContext.request.contextPath}/store/read.do?no=${req.prodNum}";
 </script>
 
 </body>
