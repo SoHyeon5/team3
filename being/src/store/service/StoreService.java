@@ -54,7 +54,7 @@ public class StoreService {
 	private Store toStore(StoreWriteRequest req) {
 //		Date now = new Date();
 		return new Store(null, 
-				req.getWriter(),
+//				req.getWriter(),
 				req.getName(), 
 				req.getThumbnail(),
 				req.getInfoimage(), 

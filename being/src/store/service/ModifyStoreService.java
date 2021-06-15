@@ -7,6 +7,7 @@ import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 import store.dao.StoreDao;
 import store.model.Store;
+//import auth.service.User;
 
 public class ModifyStoreService {
 
@@ -24,9 +25,9 @@ public class ModifyStoreService {
 			if (store == null) {
 				throw new StoreNotFoundException();
 			}
-			if (!canModify(modReq.getUserId(), store)) {
-				throw new PermissionDeniedException();
-			}
+//			if (!canModify(modReq.getUserId(), store)) {
+//				throw new PermissionDeniedException();
+//			}
 			storeDao.update(conn, 
 					modReq.getNum(), 
 					modReq.getName(),
@@ -55,8 +56,15 @@ public class ModifyStoreService {
 		}
 	}
 
-	private boolean canModify(String modfyingUserId, Store store) {
-		return store.getWriter().getId().equals(modfyingUserId);
-	}
+//	private boolean canModify(User modfyingUserId) {
+////		return store.getWriter().getId().equals(modfyingUserId);
+//		if(modfyingUserId.getLevel()==1) {
+//			return true;
+//		} else {
+//			return false;
+//			
+//		}
+//		
+//	}
 
 }

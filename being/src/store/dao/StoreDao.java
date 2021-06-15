@@ -5,13 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
+//import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 
-import article.model.Article;
-import article.model.Writer;
+//import article.model.Article;
+//import article.model.Writer;
 import jdbc.JdbcUtil;
 import store.model.Store;
 
@@ -48,7 +48,7 @@ public class StoreDao {
 				if (rs.next()) {
 					Integer newNo = rs.getInt(1);
 					return new Store(newNo,
-							store.getWriter(),
+//							store.getWriter(),
 							store.getName(),
 							store.getThumbnail(),
 							store.getInfoimage(),
@@ -117,21 +117,18 @@ public class StoreDao {
 
 	private Store convertStore(ResultSet rs) throws SQLException {
 		return new Store(rs.getInt("NUM"),
-				new Writer(
-						rs.getString("EMAIL"),
-						rs.getString("NAME")),
-						rs.getString("name"),
-					rs.getString("THUMBNAIL"),
-					rs.getString("INFOIMAGE"),
-					rs.getString("INTRODUCE"),
-					rs.getInt("PRICE"),
-					rs.getInt("DCPRICE"),
-					rs.getString("BRAND"),
-					rs.getString("KEYWD"),
-					rs.getString("CATEGORY"),
-					rs.getString("FREEYN"),
-					rs.getString("LINK")
-);
+	            rs.getString("NAME"),
+	            rs.getString("THUMBNAIL"),
+	            rs.getString("INFOIMAGE"),
+	            rs.getString("INTRODUCE"),
+	            rs.getInt("PRICE"),
+	            rs.getInt("DCPRICE"),
+	            rs.getString("BRAND"),
+	            rs.getString("KEYWD"),
+	            rs.getString("CATEGORY"),
+	            rs.getString("FREEYN"),
+	            rs.getString("LINK"),
+	            rs.getInt("AVGGRADE"));
 	}
 
 //	private Date toDate(Timestamp timestamp) {
@@ -157,15 +154,15 @@ public class StoreDao {
 		}
 	}
 	
-	public void increaseReadCount(Connection conn, int no) throws SQLException {
-		try (PreparedStatement pstmt = 
-				conn.prepareStatement(
-						"update WRITING set READCOUNT = READCOUNT + 1 "+
-						"where NUM = ?")) {
-			pstmt.setInt(1, no);
-			pstmt.executeUpdate();
-		}
-	}
+//	public void increaseReadCount(Connection conn, int no) throws SQLException {
+//		try (PreparedStatement pstmt = 
+//				conn.prepareStatement(
+//						"update WRITING set READCOUNT = READCOUNT + 1 "+
+//						"where NUM = ?")) {
+//			pstmt.setInt(1, no);
+//			pstmt.executeUpdate();
+//		}
+//	}
 	
 	public int update(Connection conn, int no, 
 			String name, 

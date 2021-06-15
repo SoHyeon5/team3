@@ -13,8 +13,8 @@ ${ctxPath = pageContext.request.contextPath ; ''}
 <%-- <a href="${ctxPath}/board/read.do?no=${modReq.articleNumber}">[게시글내용보기]</a> --%>
 
 <script>
-   alert("스토리를 수정했습니다.");
-   location.href="read.do?no=${modReq.articleNumber}";
+   alert("상품정보를 수정했습니다.");
+   location.href="read.do?no=${modReq.num}";
 </script>
 </body>
 </html>

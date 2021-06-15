@@ -43,7 +43,7 @@ public class ModifyStoreHandler implements CommandHandler {
 			int no = Integer.parseInt(noVal);
 			StoreData storeData = readService.getStore(no, false);
 			User authUser = (User) req.getSession().getAttribute("authUser");
-			if (!canModify(authUser, storeData)) {
+			if (authUser.getLevel() != 1) {
 				res.sendError(HttpServletResponse.SC_FORBIDDEN);
 				return null;
 			}
@@ -73,10 +73,15 @@ public class ModifyStoreHandler implements CommandHandler {
 		}
 	}
 
-	private boolean canModify(User authUser, StoreData storeData) {
-		String writerId = storeData.getStore().getWriter().getId();
-		return authUser.getId().equals(writerId);
-	}
+//	private boolean canModify(User authUser, StoreData storeData) {
+//		String writerId = storeData.getStore().getWriter().getId();
+//		return authUser.getId().equals(writerId);
+//	}
+	
+//	private boolean canModify(User authUser, StoreData storeData) {
+//		String writerId = storeData.getStore().getWriter().getId();
+//		return authUser.getId().equals(writerId);
+//	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {

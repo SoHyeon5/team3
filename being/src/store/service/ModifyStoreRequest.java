@@ -2,7 +2,7 @@ package store.service;
 
 import java.util.Map;
 
-import article.model.Writer;
+//import article.model.Writer;
 
 public class ModifyStoreRequest {
 
@@ -36,6 +36,7 @@ public class ModifyStoreRequest {
 			String link
 			) {
 		this.userId = userId;
+		this.num = num;
 		this.name = name;
 		this.thumbnail = thumbnail;
 		this.infoimage = infoimage;

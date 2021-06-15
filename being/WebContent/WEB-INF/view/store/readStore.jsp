@@ -67,8 +67,10 @@
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}" />
 		<a href="list.do?pageNo=${pageNo}">[목록]</a>
 		<%-- <c:if test="${authUser.id == storeData.article.writer.id}"> --%>
-		<%-- <a href="modify.do?no=${storeData.store.number}">[게시글수정]</a>
-		<a href="delete.do?no=${storeData.store.number}">[게시글삭제]</a> --%>
+		<u:isAdmin>
+		<a href="modify.do?no=${storeData.store.num}">[게시글수정]</a>
+		<a href="delete.do?no=${storeData.store.num}">[게시글삭제]</a>
+		</u:isAdmin>
 		<%-- </c:if> --%>
 	</td> 
 </tr>

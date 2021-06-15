@@ -7,9 +7,9 @@
 </head>
 <body>
 <form action="modify.do" method="post">
-<input type="hidden" name="no" value="${modReq.Num}">
+<input type="hidden" name="no" value="${modReq.num}">
 <p>
-	번호:<br/>${modReq.Num}
+	번호:<br/>${modReq.num}
 </p>
 <p>
 	제목:<br/><input type="text" name="name" value="${modReq.name}">
@@ -17,37 +17,37 @@
 </p>
 <p>
 	썸네일:<br/>
-	<textarea name="thumbnail" rows="5" cols="30">${param.thumbnail}</textarea>
+	<textarea name="thumbnail" rows="5" cols="30" >${modReq.thumbnail}</textarea>
 </p>
 
 <p>
 	소개이미지:<br/>
-	<textarea name="infoimage" rows="5" cols="30">${param.infoimage}</textarea>
+	<textarea name="infoimage" rows="5" cols="30">${modReq.infoimage}</textarea>
 </p>
 
 <p>
 	내용:<br/>
-	<textarea name="introduce" rows="5" cols="30">${param.introduce}</textarea>
+	<textarea name="introduce" rows="5" cols="30">${modReq.introduce}</textarea>
 </p>
 
 <p>
 	가격:<br/>
-	<textarea name="PRICE" rows="5" cols="30">${param.PRICE}</textarea>
+	<textarea name="price" rows="5" cols="30">${modReq.price}</textarea>
 </p>
 
 <p>
 	할인가:<br/>
-	<textarea name="DCPRICE" rows="5" cols="30">${param.DCPRICE}</textarea>
+	<textarea name="dcprice" rows="5" cols="30">${modReq.dcprice}</textarea>
 </p>
 
 <p>
 	브랜드:<br/>
-	<textarea name="BRAND" rows="5" cols="30">${param.BRAND}</textarea>
+	<textarea name="brand" rows="5" cols="30">${modReq.brand}</textarea>
 </p>
 
 <p>
 	키워드:<br/>
-	<textarea name="KEYWD" rows="5" cols="30">${param.KEYWD}</textarea>
+	<textarea name="keywd" rows="5" cols="30">${modReq.keywd}</textarea>
 </p>
 
 
@@ -56,7 +56,7 @@
           <ul class="story-category">
           
         	  <li class="category=ct">
-       		   	<select id="category" name="CATEGORY">
+       		   	<select id="category" name="category">
        		   	<option value="">-카테고리-</option>
                          <option value="책장">책장</option>
                          <option value="의자">의자</option>
@@ -70,7 +70,7 @@
          	 </li>
           
                <li class="freeyn-ct">
-                   <select name = "FREEYN">
+                   <select name = "freeyn">
                         <option value="Y">무료배송</option>
                         <option value="N">유료배송</option>
                         
@@ -85,28 +85,13 @@
 
 <p>
 	링크:<br/>
-	<textarea name="LINK" rows="5" cols="30">${param.LINK}</textarea>
+	<textarea name="link" rows="5" cols="30">${modReq.link}</textarea>
 </p>
 
 <input type="submit" value="상품 수정">
 </form>
 </body>
 
-<script> 
 
-// $(function(){
-// 	$(.type option).each(function(){
-
-// 	    if($(this).val()=="${modReq.type}"){
-
-// 	      $(this).attr("selected","selected"); // attr적용안될경우 prop으로 
-
-// 	    }
-
-// 	  });
-	
-// });
-
-</script>
 
 </html>
