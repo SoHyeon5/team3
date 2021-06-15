@@ -66,6 +66,7 @@
 	 <td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}" />
 		<a href="list.do?pageNo=${pageNo}">[목록]</a>
+		<a href="${ctxPath}/storeReview/write.do?no=${storeData.store.num}">[상품평 등록]</a>
 		<%-- <c:if test="${authUser.id == storeData.article.writer.id}"> --%>
 		<u:isAdmin>
 		<a href="modify.do?no=${storeData.store.num}">[게시글수정]</a>
