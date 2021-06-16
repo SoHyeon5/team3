@@ -7,6 +7,7 @@ public class StoreData {
 
 	private Store store;
 //	private ArticleContent content;
+//	private StoreReview storeReview;
 
 //	public ArticleData(Article article, ArticleContent content) {
 		public StoreData(Store store) {

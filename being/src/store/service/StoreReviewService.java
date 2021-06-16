@@ -5,15 +5,15 @@ import java.sql.SQLException;
 //import java.util.Date;
 import java.util.Date;
 
-import article.model.Writer;
-import auth.service.User;
+//import article.model.Writer;
+//import auth.service.User;
 //import article.dao.ArticleContentDao;
 //import article.model.ArticleContent;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
-import store.dao.StoreDao;
+//import store.dao.StoreDao;
 import store.dao.StoreReviewDao;
-import store.model.Store;
+//import store.model.Store;
 import store.model.StoreReview;
 
 public class StoreReviewService {
@@ -21,7 +21,7 @@ public class StoreReviewService {
 	private StoreReviewDao storeReviewDao = new StoreReviewDao();
 //	private ArticleContentDao contentDao = new ArticleContentDao();
 
-	public Integer store(StoreReviewWriteRequest req) {
+	public Integer storeReview(StoreReviewWriteRequest req) {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
@@ -44,7 +44,7 @@ public class StoreReviewService {
 
 			conn.commit();
 //			return 1;
-			return savedstore.getNum();
+			return savedstore.getProdNum();
 		} catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			throw new RuntimeException(e);

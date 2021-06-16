@@ -76,8 +76,8 @@ public class StoreReviewWriteHandler implements CommandHandler {
 			return FORM_VIEW;
 		}
 		
-//		int newStoreNo = storeReviewService.store(storeReviewWriteReq);
-		req.setAttribute("storeReviewWriteReq", storeReviewWriteReq);
+		int newStoreReviewNo = storeReviewService.storeReview(storeReviewWriteReq);
+		req.setAttribute("newStoreReviewNo", newStoreReviewNo);
 		
 		return "/WEB-INF/view/storeReview/newStoreReviewSuccess.jsp";
 	}

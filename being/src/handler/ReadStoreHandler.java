@@ -20,6 +20,7 @@ public class ReadStoreHandler implements CommandHandler {
 		int storeNum = Integer.parseInt(noVal);
 		try {
 			StoreData storeData = readService.getStore(storeNum, true);
+			
 			req.setAttribute("storeData", storeData);
 			return "/WEB-INF/view/store/readStore.jsp";
 		} catch (StoreNotFoundException e) {
