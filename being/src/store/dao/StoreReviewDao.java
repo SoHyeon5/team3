@@ -13,7 +13,7 @@ import java.util.List;
 //import article.model.Article;
 //import article.model.Writer;
 import jdbc.JdbcUtil;
-import store.model.Store;
+// import store.model.Store;
 import store.model.StoreReview;
 
 public class StoreReviewDao {
@@ -79,20 +79,20 @@ public class StoreReviewDao {
 		}
 	}
 
-	public List<Store> select(Connection conn, int startRow, int size) throws SQLException {
+	public List<StoreReview> select(Connection conn, int startRow, int size) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement("SELECT * FROM ("
 					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.*"
-					+ "          FROM PROD_MNG A ORDER BY NUM)"
+					+ "          FROM PROD_COMT A ORDER BY NUM)"
 					+ " WHERE RNUM BETWEEN ? AND ?");
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, size);
 			rs = pstmt.executeQuery();
-			List<Store> result = new ArrayList<>();
+			List<StoreReview> result = new ArrayList<>();
 			while (rs.next()) {
-				result.add(convertStore(rs));
+				result.add(convertStoreReview(rs));
 			}
 			return result;
 		} finally {
@@ -101,39 +101,29 @@ public class StoreReviewDao {
 		}
 	}
 
-	private Store convertStore(ResultSet rs) throws SQLException {
-		return new Store(rs.getInt("NUM"),
-	            rs.getString("NAME"),
-	            rs.getString("THUMBNAIL"),
-	            rs.getString("INFOIMAGE"),
-	            rs.getString("INTRODUCE"),
-	            rs.getInt("PRICE"),
-	            rs.getInt("DCPRICE"),
-	            rs.getString("BRAND"),
-	            rs.getString("KEYWD"),
-	            rs.getString("CATEGORY"),
-	            rs.getString("FREEYN"),
-	            rs.getString("LINK"),
-	            rs.getInt("AVGGRADE"));
+	private StoreReview convertStoreReview(ResultSet rs) throws SQLException {
+		return new StoreReview(rs.getInt("NUM"),
+	            rs.getInt("GRADE"),
+	            rs.getString("CONTENT"));
 	}
 
 //	private Date toDate(Timestamp timestamp) {
 //		return new Date(timestamp.getTime());
 //	}
 	
-	public Store selectById(Connection conn, int no) throws SQLException {
+	public StoreReview selectById(Connection conn, int no) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"select * from PROD_MNG where NUM = ?");
+					"select * from PROD_COMT where NUM = ?");
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
-			Store store = null;
+			StoreReview storeReview = null;
 			if (rs.next()) {
-				store = convertStore(rs);
+				storeReview = convertStoreReview(rs);
 			}
-			return store;
+			return storeReview;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
@@ -150,35 +140,17 @@ public class StoreReviewDao {
 //		}
 //	}
 	
-	public int update(Connection conn, int no, 
-			String name, 
-			String thumbnail, 
-			String infoimage, 
-			String introduce, 
-			Integer price,
-			Integer dcprice, 
-			String brand, 
-			String keywd, 
-			String category, 
-			String freeyn, 
-			String link
+	public int update(Connection conn, int no,
+			Integer grade, 
+			String content
 			) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update PROD_MNG set NAME = ?,THUMBNAIL=?, INFOIMAGE=?, INTRODUCE =?, PRICE=?, DCPRICE=?, BRAND=? , KEYWD=?, CATEGORY =?, FREEYN=?, LINK=?  "+
+						"update PROD_COMT set GRADE = ?,CONTENT=? "+
 						"where NUM = ?")) {
-			pstmt.setString(1, name);
-			pstmt.setString(2, thumbnail);
-			pstmt.setString(3, infoimage);
-			pstmt.setString(4, introduce);
-			pstmt.setInt(5, price);
-			pstmt.setInt(6, dcprice);
-			pstmt.setString(7, brand);
-			pstmt.setString(8, keywd);
-			pstmt.setString(9, category);
-			pstmt.setString(10, freeyn);
-			pstmt.setString(11, link);
-			pstmt.setInt(12, no);
+			pstmt.setInt(1, grade);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, no);
 			return pstmt.executeUpdate();
 		}
 	}
@@ -186,7 +158,7 @@ public class StoreReviewDao {
 	public int delete(Connection conn, int no) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"delete from PROD_MNG "+
+						"delete from PROD_COMT "+
 						"where NUM = ?")) {
 			pstmt.setInt(1, no);
 			return pstmt.executeUpdate();

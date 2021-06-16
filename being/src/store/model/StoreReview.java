@@ -13,6 +13,8 @@ public class StoreReview {
 	private Integer grade;	
 	private String content;
 	
+	public StoreReview() {}
+	
 	public StoreReview(
 			Integer num,
 			Writer writer,
@@ -25,6 +27,16 @@ public class StoreReview {
 		this.writer = writer;
 		this.prodNum = prodNum;
 		this.regDate = regDate;
+		this.grade = grade;
+		this.content = content;
+	}
+	
+	public StoreReview(
+			Integer num,
+			Integer grade,
+			String content
+			) {
+		this.num = num;
 		this.grade = grade;
 		this.content = content;
 	}
