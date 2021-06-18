@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import article.model.Writer;
 import jdbc.JdbcUtil;
-import store.model.Store;
-import interior.model.Interior;
 import interior.model.InteriorAsk;
 
 public class InteriorAskDao {
@@ -34,7 +34,7 @@ public class InteriorAskDao {
 			pstmt.setDate(3, dateSelected);
 			pstmt.setString(4, interiorAsk.getBudget());
 			pstmt.setString(5, interiorAsk.getArea());
-			pstmt.setString(6, interiorAsk.getField());
+			pstmt.setString(6, interiorAsk.getFieldOf());
 			pstmt.setString(7, interiorAsk.getAddress());
 			pstmt.setString(8, interiorAsk.getDateStart());
 			pstmt.setString(9, interiorAsk.getDateDone());
@@ -53,7 +53,7 @@ public class InteriorAskDao {
 							interiorAsk.getTitle(),
 							interiorAsk.getName(),
 							interiorAsk.getArea(),
-							interiorAsk.getField(),
+							interiorAsk.getFieldOf(),
 							interiorAsk.getAddress(),
 							interiorAsk.getDateStart(),
 							interiorAsk.getDateDone(),
@@ -79,7 +79,7 @@ public class InteriorAskDao {
 		ResultSet rs = null;
 		try {
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("select count(*) from CORP_MNG");
+			rs = stmt.executeQuery("select count(*) from REQ_MNG");
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -90,20 +90,20 @@ public class InteriorAskDao {
 		}
 	}
 
-	public List<Interior> select(Connection conn, int startRow, int size) throws SQLException {
+	public List<InteriorAsk> select(Connection conn, int startRow, int size) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement("SELECT * FROM ("
-					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.*"
-					+ "          FROM CORP_MNG A ORDER BY NUM)"
+					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.* "
+					+ "          FROM REQ_MNG A  ORDER BY NUM)"
 					+ " WHERE RNUM BETWEEN ? AND ?");
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, size);
 			rs = pstmt.executeQuery();
-			List<Interior> result = new ArrayList<>();
+			List<InteriorAsk> result = new ArrayList<>();
 			while (rs.next()) {
-				result.add(convertInterior(rs));
+				result.add(convertInteriorAsk(rs));
 			}
 			return result;
 		} finally {
@@ -112,67 +112,68 @@ public class InteriorAskDao {
 		}
 	}
 
-	private Interior convertInterior(ResultSet rs) throws SQLException {
-	      return new Interior(rs.getInt("NUM"),
-	               rs.getString("NAME"),
-	               rs.getString("INTRODUCE"),
-	               rs.getString("IMAGEA"),
-	               rs.getString("IMAGEB"));
-	   }
+	private InteriorAsk convertInteriorAsk(ResultSet rs) throws SQLException {
+	      return new InteriorAsk(rs.getInt("NUM"),
+	    		  new Writer(
+				   rs.getString("EMAIL"),
+				   rs.getString("NAME")),
+	    		   rs.getString("TITLE"),
+	    		   rs.getString("NAME"),
+	               rs.getString("AREA"),
+	               rs.getString("FIELDOF"),
+	               rs.getString("ADDRESS"),
+	               rs.getString("DATESTART"),
+	               rs.getString("DATEDONE"),
+	               rs.getString("BUDGET"),
+	               rs.getString("MESSAGE"),
+	               rs.getString("TEL")
+	    		  );
+	}
 
 	
-	public Interior selectById(Connection conn, int no) throws SQLException {
+	public InteriorAsk selectById(Connection conn, int no) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
-					"select * from CORP_MNG where NUM = ?");
+							"SELECT A.*, B.NAME "
+							+ "FROM REQ_MNG A , MEMBERS B "
+							+ "WHERE A.EMAIL = B.EMAIL "
+							+ "AND A.NUM = ?"
+							);
 			pstmt.setInt(1, no);
+			System.out.println(no);
 			rs = pstmt.executeQuery();
-			Interior interior = null;
+			InteriorAsk interiorAsk = null;
 			if (rs.next()) {
-				interior = convertInterior(rs);
+				interiorAsk = convertInteriorAsk(rs);
 			}
-			return interior;
+			return interiorAsk;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
 	}
 	
-	public void increaseReadCount(Connection conn, int no) throws SQLException {
-		try (PreparedStatement pstmt = 
-				conn.prepareStatement(
-						"update CORP_MNG set READCOUNT = READCOUNT + 1 "+
-						"where NUM = ?")) {
-			pstmt.setInt(1, no);
-			pstmt.executeUpdate();
-		}
-	}
-	
 	public int update(Connection conn, int no, 
-			String name,
-			String introduce, 
-			String imageA, 
-			String imageB
-			) throws SQLException {
+			String answer
+			) 
+					throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update CORP_MNG set NAME = ?, INTRODUCE =?, IMAGEA=?, IMAGEB=? "+
+						"update REQ_MNG set ANSWER=? "+
 						"where NUM = ?")) {
-			pstmt.setString(1, name);
-			pstmt.setString(2, introduce);
-			pstmt.setString(3, imageA);
-			pstmt.setString(4, imageB);
-			pstmt.setInt(5, no);
+			pstmt.setString(1, answer);
+			pstmt.setInt(2, no);
 			return pstmt.executeUpdate();
+			
 		}
 	}
 		
 	public int delete(Connection conn, int no) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"delete from CORP_MNG "+
+						"delete from REQ_MNG "+
 						"where NUM = ?")) {
 			pstmt.setInt(1, no);
 			return pstmt.executeUpdate();

@@ -45,8 +45,8 @@ public class StoreReviewModifyHandler implements CommandHandler {
 		try {
 			String noVal = req.getParameter("no");
 			int no = Integer.parseInt(noVal);
-//			StoreData storeData = readService.getStore(no, false);
-//			StoreReview storeReview = readService.getStore(no, false);
+//			StoreData storeData = readService.getStore(no);
+//			StoreReview storeReview = readService.getStore(no);
 			StoreReview storeReview = new StoreReview();
 			User authUser = (User) req.getSession().getAttribute("authUser");
 //			if (authUser.getLevel() != 1) {

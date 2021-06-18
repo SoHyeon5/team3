@@ -16,6 +16,10 @@ public class User {
 		this.name = name;
 		this.level = level;
 	}
+	
+	public User(int level) {
+		this.level = level;
+	}
 
 	public String getId() {
 		return id;

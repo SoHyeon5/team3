@@ -13,6 +13,8 @@ public class StoreReview {
 	private Integer grade;	
 	private String content;
 	
+	public StoreReview() {}
+	
 	public StoreReview(
 			Integer num,
 			Writer writer,

@@ -66,6 +66,7 @@ public class ModifyStoreHandler implements CommandHandler {
 					);
 
 			req.setAttribute("modReq", modReq);
+			System.out.println(modReq);
 			return FORM_VIEW;
 		} catch (StoreNotFoundException e) {
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -118,7 +119,7 @@ public class ModifyStoreHandler implements CommandHandler {
 		modReq.validate(errors);
 		
 		
-		
+		System.out.println(modReq);
 		
 		if (!errors.isEmpty()) {
 			return FORM_VIEW;

@@ -7,10 +7,11 @@ public class InteriorAsk {
 
 	private Integer num;	
 	private Writer writer;
+	private String answer;
 	private String title;
 	private String name;
 	private String area;	
-	private String field;
+	private String fieldof;
 	private String address;
 	private String dateStart;
 	private String dateDone;
@@ -25,7 +26,7 @@ public class InteriorAsk {
 			String title, 
 			String name,
 			String area, 
-			String field,
+			String fieldof,
 			String address, 
 			String dateStart, 
 			String dateDone, 
@@ -37,7 +38,7 @@ public class InteriorAsk {
 		this.title = title;
 		this.name = name;
 		this.area = area;
-		this.field = field;
+		this.fieldof = fieldof;
 		this.address = address;
 		this.dateStart = dateStart;
 		this.dateDone = dateDone;
@@ -52,7 +53,7 @@ public class InteriorAsk {
 			String title, 
 			String name,
 			String area, 
-			String field,
+			String fieldof,
 			String address, 
 			String dateStart, 
 			String dateDone, 
@@ -65,7 +66,7 @@ public class InteriorAsk {
 		this.title = title;
 		this.name = name;
 		this.area = area;
-		this.field = field;
+		this.fieldof = fieldof;
 		this.address = address;
 		this.dateStart = dateStart;
 		this.dateDone = dateDone;
@@ -74,6 +75,30 @@ public class InteriorAsk {
 		this.tel = tel;
 	}
 	
+	public InteriorAsk(
+			Integer num,
+			String answer) {
+		super();
+		this.num = num;
+		this.answer=answer;
+	}
+	
+
+	public InteriorAsk(Integer num, String title, String name, String area, String fieldof, String address,
+			String dateStart, String dateDone, String budget, String message, String tel) {
+		super();
+		this.num = num;
+		this.title = title;
+		this.name = name;
+		this.area = area;
+		this.fieldof = fieldof;
+		this.address = address;
+		this.dateStart = dateStart;
+		this.dateDone = dateDone;
+		this.budget = budget;
+		this.message = message;
+		this.tel = tel;
+	}
 
 	public Writer getWriter() {
 		return writer;
@@ -81,6 +106,10 @@ public class InteriorAsk {
 	
 	public Integer getNum() {
 		return num;
+	}
+	
+	public String getAnswer() {
+		return answer;
 	}
 	
 	public String getTitle() {
@@ -95,8 +124,8 @@ public class InteriorAsk {
 		return area;
 	}
 	
-	public String getField() {
-		return field;
+	public String getFieldOf() {
+		return fieldof;
 	}
 	
 	public String getAddress() {
@@ -124,11 +153,5 @@ public class InteriorAsk {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Interior [writer=" + writer + ", num=" + num + ", title=" + title + ", name=" + name
-				+ ", area=" + area + ", field=" + field + ", address=" + address + ", dateStart=" + dateStart + ", budget=" + budget +
-				", message=" + message + ", tel=" + tel + "]";
-	}
 	
 }

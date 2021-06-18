@@ -140,13 +140,13 @@
 </div>
 
 <p>
-   창호,샷시:<input type="checkbox" name="field" value="창호,샷시"><br/>
-   발코니 확장:<input type="checkbox" name="field" value="발코니 확장"><br/>
-   도배:<input type="checkbox" name="field" value="도배"><br/>
-   바닥재:<input type="checkbox" name=" field" value="바닥재"><br/>
-   주방:<input type="checkbox" name="field" value="주방"><br/>
-   욕실:<input type="checkbox" name="field" value="욕실"><br/>
-   도어,문틀:<input type="checkbox" name="field" value="도어,문틀"><br/>
+   창호,샷시:<input type="checkbox" name="fieldOf" value="창호,샷시"><br/>
+   발코니 확장:<input type="checkbox" name="fieldOf" value="발코니 확장"><br/>
+   도배:<input type="checkbox" name="fieldOf" value="도배"><br/>
+   바닥재:<input type="checkbox" name=" fieldOf" value="바닥재"><br/>
+   주방:<input type="checkbox" name="fieldOf" value="주방"><br/>
+   욕실:<input type="checkbox" name="fieldOf" value="욕실"><br/>
+   도어,문틀:<input type="checkbox" name="fieldOf" value="도어,문틀"><br/>
 </p>
 
 

@@ -11,7 +11,7 @@ public class WriteInteriorAskRequest {
 		private String title;
 		private String name;
 		private String area;	
-		private String field;
+		private String fieldOf;
 		private String address;
 		private String dateStart;
 		private String dateDone;
@@ -24,7 +24,7 @@ public class WriteInteriorAskRequest {
 				String title, 
 				String name,
 				String area, 
-				String field,
+				String fieldOf,
 				String address, 
 				String dateStart, 
 				String dateDone, 
@@ -36,7 +36,7 @@ public class WriteInteriorAskRequest {
 			this.title = title;
 			this.name = name;
 			this.area = area;
-			this.field = field;
+			this.fieldOf = fieldOf;
 			this.address = address;
 			this.dateStart = dateStart;
 			this.dateDone = dateDone;
@@ -77,12 +77,12 @@ public class WriteInteriorAskRequest {
 			this.area = area;
 		}
 		
-		public String getField() {
-			return field;
+		public String getFieldOf() {
+			return fieldOf;
 		}
 		
-		public void setField(String field) {
-			this.field = field;
+		public void setFieldOf(String field) {
+			this.fieldOf = field;
 		}
 		
 		public String getAddress() {

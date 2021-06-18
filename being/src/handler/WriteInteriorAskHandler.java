@@ -69,7 +69,7 @@ public class WriteInteriorAskHandler implements CommandHandler {
 				req.getParameter("title"),
 				req.getParameter("name"),
 				req.getParameter("area"),
-				req.getParameter("field"),
+				req.getParameter("fieldOf"),
 				req.getParameter("address"),
 				req.getParameter("dateStart"),
 				req.getParameter("dateDone"),

@@ -2,21 +2,21 @@ package interior.service;
 
 import java.util.Map;
 
-public class DeleteRequest {
+public class DeleteAskRequest {
 
 	//private String userId;
-	private int interiorNumber;
+	private int interiorAskNumber;
 
-	public DeleteRequest(int interiorNumber) {
+	public DeleteAskRequest(int interiorAskNumber) {
 		//this.userId = userId;
-		this.interiorNumber = interiorNumber;
+		this.interiorAskNumber = interiorAskNumber;
 	}
 
 	/*
 	 * public String getUserId() { return userId; }
 	 */
-	public int getInteriorNumber() {
-		return interiorNumber;
+	public int getInteriorAskNumber() {
+		return interiorAskNumber;
 	}
 	
 	/*

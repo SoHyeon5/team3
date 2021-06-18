@@ -4,11 +4,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import interior.dao.InteriorAskDao;
-import interior.dao.InteriorDao;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 
-import interior.model.Interior;
 import interior.model.InteriorAsk;
 
 public class WriteInteriorAskService {
@@ -25,7 +23,7 @@ public class WriteInteriorAskService {
 			InteriorAsk savedInteriorAsk = interiorAskDao.insert(conn, interiorAsk);
 			System.out.println(interiorAsk);
 			if (savedInteriorAsk == null) {
-				throw new RuntimeException("fail to insert Interior");
+				throw new RuntimeException("fail to insert InteriorAsk");
 			}
 
 			conn.commit();
@@ -48,7 +46,7 @@ public class WriteInteriorAskService {
 				req.getTitle(),
 				req.getName(),
 				req.getArea(),
-				req.getField(), 
+				req.getFieldOf(), 
 				req.getAddress(),
 				req.getDateStart(),
 				req.getDateDone(),
