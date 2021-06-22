@@ -40,7 +40,7 @@ public class StoreReviewWriteHandler implements CommandHandler {
 	private String processForm(HttpServletRequest req, HttpServletResponse res) {
 		String noVal = req.getParameter("no");
 		int no = Integer.parseInt(noVal);
-		StoreData storeData = readService.getStore(no, false);
+		StoreData storeData = readService.getStore(no);
 		
 		StoreReviewWriteRequest storeReq = new StoreReviewWriteRequest(
 				storeData.getStore().getNum());

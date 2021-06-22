@@ -3,50 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>게시글 쓰기</title>
+<title>상품 등록</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+
+
+
 </head>
 <body>
 <form action="write.do" method="post">
-<p>
-	제목:<br/><input type="text" name="name" value="${param.name}">
-	<c:if test="${errors.name}">제목을 입력하세요.</c:if>
-</p>
-
-<p>
-	썸네일:<br/>
-	<textarea name="thumbnail" rows="5" cols="30">${param.thumbnail}</textarea>
-</p>
-
-<p>
-	소개이미지:<br/>
-	<textarea name="infoimage" rows="5" cols="30">${param.infoimage}</textarea>
-</p>
-
-<p>
-	내용:<br/>
-	<textarea name="introduce" rows="5" cols="30">${param.introduce}</textarea>
-</p>
-
-<p>
-	가격:<br/>
-	<textarea name="PRICE" rows="5" cols="30">${param.PRICE}</textarea>
-</p>
-
-<p>
-	할인가:<br/>
-	<textarea name="DCPRICE" rows="5" cols="30">${param.DCPRICE}</textarea>
-</p>
-
-<p>
-	브랜드:<br/>
-	<textarea name="BRAND" rows="5" cols="30">${param.BRAND}</textarea>
-</p>
-
-<p>
-	키워드:<br/>
-	<textarea name="KEYWD" rows="5" cols="30">${param.KEYWD}</textarea>
-</p>
-
+<div class="register-box">
+		<div class="login-logo">
+         <a href="${pageContext.request.contextPath}/main/index.do">
+            <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
+         Being House
+         </a>
+         
+         <button type="submit" class="btn" id="btn">새 글 등록</button>
+      </div>
+<div class="regist-box">
 
 <div id="story-form-select">               
      <div id="story-category">
@@ -78,16 +54,61 @@
                 
           </ul>
 	</div>  
-</div> 
+</div>
+</div>
+</div>
 
+<div class="all-content">
+<div class="title">
 <p>
-	링크:<br/>
-	<textarea name="LINK" rows="5" cols="30">${param.LINK}</textarea>
+	<input type="text" name="name" value="${param.NAME}"placeholder="제목">
+	<c:if test="${errors.title}"></c:if>
 </p>
+</div>
+<div class="content">
+<p>
+	<textarea name="introduce" rows="5" cols="30" ${param.INTRODUCE} placeholder="내용을 입력하세요"></textarea>
+</p>
+</div> 
+<div class="price">
+<p>
+	<textarea name="price" rows="5" cols="30" ${param.PRICE} placeholder="가격"></textarea>
+</p>
+</div>
+<div class="dcprice">
+<p>
+	<textarea name="dcprice" rows="5" cols="30" ${param.DCPRICE} placeholder="할인가격"></textarea>
+</p>
+</div>
+<div class="brand">
+<p>
+	<textarea name="brand" rows="5" cols="30" ${param.BRAND} placeholder="브랜드"></textarea>
+</p>
+</div>
 
+<div class="keywd">
+<p>
+	<textarea name="keywd" rows="5" cols="30" ${param.KEYWD} placeholder="키워드"></textarea>
+</p>
+</div>
 
+<div class="thumbnail">
+<p>
+	<textarea name="thumbnail" rows="5" cols="30" ${param.THUMNAIL} placeholder="썸네일"></textarea>
+</p>
+</div>
 
-<input type="submit" value="새 글 등록">
+<div class="infoimage">
+<p>
+	<textarea name="infoimage" rows="5" cols="30" ${param.INFOIMAGE} placeholder="소개이미지"></textarea>
+</p>
+</div>
+<div class="link">
+<p>
+	<textarea name="link" rows="5" cols="30" ${param.LINK} placeholder="링크"></textarea>
+</p>
+</div>
+</div>
 </form>
 </body>
 </html>

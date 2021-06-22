@@ -3,61 +3,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>게시글 수정</title>
+<title>상품 수정</title>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <form action="modify.do" method="post">
 <input type="hidden" name="no" value="${modReq.num}">
-<p>
-	번호:<br/>${modReq.num}
-</p>
-<p>
-	제목:<br/><input type="text" name="name" value="${modReq.name}">
-	<c:if test="${errors.name}">제목을 입력하세요.</c:if>
-</p>
-<p>
-	썸네일:<br/>
-	<textarea name="thumbnail" rows="5" cols="30" >${modReq.thumbnail}</textarea>
-</p>
 
-<p>
-	소개이미지:<br/>
-	<textarea name="infoimage" rows="5" cols="30">${modReq.infoimage}</textarea>
-</p>
-
-<p>
-	내용:<br/>
-	<textarea name="introduce" rows="5" cols="30">${modReq.introduce}</textarea>
-</p>
-
-<p>
-	가격:<br/>
-	<textarea name="price" rows="5" cols="30">${modReq.price}</textarea>
-</p>
-
-<p>
-	할인가:<br/>
-	<textarea name="dcprice" rows="5" cols="30">${modReq.dcprice}</textarea>
-</p>
-
-<p>
-	브랜드:<br/>
-	<textarea name="brand" rows="5" cols="30">${modReq.brand}</textarea>
-</p>
-
-<p>
-	키워드:<br/>
-	<textarea name="keywd" rows="5" cols="30">${modReq.keywd}</textarea>
-</p>
-
+<div class="register-box">
+		<div class="login-logo">
+         <a href="${pageContext.request.contextPath}/main/index.do">
+            <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
+         Being House
+         </a>
+         
+         <button type="submit" class="btn" id="btn"> 상품 수정 </button>
+      </div>
+<div class="regist-box">
 
 <div id="story-form-select">               
      <div id="story-category">
           <ul class="story-category">
           
         	  <li class="category=ct">
-       		   	<select id="category" name="category">
-       		   	<option value="">-카테고리-</option>
+       		   	<select id="category" name="CATEGORY">
+       		   	<option value="${modReq.category}">${modReq.category}</option>
                          <option value="책장">책장</option>
                          <option value="의자">의자</option>
                          <option value="소파">소파</option>
@@ -70,7 +44,8 @@
          	 </li>
           
                <li class="freeyn-ct">
-                   <select name = "freeyn">
+                   <select name = "FREEYN">
+                   <option value="${modReq.freeyn}">${modReq.freeyn}</option>
                         <option value="Y">무료배송</option>
                         <option value="N">유료배송</option>
                         
@@ -81,14 +56,61 @@
                 
           </ul>
 	</div>  
-</div> 
+</div>
+</div>
+</div>
 
+<div class="all-content">
+<div class="title">
 <p>
-	링크:<br/>
-	<textarea name="link" rows="5" cols="30">${modReq.link}</textarea>
+	<input type="text" name="name" value="${modReq.name}"placeholder="제목">
+	<c:if test="${errors.title}"></c:if>
 </p>
+</div>
+<div class="introduce">
+<p>
+	<input type="text" name="introduce" value="${modReq.introduce}">
+</p>
+</div>
+<div class="price">
+<p>
+	<input type="text" name="price" value="${modReq.price}">
+</p>
+</div> 
+<div class="dcprice">
+<p>
+	<input type="text" name="dcprice" value="${modReq.dcprice}">
+</p>
+</div>
+<div class="brand">
+<p>
+	<input type="text" name="brand" value="${modReq.brand}">
+</p>
+</div>
 
-<input type="submit" value="상품 수정">
+<div class="keywd">
+<p>
+	<input type="text" name="keywd" value="${modReq.keywd}">
+</p>
+</div>
+<div class="thumbnail">
+<p>
+	<input type="text" name="thumbnail" value="${modReq.thumbnail}">
+</p>
+</div>
+
+<div class="infoimage">
+<p>
+	<input type="text" name="infoimage" value="${modReq.infoimage}">
+</p>
+</div>
+<div class="link">
+<p>
+	<input type="text" name="link" value="${modReq.link}">
+</p>
+</div>
+</div>
+
 </form>
 </body>
 

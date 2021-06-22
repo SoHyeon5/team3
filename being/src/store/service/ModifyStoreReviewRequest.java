@@ -7,7 +7,7 @@ public class ModifyStoreReviewRequest {
 	private String userId;
 	private int num;
 //	private Integer prodNum;
-	private Integer grade;
+	private float grade;
 	private String content;
 	
 	public ModifyStoreReviewRequest(
@@ -21,7 +21,7 @@ public class ModifyStoreReviewRequest {
 			String userId, 
 			int num, 
 //			int prodNum,
-			int grade, 
+			float grade, 
 			String content
 			) {
 		this.userId = userId;
@@ -43,7 +43,7 @@ public class ModifyStoreReviewRequest {
 //		return prodNum;
 //	}
 
-	public Integer getGrade() {
+	public float getGrade() {
 		return grade;
 	}
 

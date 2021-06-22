@@ -102,6 +102,20 @@ body {
 	margin: 0;
 }
 
+.content textarea{
+   resize: none; 
+    font-family:'Nanumgothic';
+     font-size:20px;
+     height:400px;
+     /* padding-right: 568px; */
+    width:770px;
+   
+   margin-left: 36px;
+   margin-top: 20px;
+   border-radius: 5px solid black;
+   word-break:break-all;
+}
+
 
 
 

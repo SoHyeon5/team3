@@ -10,17 +10,16 @@ public class StoreReview {
 	private Writer writer;
 	private Integer prodNum;
 	private Date regDate;
-	private Integer grade;	
+	private float grade;	
 	private String content;
-	
-	public StoreReview() {}
+	private String prodName;
 	
 	public StoreReview(
 			Integer num,
 			Writer writer,
 			Integer prodNum,	
 			Date regDate,
-			Integer grade,
+			float grade,
 			String content
 			) {
 		this.num = num;
@@ -30,6 +29,26 @@ public class StoreReview {
 		this.grade = grade;
 		this.content = content;
 	}
+	
+	public StoreReview(
+			Integer num,
+			Writer writer,
+			Integer prodNum,	
+			Date regDate,
+			float grade,
+			String content,
+			String prodName
+			) {
+		this.num = num;
+		this.writer = writer;
+		this.prodNum = prodNum;
+		this.regDate = regDate;
+		this.grade = grade;
+		this.content = content;
+		this.prodName = prodName;
+	}
+	
+	public StoreReview() {}
 	
 	public Integer getNum() {
 		return num;
@@ -49,15 +68,20 @@ public class StoreReview {
 	public Date getRegDate() {
 		return regDate;
 	}
-	public Integer getGrade() {
+	public float getGrade() {
 		return grade;
 	}
-	public void setGrade(Integer grade) {
+	public void setGrade(float grade) {
 		this.grade = grade;
 	}
 	public String getContent() {
 		return content;
 	}
+	
+	public String getProdName() {
+		return prodName;
+	}
+	
 	public void setContent(String content) {
 		this.content = content;
 	}

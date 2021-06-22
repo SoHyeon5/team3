@@ -80,7 +80,7 @@
 						</li>
 						<u:isLogin>
 						<li class="menu-active"><a>${authUser.name}님 </a></li>
-						<li class="menu-active"><a href="${pageContext.request.contextPath}/logout.do" style="padding-left: 400px;">로그아웃</a></li>
+						<li class="menu-active"><a href="${pageContext.request.contextPath}/logout.do" style="padding-left: 225px;">로그아웃</a></li>
 						<li class="write"><a href="${pageContext.request.contextPath}/board/write.do">글쓰기</a></li>
 						</u:isLogin>
 						<u:isAdmin>
