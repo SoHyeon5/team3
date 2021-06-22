@@ -21,6 +21,9 @@
 		<td>완료 희망일</td>
 		<td>전달 사항</td>
 		<td>전화번호</td>
+		<td>업체 답변</td>
+		<td>별점</td>
+		<td>총평</td>
 	</tr>
 <c:if test="${interiorAskPage.hasNoInteriorAsk()}">
 	<tr>
@@ -42,6 +45,9 @@
 		<td>${interiorAsk.dateDone}</td>
 		<td>${interiorAsk.message}</td>
 		<td>${interiorAsk.tel}</td>
+		<td>${interiorAsk.answer}</td>
+		<td>${interiorAsk.grade}</td>
+		<td>${interiorAsk.contentOf}</td>
 
 	</tr>
 </c:forEach>

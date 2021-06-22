@@ -114,6 +114,26 @@ public class ArticleDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+	
+	
+	public List<Article> selectByEmail(Connection conn, String email) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement("select * from WRITING where EMAIL = ?");
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			List<Article> result = new ArrayList<>();
+			while (rs.next()) {
+				result.add(convertArticle(rs));
+			}
+			return result;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
 
 	private Article convertArticle(ResultSet rs) throws SQLException {
 		return new Article(rs.getInt("NUM"),

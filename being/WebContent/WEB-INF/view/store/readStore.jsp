@@ -62,7 +62,7 @@
    <td><u:pre value='${storeData.store.avggrade}'/></td>
 </tr>
 
-
+<tr>
 	 <td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}" />
 		<a href="list.do?pageNo=${pageNo}">[목록]</a>
@@ -75,6 +75,37 @@
 		<%-- </c:if> --%>
 	</td> 
 </tr>
+
+<tr>
+		<td>내용</td>
+		<td>평점</td>
+		<td>작성자</td>
+		<td>작성일</td>
+		<td>수정</td>
+		<u:isAdmin>
+		<td>삭제</td>
+		</u:isAdmin>
+	</tr>
+
+<c:forEach var="storeData" items="${storeData.storeReview}">
+	<tr>
+<!-- 		내용 -->
+		<td>${storeData.content}</td>
+<!-- 		평점 -->
+		<td>${storeData.grade}</td>
+<!-- 	작성자 -->
+		<td>${storeData.writer.name}</td>
+<!-- 		작성일 -->
+		<td>${storeData.regDate}</td>
+<!-- 		상품평 수정 -->
+		<td><a href="${pageContext.request.contextPath}/storeReview/modify.do?no=${storeData.num}">[수정]</a></td>
+<!-- 		삭제 -->
+		<u:isAdmin>
+		<td>[삭제]</td>
+		</u:isAdmin>
+
+	</tr>
+</c:forEach>
 </table>
 
 </body>

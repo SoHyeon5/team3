@@ -627,6 +627,10 @@ input:focus {
   right: 0;
   top: 0;
   bottom: 0; }
+  
+  .container main-menu {
+  	width:2000px;
+  }
 
 .container.fullwidth {
   width: 1000px; height: 500px; }
@@ -1579,14 +1583,14 @@ h1, h2, h3, h4, h5, h6 {
   background: #3face4;
   padding: 9px 26px; }
 
-@media (max-width: 991px) {
+@media (max-width: 1000px) {
   #mobile-nav-toggle i {
     color: #3face4 !important; } }
-@media (max-width: 991px) {
+@media (max-width: 1000px) {
   .main-menu {
     height: 100px;
     line-height: 100px; } }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .main-menu {
     height: 80px;
     line-height: 80px; } }

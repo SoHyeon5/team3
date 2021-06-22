@@ -1,10 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>업체 수정</title>
+<title>게시글 수정</title>
 </head>
 <body>
 <form action="modify.do" method="post">
@@ -12,64 +11,9 @@
 <p>
 	번호:<br/>${modReq.num}
 </p>
-<p>
-	신청 제목:<br/>${modReq.title}
-</p>
-<p>
-	업체명:<br/>
-	${modReq.name}
-</p>
-
-<p>
-	공급 면적<br/>
-	${modReq.area}
-</p>
-
-<p>
-	시공 분야<br/>
-	${modReq.fieldof}
-</p>
-<p>
-	시공 주소<br/>
-	${modReq.address}
-</p>
-
-<p>
-	시공 희망일<br/>
-	${modReq.dateStart}
-</p>
-
-<p>
-	완료 희망일<br/>
-	${modReq.dateDone}
-</p>
-
-<p>
-     예산<br/>
-	${modReq.budget}
-</p>
-
-<p>
-	전달 사항<br/>
-	${modReq.message}
-</p>
-
-<p>
-	전화번호:<br/>
-	${modReq.tel}
-</p>
-
-<u:isAdmin>
-<p>
-	업체 답변:<br/>
-	<textarea name="answer" rows="5" cols="30">${modReq.answer}</textarea>
-</p>
-</u:isAdmin>
-
-<u:isGeneral>
 <div class="wrap">
-    <h2>후기</h2>
-        <p class="title_star">별점과 총평을 남겨주세요.</p>
+    <h1>후기</h1>
+        <p class="title_star">별점과 리뷰를 남겨주세요.</p>
  
         <div class="review_rating">
             <div class="warning_msg">별점을 선택해 주세요.</div>
@@ -87,14 +31,15 @@
                 <label for="rating5"></label>
             </div>
         </div>
-        <div class="review_contentOf">
+        <div class="review_contents">
             <div class="warning_msg">5자 이상으로 작성해 주세요.</div>
-            <textarea rows="10" class="review_textarea" name="contentOf">${modReq.contentOf}</textarea>
+            <textarea rows="10" class="review_textarea" name="content">${modReq.content}</textarea>
         </div>   
+        <div class="cmd">
+<!--             <input type="button" name="save" id="save" value="등록"> -->
+        </div>
 </div>
-</u:isGeneral>
-<input type="submit" value="답변 등록">
+
+<input type="submit" value="상품리뷰 수정">
 </form>
 </body>
-
-</html>

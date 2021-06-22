@@ -58,7 +58,7 @@
 					<ul class="nav-menu">
 						<li class="menu-has-children"><a href="">커뮤니티</a>
 							<ul>
-								<li><a href="blog-home.html">홈</a></li>
+								<li><a href="${pageContext.request.contextPath}/main/index.do">홈</a></li>
 								<li><a href="${pageContext.request.contextPath}/board/list.do">스토리</a></li>
 								<li><a href="blog-single.html">노하우</a></li>
 								<li><a href="blog-single.html">이벤트</a></li>
@@ -74,8 +74,8 @@
 						</li>
 						<li class="menu-has-children"><a href="">인테리어시공</a>
 							<ul>
-								<li><a href="blog-home.html">업체찾기</a></li>
-								<li><a href="blog-single.html">간편상담신청</a></li>
+								<li><a href="${pageContext.request.contextPath}/interior/list.do">업체찾기</a></li>
+								<li><a href="${pageContext.request.contextPath}/interiorAsk/write.do">간편상담신청</a></li>
 							</ul>
 						</li>
 						<u:isLogin>
@@ -84,7 +84,7 @@
 						<li class="write"><a href="${pageContext.request.contextPath}/board/write.do">글쓰기</a></li>
 						</u:isLogin>
 						<u:isAdmin>
-						<li class="menu-active"><a>관리자 </a></li>
+						<li class="${pageContext.request.contextPath}/admin/index.do"><a>관리자 </a></li>
 						</u:isAdmin>
 						
 						<u:notLogin>

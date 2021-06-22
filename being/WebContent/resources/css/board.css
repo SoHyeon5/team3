@@ -1,0 +1,115 @@
+@charset "EUC-KR";
+
+.login-logo, .register-logo {
+   font-size: 35px;
+   text-align: left;
+   margin-top: 40px;
+   margin-bottom: 25px;
+   font-family: 'Squada One', cursive;
+   border-bottom: 1px solid black;
+   padding-bottom: 25px;
+   padding-left: 300px;
+}
+
+.login-logo a, .register-logo a {
+   color: #444;
+   font-size: 48px;
+   text-decoration: none;
+   font-weight: bold;
+   width: 10px;
+}
+
+.login-logo a img {
+   position: relative;
+   top : 15px;
+}
+
+#btn {
+   margin-left: 700px;
+   width:200px;
+   height: 60px;
+   font:"³ª´® °íµñ";
+   font-size: 20px;
+   color:#ffff;
+   font-weight:bold;
+   margin-top: 30px;
+   background: #8BC26D;
+   
+   border-radius: 5px;
+  border:0;
+  outline:0;
+}
+#btn:hover{
+   background: #7fb362;
+   
+}
+
+.regist-box {
+	text-align: center;
+}
+
+.story-category li {
+	display: inline-block;
+	padding: 1px;
+}
+
+
+
+
+select {
+     width:150px;
+     padding:5px;
+     border:1px solid #999;
+     font-family:'Nanumgothic';
+     font-size:20px;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance : none;
+     margin-top: 20px;
+     border-color:#8BC26D;
+     border-radius: 5px;
+     text-align: center;
+}
+
+.title p input {
+	 font-family:'Nanumgothic';
+     font-size:20px;
+     padding:5px;
+	width:770px;
+	height: 40px;
+	margin-left: 36px;
+	margin-top: 20px;
+	
+}
+.content p input {
+	 resize: none; 
+	 font-family:'Nanumgothic';
+     font-size:20px;
+     height:400px;
+     /* padding-right: 568px; */
+	 width:770px;
+	
+	margin-left: 36px;
+	margin-top: 20px;
+	border-radius: 5px solid black;
+	word-break:break-all;
+	/* 	-webkit-appearance: none;
+     -moz-appearance: none;
+      */
+}
+
+body {
+	margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

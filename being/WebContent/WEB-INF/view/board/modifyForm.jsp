@@ -4,29 +4,38 @@
 <html>
 <head>
 <title>게시글 수정</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <form action="modify.do" method="post">
 <input type="hidden" name="no" value="${modReq.articleNumber}">
-<p>
-	번호:<br/>${modReq.articleNumber}
-</p>
-<p>
-	제목:<br/><input type="text" name="title" value="${modReq.title}">
-	<c:if test="${errors.title}">제목을 입력하세요.</c:if>
-</p>
-<p>
-	내용:<br/>
-	<textarea name="content" rows="5" cols="30">${modReq.content}</textarea>
-</p>
 
+<div class="register-box">
+		<div class="login-logo">
+         <a href="${pageContext.request.contextPath}/main/index.do">
+            <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
+         Being House
+         </a>
+         
+         <button type="submit" class="btn" id="btn">글 수정 </button>
+      </div>
+      
+<input type="hidden" name="no" value="${modReq.articleNumber}">
+<%-- <p>
+	번호:<br/>${modReq.articleNumber}
+</p> --%>
+
+<div class="regist-box">
 <div id="story-form-select">               
      <div id="story-category">
           <ul class="story-category">
           
         	  <li class="type=ct">
        		   	<select id="type" name="TYPE" size="1">
-       		   	<option value="">-주거형태-</option>
+       		   	<option value="${modReq.type}">${modReq.type}</option>
                          <option value="원룸&오피스텔">원룸,오피스텔</option>
                          <option value="아파트">아파트</option>
                          <option value="빌라&연합">빌라,연합</option>
@@ -40,7 +49,7 @@
           
                <li class="acreage-ct">
                    <select name = "ACREAGE">
-                        <option value="">-평수-</option>
+                        <option value="${modReq.acreage}">${modReq.acreage}</option>
                         <option value="10평 미만">10평 미만</option>
                         <option value="10평대">10평대</option>
                         <option value="20평대">20평대</option>
@@ -52,7 +61,7 @@
                 
                  <li class="budget-ct">
                    <select name = "BUDGET">
-                        <option value="">-예산-</option>
+                        <option value="${modReq.budget}">${modReq.budget}</option>
                         <option value="1백만원 미만">1백만원 미만</option>
                         <option value="1백만원대">1백만원대</option>
                         <option value="2백만원대">2백만원대</option>
@@ -65,7 +74,7 @@
                 
                 <li class="field-ct">
                     <select name="FIELD">
-                        <option value="">-분야-</option>
+                        <option value="${modReq.field}">${modReq.field}</option>
 						<option value="리모델링">리모델링</option>
 						<option value="홈스타일링">홈스타일링</option>
 						<option value="부분 공사">부분 공사</option>
@@ -75,7 +84,7 @@
                 
                 <li class="space-ct">
                    <select name = "SPACE">
-                        <option value="">-공간별-</option>
+                        <option value="${modReq.space}">${modReq.space}</option>
                         <option value="화장실">화장실</option>
                         <option value="거실">거실</option>
                         <option value="방">방</option>
@@ -88,25 +97,25 @@
 	</div>  
 </div> 
 
-<input type="submit" value="글 수정">
+
+
+
+
+<div class="title">
+<p>
+	<input type="text" name="title" value="${modReq.title}">
+	<c:if test="${errors.title}"></c:if>
+</p>
+</div>
+<div class="content">
+<p>
+<input type="text" name="content-box" value="${modReq.content}">
+</p>
+</div>
+</div>
+
 </form>
 </body>
 
-<script> 
-
-// $(function(){
-// 	$(.type option).each(function(){
-
-// 	    if($(this).val()=="${modReq.type}"){
-
-// 	      $(this).attr("selected","selected"); // attr적용안될경우 prop으로 
-
-// 	    }
-
-// 	  });
-	
-// });
-
-</script>
 
 </html>

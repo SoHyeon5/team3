@@ -115,17 +115,38 @@ public class StoreReviewDao {
 		}
 	}
 
-	public List<StoreReview> select(Connection conn, int startRow, int size) throws SQLException {
+//	public List<StoreReview> select(Connection conn, int startRow, int size) throws SQLException {
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		try {
+//			pstmt = conn.prepareStatement("SELECT * FROM ("
+//					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.*"
+//					+ "          FROM PROD_COMT A ORDER BY NUM)"
+//					+ " WHERE RNUM BETWEEN ? AND ?"
+//					);
+//			pstmt.setInt(1, startRow);
+//			pstmt.setInt(2, size);
+//			rs = pstmt.executeQuery();
+//			List<StoreReview> result = new ArrayList<>();
+//			while (rs.next()) {
+//				result.add(convertStoreReview(rs));
+//			}
+//			return result;
+//		} finally {
+//			JdbcUtil.close(rs);
+//			JdbcUtil.close(pstmt);
+//		}
+//	}
+	
+	public List<StoreReview> select(Connection conn, int prodNum) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement("SELECT * FROM ("
-					+ "        SELECT ROW_NUMBER() OVER (ORDER BY NUM) RNUM, A.*"
-					+ "          FROM PROD_COMT A ORDER BY NUM)"
-					+ " WHERE RNUM BETWEEN ? AND ?"
+			pstmt = conn.prepareStatement("select PC.*, M.NAME from PROD_COMT PC, MEMBERS M"
+					+ " where PC.PRODNUM = ?"
+					+ " AND PC.EMAIL = M.EMAIL"
 					);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, size);
+			pstmt.setInt(1, prodNum);
 			rs = pstmt.executeQuery();
 			List<StoreReview> result = new ArrayList<>();
 			while (rs.next()) {
@@ -136,6 +157,42 @@ public class StoreReviewDao {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
 		}
+	}
+	
+	public List<StoreReview> selectByEmail(Connection conn, String email) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement("select PC.*, M.NAME, PM.NAME PRODNAME from PROD_COMT PC, MEMBERS M, PROD_MNG PM"
+					+ " where PC.EMAIL = ?"
+					+ " AND PC.EMAIL = M.EMAIL"
+					+ " AND PC.PRODNUM = PM.NUM"
+					+ " ORDER BY PC.NUM DESC"
+					);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			List<StoreReview> result = new ArrayList<>();
+			while (rs.next()) {
+				result.add(convertStoreReview2(rs));
+			}
+			return result;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
+	private StoreReview convertStoreReview2(ResultSet rs) throws SQLException {
+		return new StoreReview(rs.getInt("NUM"),
+				new Writer(
+						rs.getString("EMAIL"),
+						rs.getString("NAME")),
+	            rs.getInt("PRODNUM"),
+	            toDate(rs.getTimestamp("REGISTDAY")),
+	            rs.getInt("GRADE"),
+	            rs.getString("CONTENTOF"),
+	            rs.getString("PRODNAME")
+	            );
 	}
 
 	private StoreReview convertStoreReview(ResultSet rs) throws SQLException {
@@ -187,14 +244,14 @@ public class StoreReviewDao {
 //	}
 	
 	public int update(Connection conn, int no,
-			Integer grade, 
+			float grade, 
 			String content
 			) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
 						"update PROD_COMT set GRADE = ?,CONTENT=? "+
 						"where NUM = ?")) {
-			pstmt.setInt(1, grade);
+			pstmt.setFloat(1, grade);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, no);
 			return pstmt.executeUpdate();

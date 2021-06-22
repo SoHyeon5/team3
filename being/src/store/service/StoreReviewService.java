@@ -13,12 +13,14 @@ import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
 //import store.dao.StoreDao;
 import store.dao.StoreReviewDao;
+import store.dao.StoreReviewGradeDao;
 //import store.model.Store;
 import store.model.StoreReview;
 
 public class StoreReviewService {
 
 	private StoreReviewDao storeReviewDao = new StoreReviewDao();
+	private StoreReviewGradeDao storeReviewGradeDao = new StoreReviewGradeDao();
 //	private ArticleContentDao contentDao = new ArticleContentDao();
 
 	public Integer storeReview(StoreReviewWriteRequest req) {
@@ -31,6 +33,7 @@ public class StoreReviewService {
 //			storeDao.insert(conn, store);
 			
 			StoreReview savedstore  = storeReviewDao.insert(conn, storeReview);
+			StoreReview updatedstore = storeReviewGradeDao.update(conn, storeReview);
 //			System.out.println("article insert 성공....");
 
 			if (savedstore == null) {

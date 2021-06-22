@@ -9,6 +9,8 @@ public class Member {
 	private String password;
 	private Date regDate;
 	private int level;
+	
+	public Member() {}
 
 	public Member(String id, String name, String password, int level, Date regDate) {
 		this.id = id;

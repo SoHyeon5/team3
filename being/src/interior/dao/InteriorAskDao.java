@@ -117,6 +117,7 @@ public class InteriorAskDao {
 	    		  new Writer(
 				   rs.getString("EMAIL"),
 				   rs.getString("NAME")),
+	    		   rs.getString("ANSWER"),
 	    		   rs.getString("TITLE"),
 	    		   rs.getString("NAME"),
 	               rs.getString("AREA"),
@@ -126,7 +127,9 @@ public class InteriorAskDao {
 	               rs.getString("DATEDONE"),
 	               rs.getString("BUDGET"),
 	               rs.getString("MESSAGE"),
-	               rs.getString("TEL")
+	               rs.getString("TEL"),
+	               rs.getInt("GRADE"),
+	               rs.getString("CONTENTOF")
 	    		  );
 	}
 
@@ -155,16 +158,34 @@ public class InteriorAskDao {
 		}
 	}
 	
-	public int update(Connection conn, int no, 
+	public int updateAnswer(Connection conn, int no, 
 			String answer
 			) 
 					throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update REQ_MNG set ANSWER=? "+
+						"update REQ_MNG set ANSWER = ? "+
 						"where NUM = ?")) {
 			pstmt.setString(1, answer);
 			pstmt.setInt(2, no);
+			return pstmt.executeUpdate();
+			
+		}
+	}
+	
+
+	public int updateUser(Connection conn, int no, 
+			Integer grade,
+			String contentOf
+			) 
+					throws SQLException {
+		try (PreparedStatement pstmt = 
+				conn.prepareStatement(
+						"update REQ_MNG set GRADE = ?,CONTENTOF = ? "+
+						"where NUM = ?")) {
+			pstmt.setInt(1, grade);
+			pstmt.setString(2, contentOf);
+			pstmt.setInt(3, no);
 			return pstmt.executeUpdate();
 			
 		}

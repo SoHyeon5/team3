@@ -4,20 +4,28 @@
 <html>
 <head>
 <title>게시글 쓰기</title>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
 <form action="write.do" method="post">
-<p>
-	제목:<br/><input type="text" name="title" value="${param.title}">
-	<c:if test="${errors.title}">제목을 입력하세요.</c:if>
-</p>
-<p>
-	내용:<br/>
-	<textarea name="content" rows="5" cols="30">${param.title}</textarea>
-</p>
-<p>
+
+	<div class="register-box">
+		<div class="login-logo">
+         <a href="${pageContext.request.contextPath}/main/index.do">
+            <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
+         Being House
+         </a>
+         
+         <button type="submit" class="btn" id="btn">새 글 등록</button>
+      </div>
 
 
+
+
+<div class="regist-box">
 <div id="story-form-select">               
      <div id="story-category">
           <ul class="story-category">
@@ -86,9 +94,22 @@
 	</div>  
 </div> 
 
+<div class=title>
+<p>
+	<input type="text" name="title" value="${param.title}"placeholder="제목">
+	<c:if test="${errors.title}"></c:if>
+</p>
+</div>
+<div class=content>
+<p>
+
+	<textarea name="content-box" rows="5" cols="30" ${param.title} placeholder="내용을 입력하세요"></textarea>
+</p>
+</div>
+</div>
 
 
-<input type="submit" value="새 글 등록">
+
 </form>
 </body>
 </html>

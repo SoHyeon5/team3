@@ -25,8 +25,13 @@ public class ModifyInteriorAskService {
 				throw new InteriorAskNotFoundException();
 			}
 			
+			interiorAskDao.updateUser(conn,
+					modReq.getNum(), 
+					modReq.getGrade(),
+					modReq.getContentOf()
+					);
 
-			interiorAskDao.update(conn, 
+			interiorAskDao.updateAnswer(conn, 
 					modReq.getNum(), 
 					modReq.getAnswer()
 					);

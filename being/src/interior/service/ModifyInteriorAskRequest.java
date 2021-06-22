@@ -18,19 +18,25 @@ public class ModifyInteriorAskRequest {
 	private String budget;
 	private String message;	
 	private String tel;
+	private Integer grade;
+	private String contentOf;
 	
-	public ModifyInteriorAskRequest(int level, Integer num, String answer) {
+	public ModifyInteriorAskRequest(int level, Integer num, String answer, Integer grade , String contentOf) {
 		super();
 		this.level=level;
 		this.num=num;
 		this.answer=answer;
+		this.grade=grade;
+		this.contentOf=contentOf;
 	}
 	
-	public ModifyInteriorAskRequest(String userId, Integer num, String title, String name, String area, String fieldof,
-			String address, String dateStart, String dateDone, String budget, String message, String tel) {
+	public ModifyInteriorAskRequest(String userId, Integer num, String answer, String title, String name, String area,
+			String fieldof, String address, String dateStart, String dateDone, String budget, String message,
+			String tel, Integer grade, String contentOf) {
 		super();
 		this.userId = userId;
 		this.num = num;
+		this.answer = answer;
 		this.title = title;
 		this.name = name;
 		this.area = area;
@@ -41,6 +47,8 @@ public class ModifyInteriorAskRequest {
 		this.budget = budget;
 		this.message = message;
 		this.tel = tel;
+		this.grade = grade;
+		this.contentOf = contentOf;
 	}
 
 	public String getUserId() {
@@ -155,6 +163,26 @@ public class ModifyInteriorAskRequest {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	public Integer getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Integer grade) {
+		this.grade = grade;
+	}
+
+	public String getContentOf() {
+		return contentOf;
+	}
+
+	public void setContentOf(String contentOf) {
+		this.contentOf = contentOf;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public void validate(Map<String, Boolean> errors) {
 		if (title == null || title.trim().isEmpty()) {
 			errors.put("title", Boolean.TRUE);

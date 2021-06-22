@@ -49,19 +49,30 @@
 	<td><u:pre value='${interiorAsk.tel}'/></td>
 </tr>
 
+<tr>
+	<td>업체 답변</td>
+	<td><u:pre value='${interiorAsk.answer}'/></td>
+</tr>
 
+<tr>
+	<td>평점 </td>
+	<td><u:pre value='${interiorAsk.grade}'/></td>
+</tr>
 
+<tr>
+	<td>총평</td>
+	<td><u:pre value='${interiorAsk.contentOf}'/></td>
+</tr>
+
+<tr>
 	 <td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}" />
-		<a href="list.do?pageNo=${pageNo}">[목록]</a>
-		<c:if test="${authUser.id == interiorAsk.writer.id}"> 
-		<u:isAdmin>
-		<a href="modify.do?no=${interiorAsk.num}">[게시글수정]</a>
-		<a href="delete.do?no=${interiorAsk.num}">[게시글삭제]</a> 
-		</u:isAdmin>
+			<a href="list.do?pageNo=${pageNo}">[목록]</a>
+		<c:if test="${authUser.id == interiorAsk.writer.id || authUser.level == 1}"> 
+			<a href="modify.do?no=${interiorAsk.num}">[게시글수정]</a>
+			<a href="delete.do?no=${interiorAsk.num}">[게시글삭제]</a> 
 		</c:if> 
-		<u:isAdmin></u:isAdmin>
-	</td> 
+	 </td> 
 </tr>
 </table>
 

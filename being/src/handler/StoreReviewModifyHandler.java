@@ -8,23 +8,18 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import article.service.ArticleData;
 import store.service.PermissionDeniedException;
 import auth.service.User;
 import mvc.command.CommandHandler;
 import store.model.StoreReview;
-import store.service.ModifyStoreRequest;
 import store.service.ModifyStoreReviewRequest;
 import store.service.ModifyStoreReviewService;
-import store.service.ModifyStoreService;
-import store.service.ReadStoreService;
-import store.service.StoreData;
 import store.service.StoreNotFoundException;
 
 public class StoreReviewModifyHandler implements CommandHandler {
 	private static final String FORM_VIEW = "/WEB-INF/view/storeReview/storeReviewModifyForm.jsp";
 
-	private ReadStoreService readService = new ReadStoreService();
+//	private ReadStoreService readService = new ReadStoreService();
 	private ModifyStoreReviewService modifyStoreReviewService = new ModifyStoreReviewService();
 
 	@Override
