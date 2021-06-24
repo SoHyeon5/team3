@@ -1715,9 +1715,11 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   outline: none; }
 
-.nav-menu li:hover > a,
-.nav-menu > .menu-active > a {
-  color: #81af69; }
+/* .nav-menu li:hover > a{ */
+/* 	color: #5f8749; */
+/* } */
+/* .nav-menu > .menu-active > a { */
+/*   color: #81af69; } */
 
 .nav-menu > li {
   margin-left: 20px;
@@ -1945,6 +1947,7 @@ body.mobile-nav-active #mobile-nav-toggle {
  background: url(../img/home-banner-bg2.jpg) no-repeat; 
   width:1000px; height:600px; border-radius: 7px;
   background-size: cover;
+/*   background: linear-gradient(to top, rgba(255,255,255,0.5), rgba(0, 0, 0, 0.5)); */
  }
  
  #home-banner-test ul{
@@ -3612,7 +3615,7 @@ h6 {
    padding-top: 10px;
    font-size: 20px;
    align-items: center;
-   color: #0e0e0e;
+   color: #7fb362;
    font-weight: 550;
 }
 
@@ -3622,4 +3625,33 @@ h6 {
  
 .login-box-etc a {
    color: inherit;
+}
+
+/* 헤더 추가 수정 */
+
+.user {
+	color: #7fb362;
+}
+
+.hoverr a {
+	color: #7fb362;
+}
+
+.hoverr:hover > a {
+	color: #537c3d;
+}
+
+/* 메인 추가 수정 */
+
+.story-title{
+	position: absolute;
+	padding: 440px 0 0 70px;
+	font-size: 40px;
+	font-weight: 700;
+	color: white;
+	line-height: 1.5;
+}
+
+.story-title:hover{
+	color:#7fb362;
 }

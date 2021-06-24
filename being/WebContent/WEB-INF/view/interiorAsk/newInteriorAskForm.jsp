@@ -1,10 +1,30 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>시공 상담</title>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/interiorwrite.css">
+	<title>Being</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+
+	<!-- <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');</style> -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/interior.css">
 
 <style>
             /*datepicker에서 사용한 이미지 버튼 style적용*/
@@ -16,48 +36,7 @@
         <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <!-- datepicker 한국어로 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-        <script>
-            $(function() {
-                
-                //datepicker 한국어로 사용하기 위한 언어설정
-                $.datepicker.setDefaults($.datepicker.regional['ko']); 
-                
-                // 시작일(dateStart)은 종료일(dateDone) 이후 날짜 선택 불가
-                // 종료일(dateDone)은 시작일(dateStart) 이전 날짜 선택 불가
-
-                //시작일.
-                $('#dateStart').datepicker({
-                    showOn: "both",                     // 달력을 표시할 타이밍 (both: focus or button)
-                    buttonImage: "<%=request.getContextPath()%>/resources/img/calendar.gif", // 버튼 이미지
-                    buttonImageOnly : true,             // 버튼 이미지만 표시할지 여부
-                    buttonText: "날짜선택",             // 버튼의 대체 텍스트
-                    dateFormat: "yy-mm-dd",             // 날짜의 형식
-                    changeMonth: true,                  // 월을 이동하기 위한 선택상자 표시여부
-                    minDate: 0,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이전 날짜 선택 불가)
-                    onClose: function( selectedDate ) {    
-                        // 시작일(dateStart) datepicker가 닫힐때
-                        // 종료일(dateDone)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-                        $("#dateDone").datepicker( "option", "minDate", selectedDate );
-                    }                
-                });
-
-                //종료일
-                $('#dateDone').datepicker({
-                    showOn: "both", 
-                    buttonImage: "<%=request.getContextPath()%>/resources/img/calendar.gif", 
-                    buttonImageOnly : true,
-                    buttonText: "날짜선택",
-                    dateFormat: "yy-mm-dd",
-                    changeMonth: true,
-                    minDate: 0, // 오늘 이전 날짜 선택 불가
-                    onClose: function( selectedDate ) {
-                        // 종료일(dateDone) datepicker가 닫힐때
-                        // 시작일(dateStart)의 선택할수있는 최대 날짜(maxDate)를 선택한 종료일로 지정 
-                        $("#dateStart").datepicker( "option", "maxDate", selectedDate );
-                    }                
-                });
-            });
-        </script>
+      
 
 </head>
 
@@ -71,6 +50,9 @@
 </header>
 <body>
 
+<%@ include file="../include/header.jspf" %>
+
+<div class="box">
 <form action="write.do" method="post">
 
 <p>
@@ -139,8 +121,8 @@
      </div>
 </div>
 
-<p>
-   창호,샷시:<input type="checkbox" name="fieldOf" value="창호,샷시"><br/>
+<p><input type="checkbox" name="fieldOf" value="창호,샷시"><br/>
+   창호,샷시:<br/>
    발코니 확장:<input type="checkbox" name="fieldOf" value="발코니 확장"><br/>
    도배:<input type="checkbox" name="fieldOf" value="도배"><br/>
    바닥재:<input type="checkbox" name=" fieldOf" value="바닥재"><br/>
@@ -156,6 +138,7 @@
 </p>
 
 <p>
+
 시공 희망 기간:<br/>
 <label for="dateStart">시작일</label>
           <input type="text" name="dateStart" id="dateStart">
@@ -181,6 +164,38 @@
 
 <input type="submit" value="상담 신청">
 </form>
+</div>
+
+<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/easing.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/hoverIntent.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/superfish.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+
+	
+<!-- 터치슬라이드 -->
+<script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
+	<script src="${pageContext.request.contextPath}/resources/js/interiorAsk.js"></script>
 </body>
 
 

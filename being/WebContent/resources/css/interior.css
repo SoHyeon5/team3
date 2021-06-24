@@ -14,9 +14,8 @@
 /*    background-color: #9dcb85; */
    margin: 40px 0 100px 550px;
    padding-top: 40px;
-   padding-left:40px;
    width: 800px;
-   height: 850px;
+   height: 650px;
    text-align: center;
    border-radius: 7px;
    border: 2px solid #9dcb85;
@@ -45,44 +44,7 @@
    
 }
 
-.regist-box {
-	text-align: center;
-}
 
-.story-category1 {
-	margin: 30px 50px 30px 35px;
-	
-}
-
-.story-category1 li {
-	display: inline-block;
-	color: #65a343;
-}
-.story-category2 {
-	margin: 30px 50px 30px 5px;
-}
-.story-category2 li {
-	display: inline-block;
-	color: #65a343;
-}
-
-select {
-     width:150px;
-     padding:10px;
-     margin-right:10px;
-     border:1px solid #999;
-     font-family:'Nanumgothic';
-     font-size:20px;
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance : none;
-     border-color:#8BC26D;
-     border-radius: 5px;
-     text-align: center;
-     text-align-last: center; 
-	-ms-text-align-last: center; 
-	-moz-text-align-last: center;
-}
 .all-content{
 	resize: none;
 	text-align: center;
@@ -100,22 +62,24 @@ select {
 	resize: none;
 	font-family:'Nanumgothic';
      font-size:20px;
-     
+     padding:5px;
 	width:500px;
 	height: 40px;	
 	margin-left: 36px;
 	margin-top: 20px;
 }
 
-.content input {
+.introduce input {
 	resize: none;
 	font-family:'Nanumgothic';
     font-size:20px;
+    padding:5px;
 	width:500px;
-	height: 300px;	
-	margin-left: 36px;
+	height: 200px;	
+	margin-left: 16px;
 	margin-top: 20px;
 }
+
 
 
 .all-content textarea {
@@ -128,4 +92,3 @@ select {
 	margin-left: 36px;
 	margin-top: 20px;
 }
-

@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
@@ -35,69 +36,11 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/read.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css">
 </head>
 
 <body>
-	<!--################ Start Header Area ########-->
-	<header id="header" id="home">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<a>첫 회원가입시 2000원 할인쿠폰 발급!</a>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<div class="container main-menu">
-			<div class="row align-items-center justify-content-between d-flex">
-				<div id="logo">
-					<a href="${pageContext.request.contextPath}/main/index.do"><img src="${pageContext.request.contextPath}/resources/img/logo3.jpg" alt="" title="" width="75px" height="75px"/></a>
-				</div>
-				<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li class="menu-has-children"><a href="">커뮤니티</a>
-							<ul>
-								<li><a href="blog-home.html">홈</a></li>
-								<li><a href="${pageContext.request.contextPath}/board/list.do">스토리</a></li>
-								<li><a href="blog-single.html">노하우</a></li>
-								<li><a href="blog-single.html">이벤트</a></li>
-							</ul>
-						</li>
-						<li class="menu-has-children"><a href="../store/list.do">스토어</a>
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/store/list.do">스토어홈</a></li>
-								<li><a href="blog-single.html">카테고리</a></li>
-								<li><a href="blog-single.html">오늘의 딜</a></li>
-								<li><a href="blog-single.html">기획전</a></li>
-							</ul>
-						</li>
-						<li class="menu-has-children"><a href="">인테리어시공</a>
-							<ul>
-								<li><a href="blog-home.html">업체찾기</a></li>
-								<li><a href="blog-single.html">간편상담신청</a></li>
-							</ul>
-						</li>
-						<u:isLogin>
-						<li class="menu-active"><a>${authUser.name}님 </a></li>
-						<li class="menu-active"><a href="${pageContext.request.contextPath}/logout.do" style="padding-left: 225px;">로그아웃</a></li>
-						<li class="write"><a href="${pageContext.request.contextPath}/board/write.do">글쓰기</a></li>
-						</u:isLogin>
-						<u:isAdmin>
-						<li class="menu-active"><a>관리자 </a></li>
-						</u:isAdmin>
-						
-						<u:notLogin>
-						<li class="menu-active"><a href="${pageContext.request.contextPath}/login.do" style="padding-left: 400px;">로그인</a></li>
-						<li class="menu-active"><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
-						</u:notLogin>
-					</ul>
-				</nav>
-				<!--######## #nav-menu-container -->
-			</div>
-		</div>
-		
-	</header>
-<body>
+	<%@ include file="../include/header.jspf" %>
 
 
 	<div class="store">
@@ -110,7 +53,7 @@
 	<div class="flex-store">
 	<div class="thumnail">
  
-   <a href="#"><img src="${pageContext.request.contextPath}/resources/img/ad1.png" width="400px" height="400px" style="border-radius: 7px;"></a>
+   <a href="#"><img src="${pageContext.request.contextPath}/resources/img/imga.png" width="400px" height="400px" style="border-radius: 7px;"></a>
 	
   <%--   상품사진<u:pre value='${storeData.store.thumbnail}'/> --%>
    </div>
@@ -149,8 +92,11 @@
 	</div>
 	</div>
 	
+	<div class="board-store">
+	</div>
 	
 	
+	<div class="down-store">
 	<div class="introduce">
   <!--  상품소개 -->
    <u:pre value='${storeData.store.introduce}'/>
@@ -158,6 +104,7 @@
    
    <div class="infoimage">
    <!-- 소개사진 -->
+   <img src="${pageContext.request.contextPath}/resources/img/imga.png" width="320px" height="320px" alt="" />
    <u:pre value='${storeData.store.infoimage}'/>
    </div>
 	
@@ -165,22 +112,97 @@
    판매사이트링크
    <u:pre value='${storeData.store.link}'/>
    </div>
+   </div>
 	
 	
 <div class="list">
 	 <td colspan="2">
 		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}" />
-		<a href="list.do?pageNo=${pageNo}">[목록]</a>
-		<a href="${pageContext.request.contextPath}/storeReview/write.do?no=${storeData.store.num}">[상품평 등록]</a>
+		<a href="list.do?pageNo=${pageNo}">목록</a>
+		<a href="${pageContext.request.contextPath}/storeReview/write.do?no=${storeData.store.num}">상품평 등록</a>
 		<%-- <c:if test="${authUser.id == storeData.article.writer.id}"> --%>
 		<u:isAdmin>
-		<a href="modify.do?no=${storeData.store.num}">[게시글수정]</a>
-		<a href="delete.do?no=${storeData.store.num}">[게시글삭제]</a>
+		<a href="modify.do?no=${storeData.store.num}">게시글수정</a>
+		<a href="delete.do?no=${storeData.store.num}">게시글삭제</a>
 		</u:isAdmin>
 		<%-- </c:if> --%>
 	</td>
 	</div>
 </div>
+
+<div class="store-review-border">
+</div>
+
+<div class="store-review-title">
+<h2>리뷰</h2>
+	<div class="avggrade">
+   평균평점:
+   ${storeData.store.avggrade}
+   </div>
+</div>
+
+<div class="store-review">
+<%-- <tr>
+		<td>내용</td>
+		<td>평점</td>
+		<td>작성자</td>
+		<td>작성일</td>
+		<td>수정</td>
+		<u:isAdmin>
+		<td>삭제</td>
+		</u:isAdmin>
+	</tr> --%>
+	
+
+
+<c:forEach var="storeData" items="${storeData.storeReview}">
+<div class="store-review-area">
+	
+	
+
+	
+	<div class="name-content">
+		<div class="name">		
+<!-- 	작성자 -->
+		<strong>${storeData.writer.name}</strong>
+		</div>
+		
+		<div class="content">	
+<!-- 		내용 -->
+		${storeData.content}
+		</div>
+	</div>	
+	
+	<div class="grade">	
+<!-- 		평점 -->
+		<strong>평점</strong><span class="stars">${storeData.grade}</span>
+	</div>	
+	
+	<div class="regDate">
+<!-- 		작성일 -->
+		${storeData.regDate}
+	</div>
+	
+	<div class="delete">
+<!-- 		상품평 수정 -->
+		<td><a href="${pageContext.request.contextPath}/storeReview/modify.do?no=${storeData.num}">수정</a></td>
+<!-- 		삭제 -->
+		<div class="delete1">
+		<u:isAdmin>
+		<td>삭제</td>
+		</u:isAdmin>
+		</div>
+	</div>
+	
+</div>
+</c:forEach>
+</div>
+
+
+
+
+
+
 
 
 
@@ -236,6 +258,14 @@
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
+	<!-- 별점 기능 -->
+<script src='${pageContext.request.contextPath}/resources/js/star.js'></script>
+	<script>
+            $(function(){
+                $('.stars').stars();
+            });
+        </script>
 
 </body>
 </html>

@@ -4,30 +4,9 @@
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
-
+<html>
 <head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/logo4.png">
-	<!-- Author Meta -->
-	<meta name="author" content="colorlib">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>인테리어</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-	<!--
-			CSS
-			============================================= -->
-
-	<!-- <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');</style> -->
+<title>업체 관리</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
@@ -37,46 +16,53 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/read.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/interior.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+
+
+
 </head>
 <body>
- <%@ include file="../include/header.jspf" %>
-<div class="everthing">
-	<div class ="interior-image">
-		<img class="imgA" src="${pageContext.request.contextPath}/resources/img/interior.png"
-					width="450px" height="240px" >
-		<img class="imgB" src="${pageContext.request.contextPath}/resources/img/interior1.png"
-					width="450px" height="240px" >
-	</div>	
 
-	<div class="everthing2">
-	<div class ="interior-name">
-		<h1 class = "name"><u:pre value='${interior.name}'/></h1>
-	</div>
-		<h3 class = "introduce"><u:pre value='${interior.introduce}'/></h3>
+   <%@ include file="../include/header.jspf" %>
+
+<p class="box-title">업체 수정하기</p>
+
+<div class="box">
+<form action="write.do" method="post">
 
 
-
-
-<div class="list">
-	 <td colspan="2">
-		<c:set var="pageNo" value="${empty param.pageNo ? '1' : param.pageNo}" />
-		<a class="btn" href="list.do?pageNo=${pageNo}">목록</a>
-		<%--  <c:if test="${authUser.id == storeData.article.writer.id}"> --%>
-		<u:isAdmin>
-		<a class="btn" href="modify.do?no=${interior.num}">게시글수정</a>
-		<a class="btn" href="delete.do?no=${interior.num}">게시글삭제</a> 
-		</u:isAdmin>
-		<%--</c:if> ---%>
-		<u:isAdmin></u:isAdmin>
-	</td> 
+<div class="all-content">
+<div class =title>
+	<p>업체명
+		<input type="text" name="name" value="${modReq.name}">
+		<c:if test="${errors.name}">업체명을 입력하세요.</c:if>
+	</p>
+</div>
+<div class=introduce>
+	<p>업체소개
+		<input type="text" name="introduce" value="${modReq.introduce}">
+	</p>
+</div>
+<div class=imageA>
+	<p>이미지
+		<input type="text" name="imageA" value="${modReq.imageA}">
+	</p>
+</div>
+<div class=imageB>
+	<p>이미지
+		<input type="text" name="imageB" value="${modReq.imageB}">
+	</p>
 </div>
 </div>
+<div>	
+	 <button type="submit" class="btn" id="btn">업체 수정</button> 
+</div>
+</form>
 </div>
 
-<%@ include file="../include/footer.jspf" %>
-
-	<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	 crossorigin="anonymous"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script>
@@ -97,6 +83,6 @@
 <!-- 터치슬라이드 -->
 <script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
-	
+
 </body>
 </html>

@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>게시글 쓰기</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css">
 </head>
 <body>
 <form action="write.do" method="post">
@@ -44,5 +45,8 @@
 
 <input type="submit" value="평가 등록">
 </form>
+
+<!-- 별점 기능 -->
+<script src='${pageContext.request.contextPath}/resources/js/star.js'></script>
 </body>
 </html>

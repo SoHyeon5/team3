@@ -3620,6 +3620,8 @@ h6 {
    color: inherit;
 }
 
+
+/* READ ARTICLE */
 /* 썸네일 사진 */
 .everything {
     text-align:center;
@@ -3736,10 +3738,30 @@ h6 {
 .list a {
 	padding:5px;
 }
+.list .btn{
+	
+   width:150px;
+   height: 45px;
+   font:"나눔 고딕";
+   font-size: 20px;
+   color:#8BC26D;
+   font-weight:bold;
+   margin-top: 30px;
+   background:#ffff;
+   border-radius: 5px;
+  border:5;
+  border-color:#8BC26D;
+  outline:0;
+}
+.list .btn:hover{
+   background: #7fb362;
+   
+}
 
-/* footer */
 
-/* readstor */
+
+
+/* readstore */
 .store  {
 	text-align: center;
 	margin: auto; 
@@ -3795,7 +3817,28 @@ h6 {
 }
 
 .right-store .introduce {
-	
+	font-size: 20px; 
+	margin-bottom:20px;
 }
 
 
+
+/* readinterior */
+
+.interior-image {
+     resize: none; 
+     height:300px;
+    width:770px;
+    
+margin-left: 636px;
+   margin-top: 20px;
+   border-radius: 5px solid black;
+   word-break:break-all;
+   display: inline-flex;
+}
+.interior-name .name{
+	 font-size:30px;
+	 font-weight:bold;
+	 color: #8BC26D;
+	 margin-bottom: 20px;
+}

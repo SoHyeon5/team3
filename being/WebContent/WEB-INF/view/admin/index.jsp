@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 
@@ -26,7 +28,6 @@
 			CSS
 			============================================= -->
 
-	<!-- <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');</style> -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
@@ -36,13 +37,17 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin.css">
 </head>
 
 <body>
 	
    <%@ include file="../include/header.jspf" %>
 
-<table border="1" width="100%">
+<p class="title">< 회원 관리 ></p>
+
+<div class="table-start">
+<table class="table">
 	<tr>
 		<td>회원 별명</td>
 		<td>회원 아이디</td>
@@ -62,7 +67,9 @@
 <!-- 		회원 아이디 -->
 		<td>${member.id}</td>
 <!-- 	작성일 -->
-		<td>${member.regDate}</td>
+		<td>
+		<fmt:formatDate value="${member.regDate}" pattern="yyyy-MM-dd" />
+		</td>
 <!-- 		회원 레벨 -->
 		<td>${member.level}</td>
 <!-- 		상품평 수정 -->
@@ -77,14 +84,14 @@
 
 <c:if test="${memberPage.hasMember()}">
 	<tr>
-		<td colspan="4">
+		<td colspan="5">
 			<c:if test="${memberPage.startPage > 5}">
 			<a href="list.do?pageNo=${memberPage.startPage - 5}">[이전]</a>
 			</c:if>
 			<c:forEach var="pNo" 
 					   begin="${memberPage.startPage}" 
 					   end="${memberPage.endPage}">
-			<a href="list.do?pageNo=${pNo}">[${pNo}]</a>
+			<a href="index.do?pageNo=${pNo}">[${pNo}]</a>
 			</c:forEach>
 			<c:if test="${memberPage.endPage < memberPage.totalPages}">
 			<a href="list.do?pageNo=${memberPage.startPage + 5}">[다음]</a>
@@ -94,34 +101,42 @@
 </c:if>
 
 </table>
+</div>
 
-<p><a href="${pageContext.request.contextPath}/board/list.do">스토리 관리하기</a></p>
-<p><a href="${pageContext.request.contextPath}/store/list.do">상품 관리하기</a></p>
-<p><a href="${pageContext.request.contextPath}/interior/list.do">업체 관리하기</a></p>
+<p class="title">< 게시판 관리 ></p>
+
+<p class="story"><img class="img3" src="${pageContext.request.contextPath}/resources/img/admin_story.png"
+					width="40px" height="40px" style="margin-right: 15px;"><a href="${pageContext.request.contextPath}/board/list.do">스토리 관리하러가기</a></p>
+					
+<p class="store"><img class="img3" src="${pageContext.request.contextPath}/resources/img/admin_store.png"
+					width="40px" height="40px" style="margin-right: 15px;"><a href="${pageContext.request.contextPath}/store/list.do">상품 관리하러가기</a></p>
+					
+<p class="interior"><img class="img3" src="${pageContext.request.contextPath}/resources/img/admin_interior.png"
+					width="40px" height="40px" style="margin-right: 15px;"><a href="${pageContext.request.contextPath}/interior/list.do">업체 관리하러가기</a></p>
    
    <%@ include file="../include/footer.jspf" %>
 
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script> --%>
-<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" -->
-<!-- 	 crossorigin="anonymous"></script> -->
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script> --%>
-<!-- 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script> -->
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/easing.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/hoverIntent.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/superfish.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script> --%>
-<%-- 	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script> --%>
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/easing.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/hoverIntent.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/superfish.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
 	
-<!-- <!-- 터치슬라이드 --> -->
-<%-- <script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script> --%>
-<%-- <script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script> --%>
+<!-- 터치슬라이드 -->
+<script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
 	
 </body>
 

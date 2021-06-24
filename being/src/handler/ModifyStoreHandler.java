@@ -41,7 +41,7 @@ public class ModifyStoreHandler implements CommandHandler {
 		try {
 			String noVal = req.getParameter("no");
 			int no = Integer.parseInt(noVal);
-			StoreData storeData = readService.getStore(no, false);
+			StoreData storeData = readService.getStore(no);
 			User authUser = (User) req.getSession().getAttribute("authUser");
 			if (authUser.getLevel() != 1) {
 				res.sendError(HttpServletResponse.SC_FORBIDDEN);
