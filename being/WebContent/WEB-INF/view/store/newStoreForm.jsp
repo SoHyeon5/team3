@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/storeModify.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
 
@@ -83,7 +83,7 @@
 	<c:if test="${errors.title}"></c:if>
 </p>
 </div>
-<div class="content">
+<div class="introduce">
 <p>
 상세 내용
 	<input type="text" name="introduce" placeholder="내용을 입력하세요">
@@ -140,5 +140,31 @@
 </div>
 </form>
 </div>
+
+<%@ include file="../include/footer.jspf" %>
+
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/easing.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/hoverIntent.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/superfish.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
+<!-- 터치슬라이드 -->
+<script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
+
+
 </body>
 </html>

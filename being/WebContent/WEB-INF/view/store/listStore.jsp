@@ -1,74 +1,228 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>게시글 목록</title>
+
+<!--
+			CSS
+			============================================= -->
+
+	<!-- <style>@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');</style> -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list.css">
 </head>
 <body>
 
-<table border="1">
-	<tr>
-		<td colspan="4"><a href="write.do">[상품등록]</a></td>
-	</tr>
-	<tr>
-		<td>썸네일</td>
-		<td>브랜드</td>
-		<td>이름</td>
-		<td>할인가</td>
-		<td>평점</td>
-		<td>무료배송</td>
-	</tr>
+ <%@ include file="../include/header.jspf" %>
+		
+	</header>
+	<u:isAdmin>
+	<div  class="store-check-btn">
+	<div>
+		<td colspan="4"><a href="write.do">상품등록하기</a></td>
+		</div>
+		</div>
+		</u:isAdmin>
+		
+		<div class="main-title">
+						<h1>오늘의딜</h1>
+					</div>
+		<div id="bestbook_zone">
+   				<div id="best_bg">
+      				<ul>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today1.png" width="320px" height="320px" alt="" />
+        				<span>[Special] 베란다 유리창 창문 청소 도구! 자석창문닦이<p>45% <strong>9,500</strong></p></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today2.png" width="320px" height="320px" alt="" />
+              				<span>[Special] 여름의 청량함을 담은 보에나 드 모네 시리즈 (2년 품질보증)<p>45% <strong>46,000 외</strong></p></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today3.png" width="320px" height="320px" alt="" />
+              				<span>[Special] 샤베트 5COLOR 시어서커 선염 여름 차렵 침구세트(SS)(Q)<p>73% <strong>18,900</strong></p></span></a>
+              			</li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today4.png" width="320px" height="320px" alt="" />
+              				 <span>[Special] 너무 쉬운 집콕템 명화 그리기 -풍경&플라워<p>19% <strong>8,900 외</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today8.png" width="320px" height="320px" alt="" />
+              				 <span>안심 에어컨 분해청소 (벽걸이/스탠드/천정형)<p>22% <strong>65,500</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today6.png" width="320px" height="320px" alt="" />
+              				<span>[쿠폰할인] 30평대! 무풍 에어컨 AF19T7974WZRS 전국기본설치비 포함<p>27% <strong>2,000,000</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today5.png" width="320px" height="320px" alt="" />
+              				<span>라탄 수초 러그 거실 카페트 5size<p>90% <strong>15,000</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today8.png" width="320px" height="320px" alt="" />
+              				<span>[단독] 어라운드 원형 테이블/식탁 1000size<p>60% <strong>99,000</strong></p></span></a>
+                       </li>
+        				<li><a href="#"><img src="${pageContext.request.contextPath}/resources/img/today9.png" width="320px" height="320px" alt="" />
+              				<span>21년형 웨이브인버터 스탠드에어컨 SPVW17DWEG 전국기본설치<p>27% <strong>969,000</strong></p></span></a>
+                       </li>
+       	 				<li><a href="#">
+             				<img src="${pageContext.request.contextPath}/resources/img/today10.png" width="320px" height="320px" alt="" />
+             				<span>포스B25 셀프스탠딩 헤드라이트 무선 청소기(물걸레키트 증정)<p>22% <strong>198,000</strong></p></span></a>
+                       </li>
+
+      				</ul>
+      				<p class="prev_btn">
+         				<a href="#">
+         				<img src="${pageContext.request.contextPath}/resources/img/bestbook_btn_left.png" width="40px" height="50px" alt="이전으로 이동" />
+         				</a>
+      				</p>
+      				<p class="next_btn">
+         				<a href="#">
+         				<img src="${pageContext.request.contextPath}/resources/img/bestbook_btn_right.png" width="40px" height="50px" alt="다음으로 이동" />
+         				</a>
+      				</p>
+   				</div>
+ 			</div> <!-- close of bestbook_zone -->
+		
+		
+		
+	<div class="store-h1">
+		<h1>상품</h1>
+	</div>	
+		
+		
+		
+		
+
+
+ <div class="store-list">
+
+	
 <c:if test="${storePage.hasNoStores()}">
-	<tr>
+	
 		<td colspan="4">상품이 없습니다.</td>
-	</tr>
+
 </c:if>
 <c:forEach var="store" items="${storePage.content}">
-	<tr>
+	
+	<div>
+	<ul>
+		<li>
+		<a class="name-a-font" href="read.do?no=${store.num}&pageNo=${storePage.currentPage}">
 <!-- 	썸네일 -->
-		<td>${store.num}</td>
+		<span class="store=thumbnali"> 
+		<img src="${pageContext.request.contextPath}/resources/img/imga.png" width="320px" height="320px" alt="" />
+		</span>
+		
 <!-- 		브랜드 -->
-		<td>${store.brand}</td>
-		<td>
+		
+		<p class="brand-font">${store.brand}</p>
+		
 <!-- 		이름 -->
-		<a href="read.do?no=${store.num}&pageNo=${storePage.currentPage}">
-		<c:out value="${store.name}"/>
-		</a>
-		</td>
+		<p class="name-font"><%-- <a class="name-a-font" href="read.do?no=${store.num}&pageNo=${storePage.currentPage}"> --%>
+		<c:out value="${store.name}"/><!-- </a> --></p>
+		
+		
 <!-- 		할인가 -->
-		<td>${store.dcprice}</td>
+		<p class="dcprice-font">${store.dcprice}</p>
 <!-- 		평점 -->
-		<td>${store.avggrade}</td>
+		<p class="avggrade-font">평점${store.avggrade}</p>
 <!-- 		무료배송 -->
-		<td>
+		
+	<p class="freeyn-font">
 	<c:if test="${store.freeyn eq 'Y'}">
 		무료배송
 	</c:if>
 	<c:if test="${store.freeyn ne 'Y'}">
 		유료배송
 	</c:if>
+	</p>
+	</a>
+
+	</li>
+	</ul>
+	</div> 
 		
-		</td>
-	</tr>
+
 </c:forEach>
-<c:if test="${articlePage.hasArticles()}">
-	<tr>
-		<td colspan="4">
-			<c:if test="${articlePage.startPage > 5}">
-			<a href="list.do?pageNo=${articlePage.startPage - 5}">[이전]</a>
-			</c:if>
-			<c:forEach var="pNo" 
-					   begin="${articlePage.startPage}" 
-					   end="${articlePage.endPage}">
-			<a href="list.do?pageNo=${pNo}">[${pNo}]</a>
-			</c:forEach>
-			<c:if test="${articlePage.endPage < articlePage.totalPages}">
-			<a href="list.do?pageNo=${articlePage.startPage + 5}">[다음]</a>
-			</c:if>
-		</td>
-	</tr>
+
+
+<table class="listbtn">
+<c:if test="${storePage.hasStores()}">
+   <tr>   
+      <td colspan="4">
+         <c:if test="${storePage.startPage > 5}">
+         <a href="list.do?pageNo=${storePage.startPage - 5}">[이전]</a>
+         
+         </c:if>
+         <c:forEach var="pNo" 
+                  begin="${storePage.startPage}" 
+                  end="${storePage.endPage}">
+         <a href="list.do?pageNo=${pNo}">[${pNo}]</a>
+         </c:forEach>
+         <c:if test="${storePage.endPage < storePage.totalPages}">
+         <a href="list.do?pageNo=${storePage.startPage + 5}">[다음]</a>
+         </c:if>
+      </td>
+   </tr>
 </c:if>
 </table>
-</body>
+</div>
+
+
+		
+<%@ include file="../include/footer.jspf" %>
+
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/easing.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/hoverIntent.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/superfish.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
+<!-- 터치슬라이드 -->
+<script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
+
+
+
+
+
+	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

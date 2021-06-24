@@ -1,36 +1,53 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>상품 수정</title>
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store.css">
+<title>Being</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/linearicons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/storeModify.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
 
+
+
 </head>
 <body>
-<form action="modify.do" method="post">
-<input type="hidden" name="no" value="${modReq.num}">
 
-<div class="register-box">
-		<div class="login-logo">
-         <a href="${pageContext.request.contextPath}/main/index.do">
-            <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
-         Being House
-         </a>
+   <%@ include file="../include/header.jspf" %>
+
+<p class="box-title">상품 수정하기</p>
+
+<div class="box">
+<form action="write.do" method="post">
+<!-- <div class="register-box"> -->
+<!-- 		<div class="login-logo"> -->
+<%--          <a href="${pageContext.request.contextPath}/main/index.do"> --%>
+<%--             <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/> --%>
+<!--          Being House -->
+<!--          </a> -->
          
-         <button type="submit" class="btn" id="btn"> 상품 수정 </button>
-      </div>
+        
+<!-- </div> -->
 <div class="regist-box">
 
 <div id="story-form-select">               
      <div id="story-category">
           <ul class="story-category">
-          
-        	  <li class="category=ct">
-       		   	<select id="category" name="CATEGORY">
+          <li>카테고리</li>
+        	  <li class="category-ct">
+       		   	<select id="category" name="category">
        		   	<option value="${modReq.category}">${modReq.category}</option>
                          <option value="책장">책장</option>
                          <option value="의자">의자</option>
@@ -42,9 +59,9 @@
 					
 				</select>
          	 </li>
-          
+          		<li>배송비</li>
                <li class="freeyn-ct">
-                   <select name = "FREEYN">
+                   <select name = "freeyn">
                    <option value="${modReq.freeyn}">${modReq.freeyn}</option>
                         <option value="Y">무료배송</option>
                         <option value="N">유료배송</option>
@@ -55,65 +72,102 @@
                 
                 
           </ul>
-	</div>  
-</div>
+	</div> 
 </div>
 </div>
 
+<div class="box-center">
 <div class="all-content">
 <div class="title">
-<p>
+<p>상품이름
 	<input type="text" name="name" value="${modReq.name}"placeholder="제목">
 	<c:if test="${errors.title}"></c:if>
 </p>
 </div>
+
 <div class="introduce">
-<p>
+<p>상세 내용
 	<input type="text" name="introduce" value="${modReq.introduce}">
 </p>
 </div>
+ 
+
 <div class="price">
-<p>
+<p>가격
 	<input type="text" name="price" value="${modReq.price}">
 </p>
-</div> 
+</div>
+
 <div class="dcprice">
-<p>
+<p>할인 가격
 	<input type="text" name="dcprice" value="${modReq.dcprice}">
 </p>
 </div>
+
 <div class="brand">
-<p>
+<p>브랜드
 	<input type="text" name="brand" value="${modReq.brand}">
 </p>
 </div>
 
 <div class="keywd">
-<p>
+<p>키워드
 	<input type="text" name="keywd" value="${modReq.keywd}">
 </p>
 </div>
+
 <div class="thumbnail">
-<p>
+<p>썸네일
 	<input type="text" name="thumbnail" value="${modReq.thumbnail}">
 </p>
 </div>
 
 <div class="infoimage">
-<p>
+<p>소개 이미지
 	<input type="text" name="infoimage" value="${modReq.infoimage}">
 </p>
 </div>
+
 <div class="link">
-<p>
+<p>상품 링크
 	<input type="text" name="link" value="${modReq.link}">
 </p>
 </div>
 </div>
+</div>
 
+
+
+<div>	
+	 <button type="submit" class="btn" id="btn">수정하기</button> 
+</div>
 </form>
+</div>
+
+<%@ include file="../include/footer.jspf" %>
+
+<script src="${pageContext.request.contextPath}/resources/js/vendor/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/easing.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/hoverIntent.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/superfish.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.lightbox.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/mail-script.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/main.js"></script>
+	
+<!-- 터치슬라이드 -->
+<script src='${pageContext.request.contextPath}/resources/js/swipe.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
+
 </body>
-
-
-
 </html>
+    

@@ -3842,3 +3842,175 @@ margin-left: 636px;
 	 color: #8BC26D;
 	 margin-bottom: 20px;
 }
+
+/* readstor */
+.store  {
+   text-align: center;
+   margin: auto; 
+   width: 1000px;
+   font:"나눔고딕";
+}
+
+.store .flex-store {
+   text-align: center;
+    display: inline-flex;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+.store .flex-store img{
+   display: left;
+   margin-right:50px;
+}
+
+.store .category2 {
+   text-align: left;
+   margin: auto;
+   width:1000px;
+   color:#c0c0c0;
+   font-size:20px;
+}
+.right-store{
+   text-align: left;
+}
+
+.right-store .brand {
+   font-size:20px; 
+   margin-bottom:20px;
+}
+.right-store .name {
+   font-size:22px;
+   font-weight:bold;
+   margin-bottom:40px;
+}
+
+.right-store .price {
+   font-size: 20px;
+   font-weight: bold;
+   color: #ff8080; 
+   margin-bottom:20px;
+}
+.right-store .dcprice {
+   font-size: 50px;
+   font-weight: bold;
+   color: black;
+   margin-bottom:40px; 
+}
+.right-store .freeyn {
+   font-size: 20px; 
+   font-weight: bold;
+   color: black;
+   margin-bottom:20px;
+}
+.right-store .avggrade {
+   font-size: 20px; 
+   font-weight: bold;
+   color: black;
+   margin-bottom:20px;
+}
+
+.down-store .introduce {
+   margin-bottom: 50px;
+}
+
+.down-store .infoimage {
+   margin-bottom: 10px;
+}
+
+.down-store .link {
+   margin-bottom: 50px;
+}
+
+.board-store  {
+   background-color: #7fb362;
+   height: 1px;
+   margin-bottom: 40px;
+}
+
+
+/* Store review */
+
+.store-review {
+   width: 1000px;
+   margin: auto;
+}
+
+.store-review .name-content {
+   display: inline-flex;
+}
+
+.store-review .name {
+   font-size: 20px;
+   font-weight: 1000;
+   color: black;
+}
+
+.store-review .name-content .content {
+   font-size: 17px;
+   font-weight: 500;
+   font-style: 나눔고딕;
+   margin-top: 3px;
+   margin-bottom: 15px;
+   margin-left: 10px;
+   color: #474747;
+}
+
+.store-review .grade {
+   font-size: 15px;
+   font-weight: bold;
+}
+
+.store-review .grade strong {
+   margin-right: 12px
+}
+
+.store-review .regDate {
+   font-size: 15px;
+   font-weight: bold;
+}
+
+.store-review .delete {
+   display: inline-flex;
+   width: 80px;
+   background-color: #eeffee;
+}
+
+
+
+/* 수정 */
+.store-review .delete a {
+   font-weight: bold;
+}
+   
+
+/* 삭제 */
+.store-review .delete .delete1 {
+   font-weight: bold;
+   padding-left: 20px;
+}
+
+.store-review-area {
+   background-color: #f6f6f6;
+   margin-bottom: 40px;
+}
+
+.store-review-border {
+   width: 1000px;
+   height:1px;
+   background-color:gray;
+   margin: auto;
+   margin-bottom: 20px;
+}
+
+
+/* 리뷰 */
+.store-review-title {
+   width:1000px;
+   margin: auto;
+   margin-bottom: 20px;
+   font-weight: bold;
+   background-color: #e7e7e7;
+}
+
+.store-review-title h2 {
+   font-weight: bold;
+}

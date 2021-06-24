@@ -1,4 +1,5 @@
 @charset "EUC-KR";
+@charset "EUC-KR";
 
 .login-logo, .register-logo {
    font-size: 35px;
@@ -36,7 +37,7 @@
 .box {
 /*    background-color: #9dcb85; */
    margin: 40px 0 100px 550px;
-   padding-top: 40px;
+   padding-top:40px;
    width: 800px; height: 1300px;
    text-align: center;
    border-radius: 7px;
@@ -125,7 +126,7 @@ select {
 }
 
 .infoimage p input {
-	margin-left: 12px;
+	margin-left: 16px;
 }
 
 .all-content input{
@@ -215,11 +216,11 @@ select {
 
 /* 레이아웃 외곽 너비 400px 제한*/
 .wrap{
-    max-width: 480px;
+    max-width: 800px;
     margin: 0 auto; /* 화면 가운데로 */
     background-color: #fff;
     height: 100%;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     box-sizing: border-box;
 
 }
@@ -283,7 +284,6 @@ span.stars span {
 
 /* star end */
 
-
 /* storeModifyForm */
 .box-title {
    width: 700px;
@@ -296,10 +296,10 @@ span.stars span {
 
 .box {
 /*    background-color: #9dcb85; */
-   margin: 40px 0 100px 705px;
+   margin: 40px 0 100px 550px;
    padding-top: 20px;
-   width: 500px;
-   height: 380px;
+   width: 800px;
+   height: 1100px;
    text-align: center;
    border-radius: 7px;
    border: 2px solid #9dcb85;
@@ -332,68 +332,76 @@ span.stars span {
 
 
 .all-content{
-   resize: none;
-   text-align: center;
+	resize: none;
+	text-align: center;
 }
 
 .all-content p {
-   float: left;
-   padding-left: 30px;
-   color: #65a343;
-   
+	float: left;
+	padding-left: 30px;
+	color: #65a343;
+	
 }
 
 .all-content .title input {
-   margin-left: 41px;
+	margin-left: 41px;
 }
 
 
 
 .all-content input{
-   resize: none;
-   font-family:'Nanumgothic';
+	resize: none;
+	font-family:'Nanumgothic';
      font-size:20px;
      padding:5px;
-   width:600px;
-   height: 40px;   
-   margin-left: 36px;
-   margin-top: 20px;
+	width:600px;
+	height: 40px;	
+	margin-left: 36px;
+	margin-top: 20px;
 }
 
 .introduce input {
-   resize: none;
-   font-family:'Nanumgothic';
+	resize: none;
+	font-family:'Nanumgothic';
     font-size:20px;
     padding:5px;
-   width:600px;
-   height: 200px;   
-   margin-left: 35px;
-   margin-top: 20px;
+	width:600px;
+	height: 200px;	
+	margin-left: 35px;
+	margin-top: 20px;
 }
 
 
 
 .all-content textarea {
-   resize: none;
-   font-family:'Nanumgothic';
+	resize: none;
+	font-family:'Nanumgothic';
      font-size:20px;
      padding:5px;
-   width:500px;
-   height: 100px;   
-   margin-left: 36px;
-   margin-top: 20px;
+	width:500px;
+	height: 100px;	
+	margin-left: 36px;
+	margin-top: 20px;
 }
 
 .review_rating {
-   margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 
 .review_textarea {
-   width: 300px;
-   height: 150px;
+	width: 300px;
+	height: 150px;
 }
 
 .store-review-submit button{
-   margin-top: 0px;
+	margin-top: 0px;
 }
+
+
+
+
+
+
+
+
