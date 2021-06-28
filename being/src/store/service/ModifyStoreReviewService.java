@@ -27,6 +27,8 @@ public class ModifyStoreReviewService {
 //			if (!canModify(modReq.getUserId(), storeReview)) {
 //				throw new PermissionDeniedException();
 //			}
+			
+			
 			storeReviewDao.update(conn,
 					modReq.getNum(), 
 					modReq.getGrade(), 

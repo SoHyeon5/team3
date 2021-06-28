@@ -397,3 +397,18 @@ span.stars span {
 .store-review-submit button{
    margin-top: 0px;
 }
+
+
+.storeModify-box {
+/*    background-color: #9dcb85; */
+   margin: 40px 0 100px 705px;
+   padding-top: 20px;
+   width: 500px;
+   height: 460px;
+   text-align: center;
+   border-radius: 7px;
+   border: 2px solid #9dcb85;
+   font-size: 20px;
+   font-weight: 700;
+   color: #6a6a6a;
+}

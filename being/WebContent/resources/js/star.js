@@ -1,5 +1,5 @@
 //별점 마킹 모듈 프로토타입으로 생성
-function Rating(){};
+/*function Rating(){};
 Rating.prototype.rate = 0;
 Rating.prototype.setRate = function(newrate){
     //별점 마킹 - 클릭한 별 이하 모든 별 체크 처리
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     })
 });
-
+*/
 //상품평 작성 글자수 초과 체크 이벤트 리스너
     document.querySelector('.review_textarea').addEventListener('keydown',function(){
         //리뷰 400자 초과 안되게 자동 자름

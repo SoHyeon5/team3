@@ -6,7 +6,7 @@ public class ModifyStoreReviewRequest {
 
 	private String userId;
 	private int num;
-//	private Integer prodNum;
+	private Integer prodNum;
 	private float grade;
 	private String content;
 	
@@ -20,13 +20,13 @@ public class ModifyStoreReviewRequest {
 	public ModifyStoreReviewRequest(
 			String userId, 
 			int num, 
-//			int prodNum,
+			int prodNum,
 			float grade, 
 			String content
 			) {
 		this.userId = userId;
 		this.num = num;
-//		this.prodNum = prodNum;
+	this.prodNum = prodNum;
 		this.grade = grade;
 		this.content = content;
 	}
@@ -39,9 +39,9 @@ public class ModifyStoreReviewRequest {
 		return num;
 	}
 	
-//	public Integer getProdNum() {
-//		return prodNum;
-//	}
+	public Integer getProdNum() {
+		return prodNum;
+	}
 
 	public float getGrade() {
 		return grade;

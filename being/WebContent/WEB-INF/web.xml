@@ -64,6 +64,8 @@
 		<url-pattern>/changePwd.do</url-pattern>
 		<url-pattern>/board/write.do</url-pattern>
 		<url-pattern>/board/modify.do</url-pattern>
+		<url-pattern>/storeReview/modify.do</url-pattern>
+		<url-pattern>/main/profile.do</url-pattern>
 	</filter-mapping>
 
 	<!-- 초기화면 -->

@@ -124,8 +124,7 @@
    top : 15px;
 }
 
-#btn {
-   margin-left: 700px;
+ #btn {
    width:200px;
    height: 60px;
    font:"³ª´® °íµñ";
@@ -150,7 +149,7 @@
    padding-top: 40px;
    padding-bottom:40px;
    width: 900px;
-   height: 1200px;
+   height: 1300px;
    text-align: center;
    border-radius: 7px;
    border: 2px solid #9dcb85;

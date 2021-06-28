@@ -122,12 +122,10 @@
 		<u:isGeneral>
 		<a class="btn" href="${pageContext.request.contextPath}/storeReview/write.do?no=${storeData.store.num}">상품평 등록</a>
 		</u:isGeneral>
-		<%-- <c:if test="${authUser.id == storeData.article.writer.id}"> --%>
 		<u:isAdmin>
 		<a class="btn" href="modify.do?no=${storeData.store.num}">상품 수정</a>
 		<a class="btn" href="delete.do?no=${storeData.store.num}">상품 삭제</a>
 		</u:isAdmin>
-		<%-- </c:if> --%>
 	</td>
 	</div>
 </div>
@@ -136,44 +134,28 @@
 </div>
 
 <div class="store-review-title">
-<h2>리뷰</h2>
-	<div class="avggrade">
-   평균평점:
-   ${storeData.store.avggrade}
-   </div>
+	<h2>리뷰</h2>
+		<div class="avggrade">
+  			 평균평점:
+  					 ${storeData.store.avggrade}
+  		 </div>
 </div>
 
 <div class="store-review">
-<%-- <tr>
-		<td>내용</td>
-		<td>평점</td>
-		<td>작성자</td>
-		<td>작성일</td>
-		<td>수정</td>
-		<u:isAdmin>
-		<td>삭제</td>
-		</u:isAdmin>
-	</tr> --%>
-	
-
 
 <c:forEach var="storeData" items="${storeData.storeReview}">
-<div class="store-review-area">
-	
-	
-
-	
-	<div class="name-content">
-		<div class="name">		
+	<div class="store-review-area">
+		<div class="name-content">
+			<div class="name">		
 <!-- 	작성자 -->
-		<strong>${storeData.writer.name}</strong>
-		</div>
+				<strong>${storeData.writer.name}</strong>
+			</div>
 		
-		<div class="content">	
-<!-- 		내용 -->
-		${storeData.content}
-		</div>
-	</div>	
+			<div class="content">	
+<!-- 			내용 -->
+				${storeData.content}
+			</div>
+		</div>	
 	
 	<div class="grade">	
 <!-- 		평점 -->

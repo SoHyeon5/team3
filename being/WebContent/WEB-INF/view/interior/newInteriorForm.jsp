@@ -85,4 +85,5 @@
 <script src='${pageContext.request.contextPath}/resources/js/jquery.bxslider.min.js'></script>
 
 </body>
+	<%@ include file="../include/footer.jspf" %>
 </html>

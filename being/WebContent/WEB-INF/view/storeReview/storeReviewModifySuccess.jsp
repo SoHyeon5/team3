@@ -14,7 +14,7 @@ ${ctxPath = pageContext.request.contextPath ; ''}
 
 <script>
    alert("상품 리뷰를 수정했습니다.");
-   location.href="${pageContext.request.contextPath}/store/read.do?no=${storeReviewWriteReq.prodNum}";
+   location.href="${pageContext.request.contextPath}/store/read.do?no=${modReq.prodNum}";
 </script>
 </body>
 </html>

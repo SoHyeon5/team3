@@ -65,11 +65,11 @@ public class WriteArticleHandler implements CommandHandler {
 	private WriteRequest createWriteRequest(User user, HttpServletRequest req) {
 		return new WriteRequest(
 				new Writer(user.getId(), user.getName()),
-				req.getParameter("TYPE"),
-				req.getParameter("ACREAGE"),
-				req.getParameter("BUDGET"),
-				req.getParameter("FIELD"),
-				req.getParameter("SPACE"),
+				req.getParameter("type"),
+				req.getParameter("acreage"),
+				req.getParameter("budget"),
+				req.getParameter("field"),
+				req.getParameter("space"),
 				req.getParameter("title"),
 				req.getParameter("content")
 				);

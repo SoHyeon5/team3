@@ -50,24 +50,17 @@ public class LoginHandler implements CommandHandler {
 		if (!errors.isEmpty()) {
 			return FORM_VIEW;
 		}
-
 		try {
 			User user = loginService.login(id, password);
-//			User user = new User(member.getId(), member.getName(), 레벨);
 			
 			req.getSession().setAttribute("authUser", user);
-//			System.out.println(user.getLevel());
 			if(user.getLevel()==1) {
 				req.getSession().setAttribute("admin", user);
 			}
-			
 			if(user.getLevel()==2) {
 	            req.getSession().setAttribute("general", user);
 	         }
-			
 			res.sendRedirect(req.getContextPath() + "/main/index.do");
-//			res.sendRedirect("/WEB-INF/view/login/loginSuccess.jsp");
-//			return SUCCESS;
 			return null;
 		} catch (LoginFailException e) {
 			errors.put("idOrPwNotMatch", Boolean.TRUE);

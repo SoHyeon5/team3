@@ -82,6 +82,7 @@ public class StoreReviewWriteHandler implements CommandHandler {
 		return "/WEB-INF/view/storeReview/newStoreReviewSuccess.jsp";
 	}
 
+	
 	private StoreReviewWriteRequest createStoreReviewWriteRequest(User user, HttpServletRequest req) {
 		String noVal = req.getParameter("no");
 		int no = Integer.parseInt(noVal);

@@ -44,17 +44,10 @@ public class StoreWriteHandler implements CommandHandler {
 		try {
 	         req.setCharacterEncoding("UTF-8");
 	      } catch (UnsupportedEncodingException e1) {
-	         // TODO Auto-generated catch block
 	         e1.printStackTrace();
 	      }
 		
 		User user = (User)req.getSession(false).getAttribute("authUser");
-//		System.out.println("user="+user);
-//		System.out.println("user.id="+user.getId());
-//		System.out.println("user.name="+user.getName());
-//		WriteRequest writeReq = createWriteRequest(user, req);
-//		writeReq.validate(errors);
-		
 		StoreWriteRequest storeWriteReq = createStoreWriteRequest(user, req);
 		storeWriteReq.validate(errors);
 		
@@ -75,13 +68,13 @@ public class StoreWriteHandler implements CommandHandler {
 				req.getParameter("thumbnail"),
 				req.getParameter("infoimage"),
 				req.getParameter("introduce"),
-				Integer.parseInt(req.getParameter("PRICE")),
-				Integer.parseInt(req.getParameter("DCPRICE")),
-				req.getParameter("BRAND"),
-				req.getParameter("KEYWD"),
-				req.getParameter("CATEGORY"),
-				req.getParameter("FREEYN"),
-				req.getParameter("LINK")
+				Integer.parseInt(req.getParameter("price")),
+				Integer.parseInt(req.getParameter("dcprice")),
+				req.getParameter("brand"),
+				req.getParameter("keywd"),
+				req.getParameter("category"),
+				req.getParameter("freeyn"),
+				req.getParameter("link")
 				);
 	}
 }

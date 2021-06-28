@@ -68,7 +68,7 @@
             <img src="${pageContext.request.contextPath}/resources/img/logo4.png" alt="" title="" width="75px" height="75px"/>
          Being House
          </a>
-         <button type="submit" class="btn" id="btn">새 업체 등록</button>
+        	 
       </div>
    
 </header>
@@ -203,8 +203,12 @@
 	연락처 :
 	<input type="tel" name="tel" id="tel"placeholder="전화번호">
 </p>
-
+<div>
+	<button type="submit" class="btn" id="btn">신청 등록</button>
+	</div>
 </div>
+
+
 </form>
 </div>
 

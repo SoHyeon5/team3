@@ -94,6 +94,45 @@ public class StoreReviewDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+	
+	public StoreReview updateGrade(Connection conn, StoreReview storeReview) throws SQLException {
+		PreparedStatement pstmt = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		 
+		try {
+			pstmt = conn.prepareStatement("update PROD_MNG SET AVGGRADE = ("
+					+ "SELECT AVG(GRADE) FROM PROD_COMT WHERE PRODNUM = ?)"
+					+ "WHERE NUM = ?");
+			
+			pstmt.setInt(1, (int)storeReview.getProdNum());
+			pstmt.setInt(2, (int)storeReview.getProdNum());
+			
+			int insertedCount = pstmt.executeUpdate();
+			
+			if (insertedCount > 0) {
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery("select max(NUM) from PROD_COMT");
+				if (rs.next()) {
+					Integer newNo = rs.getInt(1);
+					return new StoreReview(newNo,
+							storeReview.getWriter(),
+							storeReview.getProdNum(),
+							storeReview.getRegDate(),
+							storeReview.getGrade(),
+							storeReview.getContent()
+							);
+				}
+			}
+			
+			 return null;
+			 
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(stmt);
+			JdbcUtil.close(pstmt);
+		}
+	}
 
 	private Timestamp toTimestamp(Date date) {
 		return new Timestamp(date.getTime());
@@ -217,16 +256,17 @@ public class StoreReviewDao {
 			pstmt = conn.prepareStatement(
 //					"select * from PROD_COMT where NUM = ?"
 					"select PC.*, M.NAME from PROD_COMT PC, MEMBERS M"
-					+ "where PC.NUM = ?"
-					+ "AND PC.EMAIL = M.EMAIL"
+					+ " where PC.NUM = ?"
+					+ " AND PC.EMAIL = M.EMAIL"
 					);
 			pstmt.setInt(1, no);
 			rs = pstmt.executeQuery();
-			StoreReview store = null;
+			StoreReview storeReview = null;
 			if (rs.next()) {
-				store = convertStoreReview(rs);
+				storeReview = convertStoreReview(rs);
 			}
-			return store;
+			
+			return storeReview;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
@@ -249,7 +289,7 @@ public class StoreReviewDao {
 			) throws SQLException {
 		try (PreparedStatement pstmt = 
 				conn.prepareStatement(
-						"update PROD_COMT set GRADE = ?,CONTENT=? "+
+						"update PROD_COMT set GRADE = ?,CONTENTOF=? "+
 						"where NUM = ?")) {
 			pstmt.setFloat(1, grade);
 			pstmt.setString(2, content);

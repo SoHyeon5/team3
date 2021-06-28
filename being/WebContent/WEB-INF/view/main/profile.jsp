@@ -212,7 +212,7 @@
 
 							<div class="col-sm-10">
 								<input type="email" class="form-control" name="email"
-									value="${authUser.id}" disabled>
+									value="${authUser.id}" disabled> //이메일 변경 불가능하도록 해준부분.
 							</div>
 						</div>
 						<div class="form-group">

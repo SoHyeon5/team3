@@ -13,7 +13,7 @@ import member.model.Member;
 public class ListMemberService {
 
 	private MemberDao memberDao = new MemberDao();
-	private int size = 5;
+	private int size = 10;
 
 	public MemberPage getMemberPage(int pageNum) {
 		try (Connection conn = ConnectionProvider.getConnection()) {

@@ -145,13 +145,36 @@ public class InteriorAskDao {
 							+ "AND A.NUM = ?"
 							);
 			pstmt.setInt(1, no);
-			System.out.println(no);
+//			System.out.println(no);
 			rs = pstmt.executeQuery();
 			InteriorAsk interiorAsk = null;
 			if (rs.next()) {
 				interiorAsk = convertInteriorAsk(rs);
 			}
 			return interiorAsk;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
+	public List<InteriorAsk> selectByEmail(Connection conn, String email) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(
+					"SELECT A.*, B.NAME "
+					+ "FROM REQ_MNG A , MEMBERS B "
+					+ "WHERE A.EMAIL = B.EMAIL "
+					+ "AND A.EMAIL = ?"
+					);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			List<InteriorAsk> result = new ArrayList<>();
+			while (rs.next()) {
+				result.add(convertInteriorAsk(rs));
+			}
+			return result;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);

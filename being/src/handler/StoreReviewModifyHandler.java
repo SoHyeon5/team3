@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import store.service.PermissionDeniedException;
+import store.service.ReadStoreReviewService;
 import auth.service.User;
 import mvc.command.CommandHandler;
 import store.model.StoreReview;
 import store.service.ModifyStoreReviewRequest;
 import store.service.ModifyStoreReviewService;
 import store.service.StoreNotFoundException;
+import store.service.StoreReviewNotFoundException;
 
 public class StoreReviewModifyHandler implements CommandHandler {
 	private static final String FORM_VIEW = "/WEB-INF/view/storeReview/storeReviewModifyForm.jsp";
 
-//	private ReadStoreService readService = new ReadStoreService();
+	private ReadStoreReviewService readStoreReviewService = new ReadStoreReviewService();
 	private ModifyStoreReviewService modifyStoreReviewService = new ModifyStoreReviewService();
 
 	@Override
@@ -41,8 +43,8 @@ public class StoreReviewModifyHandler implements CommandHandler {
 			String noVal = req.getParameter("no");
 			int no = Integer.parseInt(noVal);
 //			StoreData storeData = readService.getStore(no);
-//			StoreReview storeReview = readService.getStore(no);
-			StoreReview storeReview = new StoreReview();
+			StoreReview storeReview = readStoreReviewService.getStoreReview(no);
+//			StoreReview storeReview = new StoreReview();
 			User authUser = (User) req.getSession().getAttribute("authUser");
 //			if (authUser.getLevel() != 1) {
 //				res.sendError(HttpServletResponse.SC_FORBIDDEN);
@@ -57,14 +59,14 @@ public class StoreReviewModifyHandler implements CommandHandler {
 			ModifyStoreReviewRequest modReq = new ModifyStoreReviewRequest(
 					authUser.getId(), 
 					no,
-		//			storeReview.getProdNum(),
+					storeReview.getProdNum(),
 					storeReview.getGrade(),
 					storeReview.getContent()
 					);
 
 			req.setAttribute("modReq", modReq);
 			return FORM_VIEW;
-		} catch (StoreNotFoundException e) {
+		} catch (StoreReviewNotFoundException e) {
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
@@ -103,7 +105,7 @@ public class StoreReviewModifyHandler implements CommandHandler {
 		ModifyStoreReviewRequest modReq = new ModifyStoreReviewRequest(
 				authUser.getId(), 
 				no,
-		//		Integer.parseInt(req.getParameter("prodNum")),
+				Integer.parseInt(req.getParameter("prodNum")),
 				Integer.parseInt(req.getParameter("grade")),
 				req.getParameter("content")
 				);
@@ -121,7 +123,7 @@ public class StoreReviewModifyHandler implements CommandHandler {
 		}
 		try {
 			modifyStoreReviewService.modify(modReq);
-			return "/WEB-INF/view/store/storeReviewModifySuccess.jsp";
+			return "/WEB-INF/view/storeReview/storeReviewModifySuccess.jsp";
 		} catch (StoreNotFoundException e) {
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
